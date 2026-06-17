@@ -106,10 +106,16 @@ function makeMatchKeys(homeValue, awayValue) {
   return [...new Set(keys)];
 }
 
-async function fetchJson(url) {
-  const response = await fetch(url, { cache: 'no-store' });
-  if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
-  return response.json();
+async function fetchJson(url, timeoutMs = 8000) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(url, { cache: 'no-store', signal: controller.signal });
+    if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+    return response.json();
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 function extractArray(response) {
@@ -186,10 +192,13 @@ function calculateRanking(predictions, matches) {
     const matchId = String(prediction.match_id || '').trim().toUpperCase();
     const forecast = normalizeSign(prediction.pronostico);
     if (!name) continue;
-    if (!ranking.has(name)) ranking.set(name, { partecipante: name, punti: 0 });
+    if (!ranking.has(name)) ranking.set(name, { partecipante: name, punti: 0, conteggiati: 0 });
     if (!matchId || !forecast) continue;
     const match = finishedByKey.get(matchId);
-    if (match && forecast === match.outcome) ranking.get(name).punti += 1;
+    if (match) {
+      ranking.get(name).conteggiati += 1;
+      if (forecast === match.outcome) ranking.get(name).punti += 1;
+    }
   }
   return [...ranking.values()].sort((a,b) => b.punti - a.punti || a.partecipante.localeCompare(b.partecipante, 'it'));
 }
@@ -208,23 +217,48 @@ function renderSummary(predictions, matches, ranking) {
 
 function renderRanking(ranking) {
   if (!ranking.length) {
-    els.rankingBody.innerHTML = '<tr><td colspan="3">Nessun pronostico valido trovato.</td></tr>';
+    els.rankingBody.innerHTML = '<tr><td colspan="5">Nessun pronostico valido trovato.</td></tr>';
     return;
   }
-  els.rankingBody.innerHTML = ranking.map((row, index) => `
-    <tr class="${index === 0 ? 'leader' : ''}">
-      <td>${index + 1}</td>
-      <td>${escapeHtml(row.partecipante)}</td>
-      <td><strong>${row.punti}</strong></td>
-    </tr>
-  `).join('');
+  els.rankingBody.innerHTML = ranking.map((row, index) => {
+    const percent = row.conteggiati ? `${Math.round((row.punti / row.conteggiati) * 100)}%` : '—';
+    return `
+      <tr class="${index === 0 ? 'leader' : ''}">
+        <td>${index + 1}</td>
+        <td>${escapeHtml(row.partecipante)}</td>
+        <td><strong>${row.punti}</strong></td>
+        <td>${row.conteggiati}</td>
+        <td>${percent}</td>
+      </tr>
+    `;
+  }).join('');
 }
 
+function renderCountedMatches(matches, predictions) {
+  const holder = document.getElementById('matchesList');
+  if (!holder) return;
+  const forecastIds = new Set(predictions.map(p => String(p.match_id || '').toUpperCase()));
+  const rows = [];
+  const seen = new Set();
+  for (const match of matches) {
+    if (!match.finished || !match.outcome) continue;
+    const key = match.local_keys.find(k => forecastIds.has(k));
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    rows.push(`<span class="match-pill">${escapeHtml(key)} ${match.homeScore}-${match.awayScore} → ${match.outcome}</span>`);
+  }
+  holder.innerHTML = rows.length ? rows.join('') : '<p class="muted">Nessuna partita del vostro file è stata ancora conteggiata.</p>';
+}
+
+
 async function loadRemoteResults() {
-  const [gamesResponse, teamsResponse] = await Promise.all([
-    fetchJson(CONFIG.matchesApiUrl),
-    fetchJson(CONFIG.teamsApiUrl).catch(() => [])
-  ]);
+  const gamesResponse = await fetchJson(CONFIG.matchesApiUrl, 8000);
+  let teamsResponse = [];
+  try {
+    teamsResponse = await fetchJson(CONFIG.teamsApiUrl, 5000);
+  } catch (error) {
+    console.warn('Elenco squadre non disponibile, uso i dati presenti nelle partite:', error);
+  }
   const teamIndex = buildTeamIndex(teamsResponse);
   return extractMatches(gamesResponse, teamIndex);
 }
@@ -254,6 +288,7 @@ async function loadApp() {
   const ranking = calculateRanking(predictions, matches);
   const counted = renderSummary(predictions, matches, ranking);
   renderRanking(ranking);
+  renderCountedMatches(matches, predictions);
   els.updatedAt.textContent = new Date().toLocaleString('it-IT');
   const finished = matches.filter(m => m.finished).length;
   els.dataStatus.textContent = resultsOk
