@@ -143,3 +143,58 @@ code { background:#e2e8f0; padding:2px 5px; border-radius:6px; }
   .forecast { min-width: 30px; max-width: 32px; font-size: 12px; }
   .excel-table th, .excel-table td { padding: 5px 4px; }
 }
+
+
+/* v7: intestazioni partite più leggibili e compatte nel riepilogo pronostici */
+.excel-table thead th.match-head {
+  white-space: normal;
+  line-height: 1.05;
+  vertical-align: middle;
+  padding: 5px 3px;
+}
+.match-head {
+  min-width: 42px;
+  max-width: 46px;
+  width: 46px;
+}
+.team-code {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+.vs-sep {
+  display: block;
+  font-size: 8px;
+  line-height: .9;
+  opacity: .75;
+}
+.forecast {
+  min-width: 28px;
+  max-width: 32px;
+  width: 32px;
+}
+.excel-table th, .excel-table td {
+  padding: 5px 4px;
+}
+@media (max-width: 760px) {
+  .excel-table .participant-col {
+    width: 92px;
+    min-width: 92px;
+    max-width: 92px;
+    font-size: 9px;
+  }
+  .match-head {
+    min-width: 36px;
+    max-width: 38px;
+    width: 38px;
+  }
+  .team-code { font-size: 8px; }
+  .vs-sep { font-size: 7px; }
+  .forecast {
+    min-width: 27px;
+    max-width: 29px;
+    width: 29px;
+    font-size: 12px;
+  }
+}

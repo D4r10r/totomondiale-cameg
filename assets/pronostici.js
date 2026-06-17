@@ -14,6 +14,18 @@ function escapeHtml(value) {
     .replaceAll("'", '&#039;');
 }
 
+
+function formatMatchHeader(match) {
+  const safe = escapeHtml(match);
+  const parts = String(match || '').split('-').map(x => x.trim()).filter(Boolean);
+  if (parts.length >= 2) {
+    const home = escapeHtml(parts[0]);
+    const away = escapeHtml(parts.slice(1).join('-'));
+    return `<span class="team-code">${home}</span><span class="vs-sep">-</span><span class="team-code">${away}</span>`;
+  }
+  return safe;
+}
+
 function dayOrder(day) {
   const d = String(day || '').toUpperCase();
   if (d.includes('PRIMA')) return 1;
@@ -57,7 +69,7 @@ function renderSheets(predictions) {
 
   els.container.innerHTML = sheets.map(([day, sheet]) => {
     const participants = [...sheet.participants.keys()].sort((a, b) => a.localeCompare(b, 'it'));
-    const header = sheet.matches.map(match => `<th class="match-head">${escapeHtml(match)}</th>`).join('');
+    const header = sheet.matches.map(match => `<th class="match-head">${formatMatchHeader(match)}</th>`).join('');
     const rows = participants.map(name => {
       const forecasts = sheet.matches.map(match => {
         const value = sheet.participants.get(name).get(match) || '';
