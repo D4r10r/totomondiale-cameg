@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-17T15:53:52.047Z",
+  "updated_at": "2026-06-17T22:26:24.568Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -114,6 +114,16 @@
       "finished": true
     },
     {
+      "match_id": "ING-CROA",
+      "home": "England",
+      "away": "Croatia",
+      "home_score": 4,
+      "away_score": 2,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
       "match_id": "IRAN-NZEL",
       "home": "Iran",
       "away": "New Zealand",
@@ -149,6 +159,16 @@
       "away": "Japan",
       "home_score": 2,
       "away_score": 2,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "POR-CONGO",
+      "home": "Portugal",
+      "away": "Democratic Republic of the Congo",
+      "home_score": 1,
+      "away_score": 1,
       "outcome": "X",
       "status": "finished",
       "finished": true
