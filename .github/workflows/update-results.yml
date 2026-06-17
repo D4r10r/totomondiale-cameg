@@ -22,7 +22,7 @@ jobs:
           node-version: 20
 
       - name: Aggiorna risultati
-        run: node scripts/update-results.js
+        run: node scripts/update-results.mjs
 
       - name: Commit risultati aggiornati
         run: |
