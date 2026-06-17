@@ -126,3 +126,20 @@ code { background:#e2e8f0; padding:2px 5px; border-radius:6px; }
   .match-head { min-width: 44px; max-width: 48px; }
   .forecast { min-width: 34px; max-width: 36px; }
 }
+
+/* v6: riepilogo più compatto e leggibile su smartphone */
+.excel-table .participant-col { width: 132px; min-width: 132px; max-width: 132px; }
+.match-head { min-width: 50px; max-width: 56px; font-size: 10px; }
+.forecast { min-width: 34px; max-width: 38px; }
+.excel-table th, .excel-table td { padding: 6px 6px; }
+.excel-table thead .participant-col { z-index: 8; }
+.excel-table tbody .participant-col { z-index: 6; }
+@media (max-width: 760px) {
+  .logo { width: 78px; height: 78px; }
+  .top-actions { position: sticky; top: 0; z-index: 20; padding: 8px 0; background: rgba(245,247,251,.92); backdrop-filter: blur(6px); }
+  .excel-wrap { max-height: 78vh; }
+  .excel-table .participant-col { width: 86px; min-width: 86px; max-width: 86px; font-size: 9px; }
+  .match-head { min-width: 38px; max-width: 42px; font-size: 9px; }
+  .forecast { min-width: 30px; max-width: 32px; font-size: 12px; }
+  .excel-table th, .excel-table td { padding: 5px 4px; }
+}
