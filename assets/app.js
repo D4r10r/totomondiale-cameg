@@ -1,79 +1,36 @@
 const CONFIG = {
   predictionsUrl: 'data/pronostici.json',
+  // Fonte risultati opzionale. Non mostriamo più il live.
+  // Se la fonte non risponde, la pagina resta funzionante e mostra classifica a 0 punti.
   matchesApiUrl: 'https://worldcup26.ir/get/games',
-  refreshMs: 2 * 60 * 1000
+  refreshMs: 5 * 60 * 1000
 };
 
 const els = {
   updatedAt: document.getElementById('updatedAt'),
   rankingBody: document.getElementById('rankingBody'),
-  matchesList: document.getElementById('matchesList'),
   summary: document.getElementById('summary'),
   reloadBtn: document.getElementById('reloadBtn'),
-  dataStatus: document.getElementById('dataStatus'),
-  predictionsOverview: document.getElementById('predictionsOverview')
+  dataStatus: document.getElementById('dataStatus')
 };
 
 const TEAM_ALIASES = {
-  'MEXICO': ['MEX'],
-  'SOUTH AFRICA': ['SUD'],
-  'SOUTH KOREA': ['COR'],
-  'KOREA REPUBLIC': ['COR'],
-  'CZECH REPUBLIC': ['CEC'],
-  'CZECHIA': ['CEC'],
-  'CANADA': ['CAN'],
-  'BOSNIA AND HERZEGOVINA': ['BOS'],
-  'BOSNIA': ['BOS'],
-  'UNITED STATES': ['USA'],
-  'USA': ['USA'],
-  'PARAGUAY': ['PAR'],
-  'QATAR': ['QAT'],
-  'SWITZERLAND': ['SVI', 'SVIZ'],
-  'BRAZIL': ['BRA'],
-  'MOROCCO': ['MAR'],
-  'HAITI': ['HAI'],
-  'SCOTLAND': ['SCO'],
-  'AUSTRALIA': ['AUS'],
-  'TURKIYE': ['TUR'],
-  'TURKEY': ['TUR'],
-  'GERMANY': ['GER'],
-  'CURACAO': ['CURA', 'CUR'],
-  'CURAÇAO': ['CURA', 'CUR'],
-  'IVORY COAST': ['CAV'],
-  "COTE D'IVOIRE": ['CAV'],
-  'CÔTE D’IVOIRE': ['CAV'],
-  'ECUADOR': ['ECU'],
-  'SWEDEN': ['SVE'],
-  'TUNISIA': ['TUN'],
-  'JAPAN': ['JAP'],
-  'SPAIN': ['SPA'],
-  'CAPE VERDE': ['CAVE'],
-  'CABO VERDE': ['CAVE'],
-  'BELGIUM': ['BEL'],
-  'EGYPT': ['EGI'],
-  'SAUDI ARABIA': ['SAUDI'],
-  'URUGUAY': ['URU'],
-  'IRAN': ['IRAN'],
-  'NEW ZEALAND': ['NZEL'],
-  'FRANCE': ['FRA'],
-  'SENEGAL': ['SEN'],
-  'IRAQ': ['IRAQ'],
-  'NORWAY': ['NOR'],
-  'ARGENTINA': ['ARG'],
-  'ALGERIA': ['ALG'],
-  'AUSTRIA': ['AUS'],
-  'JORDAN': ['GIOR'],
-  'PORTUGAL': ['POR'],
-  'CONGO DR': ['CONGO'],
-  'DR CONGO': ['CONGO'],
-  'CONGO': ['CONGO'],
-  'UZBEKISTAN': ['UZB'],
-  'COLOMBIA': ['COL'],
-  'ENGLAND': ['ING'],
-  'CROATIA': ['CROA'],
-  'GHANA': ['GHA'],
-  'PANAMA': ['PAN'],
-  'NETHERLANDS': ['NED']
+  'MEXICO': ['MEX'], 'SOUTH AFRICA': ['SUD'], 'CANADA': ['CAN'], 'BRAZIL': ['BRA'],
+  'SCOTLAND': ['SCO'], 'ARGENTINA': ['ARG'], 'ALGERIA': ['ALG'], 'AUSTRIA': ['AUS'],
+  'JORDAN': ['GIOR'], 'FRANCE': ['FRA'], 'GERMANY': ['GER'], 'SPAIN': ['SPA'],
+  'PORTUGAL': ['POR'], 'ENGLAND': ['ING'], 'NETHERLANDS': ['NED'], 'BELGIUM': ['BEL'],
+  'URUGUAY': ['URU'], 'COLOMBIA': ['COL'], 'CROATIA': ['CROA'], 'GHANA': ['GHA'],
+  'JAPAN': ['JAP'], 'SENEGAL': ['SEN'], 'SWITZERLAND': ['SVI', 'SVIZ'],
+  'UNITED STATES': ['USA'], 'USA': ['USA'], 'PARAGUAY': ['PAR'], 'QATAR': ['QAT'],
+  'MOROCCO': ['MAR'], 'HAITI': ['HAI'], 'AUSTRALIA': ['AUS'], 'TURKEY': ['TUR'],
+  'TURKIYE': ['TUR'], 'CURACAO': ['CURA', 'CUR'], 'CURAÇAO': ['CURA', 'CUR'],
+  'IVORY COAST': ['CAV'], "COTE D IVOIRE": ['CAV'], 'ECUADOR': ['ECU'],
+  'SWEDEN': ['SVE'], 'TUNISIA': ['TUN'], 'CAPE VERDE': ['CAVE'], 'EGYPT': ['EGI'],
+  'SAUDI ARABIA': ['SAUDI'], 'IRAN': ['IRAN'], 'NEW ZEALAND': ['NZEL'],
+  'IRAQ': ['IRAQ'], 'NORWAY': ['NOR'], 'CONGO DR': ['CONGO'], 'DR CONGO': ['CONGO'],
+  'UZBEKISTAN': ['UZB'], 'PANAMA': ['PAN'], 'SOUTH KOREA': ['COR'],
+  'KOREA REPUBLIC': ['COR'], 'CZECH REPUBLIC': ['CEC'], 'CZECHIA': ['CEC'],
+  'BOSNIA AND HERZEGOVINA': ['BOS'], 'BOSNIA': ['BOS']
 };
 
 function stripAccents(value) {
@@ -89,23 +46,6 @@ function normalizeSign(value) {
   return ['1', 'X', '2'].includes(v) ? v : '';
 }
 
-function getOutcome(homeScore, awayScore) {
-  if (homeScore === null || awayScore === null || Number.isNaN(homeScore) || Number.isNaN(awayScore)) return null;
-  if (homeScore > awayScore) return '1';
-  if (homeScore < awayScore) return '2';
-  return 'X';
-}
-
-function isFinished(status) {
-  const s = String(status || '').toLowerCase();
-  return ['finished', 'full_time', 'ft', 'ended', 'completed', 'final'].some(x => s.includes(x));
-}
-
-function isLive(status) {
-  const s = String(status || '').toLowerCase();
-  return ['live', 'in_play', '1h', '2h', 'halftime', 'half_time', 'ht'].some(x => s.includes(x));
-}
-
 function firstDefined(...values) {
   return values.find(v => v !== undefined && v !== null && v !== '');
 }
@@ -117,65 +57,52 @@ function scoreValue(value) {
   return Number.isFinite(n) ? n : null;
 }
 
+function isFinished(status) {
+  const s = String(status || '').toLowerCase();
+  return ['finished', 'full_time', 'ft', 'ended', 'completed', 'final'].some(x => s.includes(x));
+}
+
+function getOutcome(homeScore, awayScore) {
+  if (homeScore === null || awayScore === null) return null;
+  if (homeScore > awayScore) return '1';
+  if (homeScore < awayScore) return '2';
+  return 'X';
+}
+
 function getTeamAliases(teamName) {
   const normalized = normalizeText(teamName);
   if (!normalized) return [];
   if (TEAM_ALIASES[normalized]) return TEAM_ALIASES[normalized];
-
   const matched = Object.entries(TEAM_ALIASES).find(([name]) => normalized.includes(name) || name.includes(normalized));
   return matched ? matched[1] : [normalized.slice(0, 4)];
 }
 
 function makeMatchKeys(homeName, awayName) {
-  const homeAliases = getTeamAliases(homeName);
-  const awayAliases = getTeamAliases(awayName);
   const keys = [];
-  for (const h of homeAliases) {
-    for (const a of awayAliases) {
-      keys.push(`${h}-${a}`);
-    }
+  for (const h of getTeamAliases(homeName)) {
+    for (const a of getTeamAliases(awayName)) keys.push(`${h}-${a}`);
   }
   return keys;
 }
 
 function normalizeApiMatch(raw) {
-  const rawId = String(firstDefined(raw.id, raw.match_id, raw.game_id, raw.matchday, raw.number, raw.MatchNumber, raw.matchNumber) || '').trim();
-
-  const home = firstDefined(raw.home_team, raw.homeTeam, raw.home_team_name, raw.home?.name_en, raw.home?.name, raw.home?.team, raw.team_home, raw.home_name, raw.homeTeamName, raw.teams?.home?.name, 'Casa');
-  const away = firstDefined(raw.away_team, raw.awayTeam, raw.away_team_name, raw.away?.name_en, raw.away?.name, raw.away?.team, raw.team_away, raw.away_name, raw.awayTeamName, raw.teams?.away?.name, 'Trasferta');
-
+  const home = firstDefined(raw.home_team, raw.homeTeam, raw.home_team_name, raw.home?.name_en, raw.home?.name, raw.home?.team, raw.team_home, raw.home_name, raw.homeTeamName, raw.teams?.home?.name, raw.homeTeam?.name, 'Casa');
+  const away = firstDefined(raw.away_team, raw.awayTeam, raw.away_team_name, raw.away?.name_en, raw.away?.name, raw.away?.team, raw.team_away, raw.away_name, raw.awayTeamName, raw.teams?.away?.name, raw.awayTeam?.name, 'Trasferta');
   const homeScore = scoreValue(firstDefined(raw.home_score, raw.homeScore, raw.home_goals, raw.homeGoals, raw.score_home, raw.home_team_score, raw.home?.score, raw.goals?.home, raw.score?.home));
   const awayScore = scoreValue(firstDefined(raw.away_score, raw.awayScore, raw.away_goals, raw.awayGoals, raw.score_away, raw.away_team_score, raw.away?.score, raw.goals?.away, raw.score?.away));
-
   const status = firstDefined(raw.status, raw.match_status, raw.state, raw.fixture?.status?.short, raw.fixture?.status?.long, raw.status_en, '');
-  const keys = makeMatchKeys(home, away);
-  const finished = isFinished(status);
-  const live = isLive(status);
-
-  return {
-    api_id: rawId,
-    local_keys: keys,
-    partita: `${home} - ${away}`,
-    home_score: homeScore,
-    away_score: awayScore,
-    status,
-    finished,
-    live,
-    outcome: finished ? getOutcome(homeScore, awayScore) : null
-  };
+  const outcome = isFinished(status) ? getOutcome(homeScore, awayScore) : null;
+  return { local_keys: makeMatchKeys(home, away), finished: Boolean(outcome), outcome };
 }
 
 async function fetchJson(url) {
   const response = await fetch(url, { cache: 'no-store' });
-  if (!response.ok) throw new Error(`Errore HTTP ${response.status} su ${url}`);
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return response.json();
 }
 
 function extractMatches(apiResponse) {
-  const list = Array.isArray(apiResponse)
-    ? apiResponse
-    : firstDefined(apiResponse.data, apiResponse.games, apiResponse.matches, apiResponse.results, []);
-
+  const list = Array.isArray(apiResponse) ? apiResponse : firstDefined(apiResponse.data, apiResponse.games, apiResponse.matches, apiResponse.results, []);
   return (Array.isArray(list) ? list : []).map(normalizeApiMatch).filter(m => m.local_keys.length);
 }
 
@@ -196,38 +123,29 @@ function calculateRanking(predictions, matches) {
     const name = String(prediction.partecipante || '').trim();
     const matchId = String(prediction.match_id || '').trim().toUpperCase();
     const forecast = normalizeSign(prediction.pronostico);
-    if (!name || !matchId || !forecast) continue;
-
+    if (!name) continue;
     if (!ranking.has(name)) ranking.set(name, { partecipante: name, punti: 0 });
+    if (!matchId || !forecast) continue;
 
     const match = finishedByKey.get(matchId);
-    if (match && forecast === match.outcome) {
-      ranking.get(name).punti += 1;
-    }
+    if (match && forecast === match.outcome) ranking.get(name).punti += 1;
   }
 
-  return [...ranking.values()].sort((a, b) => {
-    if (b.punti !== a.punti) return b.punti - a.punti;
-    return a.partecipante.localeCompare(b.partecipante, 'it');
-  });
+  return [...ranking.values()].sort((a, b) => b.punti - a.punti || a.partecipante.localeCompare(b.partecipante, 'it'));
 }
 
 function renderSummary(predictions, matches, ranking) {
   const participants = new Set(predictions.map(p => p.partecipante).filter(Boolean)).size;
-  const finishedRelevant = new Set();
   const forecastIds = new Set(predictions.map(p => String(p.match_id || '').toUpperCase()));
-
+  const counted = new Set();
   for (const match of matches) {
     if (!match.finished || !match.outcome) continue;
-    for (const key of match.local_keys) {
-      if (forecastIds.has(key)) finishedRelevant.add(key);
-    }
+    for (const key of match.local_keys) if (forecastIds.has(key)) counted.add(key);
   }
-
   const leader = ranking[0]?.partecipante || '—';
   els.summary.innerHTML = `
     <article class="stat"><span>Partecipanti</span><strong>${participants}</strong></article>
-    <article class="stat"><span>Partite conteggiate</span><strong>${finishedRelevant.size}</strong></article>
+    <article class="stat"><span>Partite conteggiate</span><strong>${counted.size}</strong></article>
     <article class="stat"><span>Leader</span><strong>${leader}</strong></article>
   `;
 }
@@ -237,161 +155,47 @@ function renderRanking(ranking) {
     els.rankingBody.innerHTML = '<tr><td colspan="3">Nessun pronostico valido trovato.</td></tr>';
     return;
   }
-
   els.rankingBody.innerHTML = ranking.map((row, index) => `
     <tr class="${index === 0 ? 'leader' : ''}">
       <td>${index + 1}</td>
       <td>${row.partecipante}</td>
-      <td>${row.punti}</td>
+      <td><strong>${row.punti}</strong></td>
     </tr>
   `).join('');
 }
 
-
-function groupPredictionsByParticipantAndDay(predictions) {
-  const grouped = new Map();
-  for (const item of predictions) {
-    const name = String(item.partecipante || '').trim();
-    if (!name) continue;
-    const day = String(item.giornata || 'Giornata non indicata').trim();
-    if (!grouped.has(name)) grouped.set(name, new Map());
-    if (!grouped.get(name).has(day)) grouped.get(name).set(day, []);
-    grouped.get(name).get(day).push(item);
-  }
-  return [...grouped.entries()].sort((a, b) => a[0].localeCompare(b[0], 'it'));
-}
-
-function giornataOrder(day) {
-  const d = normalizeText(day);
-  if (d.includes('PRIMA')) return 1;
-  if (d.includes('SECONDA')) return 2;
-  if (d.includes('TERZA')) return 3;
-  return 99;
-}
-
-function renderPredictionsOverview(predictions, matches) {
-  if (!els.predictionsOverview) return;
-
-  const finishedByKey = buildFinishedIndex(matches);
-  const grouped = groupPredictionsByParticipantAndDay(predictions);
-
-  if (!grouped.length) {
-    els.predictionsOverview.innerHTML = '<p>Nessun pronostico disponibile.</p>';
-    return;
-  }
-
-  els.predictionsOverview.innerHTML = grouped.map(([participant, days]) => {
-    const orderedDays = [...days.entries()].sort((a, b) => giornataOrder(a[0]) - giornataOrder(b[0]));
-    const dayBlocks = orderedDays.map(([day, items]) => {
-      const rows = items.map(item => {
-        const matchId = String(item.match_id || '').trim().toUpperCase();
-        const forecast = normalizeSign(item.pronostico) || String(item.pronostico || '').trim();
-        const match = finishedByKey.get(matchId);
-        let statusClass = 'pending';
-        let statusLabel = 'Da giocare';
-        let resultLabel = '—';
-
-        if (match) {
-          const score = match.home_score !== null && match.away_score !== null ? `${match.home_score}-${match.away_score}` : '—';
-          resultLabel = `${score} · Esito ${match.outcome}`;
-          if (forecast === match.outcome) {
-            statusClass = 'correct';
-            statusLabel = 'Corretto';
-          } else {
-            statusClass = 'wrong';
-            statusLabel = 'Errato';
-          }
-        }
-
-        return `
-          <tr>
-            <td>${matchId}</td>
-            <td><strong>${forecast}</strong></td>
-            <td>${resultLabel}</td>
-            <td><span class="badge ${statusClass}">${statusLabel}</span></td>
-          </tr>
-        `;
-      }).join('');
-
-      return `
-        <section class="day-block">
-          <h4>${day}</h4>
-          <div class="table-wrap compact">
-            <table>
-              <thead>
-                <tr>
-                  <th>Partita</th>
-                  <th>Pronostico</th>
-                  <th>Risultato</th>
-                  <th>Stato</th>
-                </tr>
-              </thead>
-              <tbody>${rows}</tbody>
-            </table>
-          </div>
-        </section>
-      `;
-    }).join('');
-
-    return `
-      <article class="participant-card">
-        <h3>${participant}</h3>
-        ${dayBlocks}
-      </article>
-    `;
-  }).join('');
-}
-
-function renderMatches(matches, predictions) {
-  const forecastIds = new Set(predictions.map(p => String(p.match_id || '').toUpperCase()));
-  const relevant = matches.filter(m => m.local_keys.some(k => forecastIds.has(k)) && (m.finished || m.live)).slice(0, 20);
-
-  if (!relevant.length) {
-    els.matchesList.innerHTML = '<p>Nessuna partita live o conclusa disponibile per le partite del vostro file.</p>';
-    return;
-  }
-
-  els.matchesList.innerHTML = relevant.map(m => {
-    const label = m.live ? 'LIVE' : 'FINITA';
-    const score = m.home_score !== null && m.away_score !== null ? `${m.home_score} - ${m.away_score}` : '—';
-    const esito = m.finished ? `Esito: ${m.outcome}` : 'In corso';
-    return `
-      <article class="match ${m.live ? 'live' : ''}">
-        <div><strong>${m.partita}</strong><br><small>${label} · ${m.local_keys.join(', ')}</small></div>
-        <div><strong>${score}</strong><br><small>${esito}</small></div>
-      </article>
-    `;
-  }).join('');
-}
-
 async function loadApp() {
+  els.rankingBody.innerHTML = '<tr><td colspan="3">Aggiornamento in corso...</td></tr>';
+  els.dataStatus.textContent = 'Caricamento pronostici...';
+
+  let predictions = [];
+  let matches = [];
+  let apiOk = false;
+
   try {
-    els.rankingBody.innerHTML = '<tr><td colspan="3">Aggiornamento in corso...</td></tr>';
-    els.dataStatus.textContent = 'Connessione alla fonte risultati...';
-
-    const [predictions, apiResponse] = await Promise.all([
-      fetchJson(CONFIG.predictionsUrl),
-      fetchJson(CONFIG.matchesApiUrl)
-    ]);
-
-    const matches = extractMatches(apiResponse);
-    const ranking = calculateRanking(predictions, matches);
-
-    els.updatedAt.textContent = new Date().toLocaleString('it-IT');
-    els.dataStatus.textContent = `Fonte risultati online · ${matches.length} partite lette`;
-    renderSummary(predictions, matches, ranking);
-    renderRanking(ranking);
-    renderMatches(matches, predictions);
-    renderPredictionsOverview(predictions, matches);
+    predictions = await fetchJson(CONFIG.predictionsUrl);
   } catch (error) {
     console.error(error);
     els.updatedAt.textContent = 'Errore';
-    els.dataStatus.textContent = 'Fonte risultati non raggiungibile';
-    els.summary.innerHTML = '<div class="error">Impossibile aggiornare i dati. La pagina è pronta, ma l’API risultati non ha risposto o ha cambiato formato.</div>';
-    els.rankingBody.innerHTML = '<tr><td colspan="3">Errore nel caricamento della classifica.</td></tr>';
-    els.matchesList.innerHTML = '<p>Risultati live non disponibili in questo momento.</p>';
-    if (els.predictionsOverview) els.predictionsOverview.innerHTML = '<p>Riepilogo pronostici non disponibile in questo momento.</p>';
+    els.dataStatus.textContent = 'Pronostici non disponibili';
+    els.summary.innerHTML = '<div class="error">Impossibile leggere data/pronostici.json.</div>';
+    els.rankingBody.innerHTML = '<tr><td colspan="3">Errore nel caricamento dei pronostici.</td></tr>';
+    return;
   }
+
+  try {
+    const apiResponse = await fetchJson(CONFIG.matchesApiUrl);
+    matches = extractMatches(apiResponse);
+    apiOk = matches.length > 0;
+  } catch (error) {
+    console.warn('Fonte risultati non disponibile:', error);
+  }
+
+  const ranking = calculateRanking(predictions, matches);
+  els.updatedAt.textContent = new Date().toLocaleString('it-IT');
+  els.dataStatus.textContent = apiOk ? `Risultati letti · ${matches.length} partite` : 'Risultati non disponibili: classifica provvisoria';
+  renderSummary(predictions, matches, ranking);
+  renderRanking(ranking);
 }
 
 els.reloadBtn.addEventListener('click', loadApp);

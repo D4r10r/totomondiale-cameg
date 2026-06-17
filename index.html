@@ -10,11 +10,11 @@
   <main class="page">
     <header class="hero">
       <div class="brand-row">
-        <img class="logo" src="assets/logo.png" alt="Logo Totomondiale Cameg" />
+        <img src="assets/logo.png" alt="Logo Totomondiale Cameg" class="logo" />
         <div>
-        <p class="eyebrow">Mondiale 2026</p>
-        <h1>Totomondiale Cameg</h1>
-        <p class="subtitle">Classifica automatica: 1 punto per ogni pronostico 1X2 indovinato nella fase a gironi.</p>
+          <p class="eyebrow">Mondiale 2026</p>
+          <h1>Totomondiale Cameg</h1>
+          <p class="subtitle">Classifica automatica: 1 punto per ogni pronostico 1X2 indovinato nella fase a gironi.</p>
         </div>
       </div>
       <div class="refresh-card">
@@ -23,6 +23,11 @@
         <small id="dataStatus">Preparazione dati...</small>
       </div>
     </header>
+
+    <nav class="top-actions">
+      <a class="nav-btn active" href="index.html">Classifica</a>
+      <a class="nav-btn" href="pronostici.html">Riepilogo pronostici</a>
+    </nav>
 
     <section class="summary" id="summary"></section>
 
@@ -45,23 +50,11 @@
           </tbody>
         </table>
       </div>
-    </section>
-
-    <section class="panel secondary">
-      <h2>Risultati live / partite conteggiate</h2>
-      <div id="matchesList" class="matches"></div>
-    </section>
-
-    <section class="panel secondary">
-      <div class="panel-header">
-        <h2>Riepilogo pronostici per partecipante</h2>
-        <span class="hint">Tutti i pronostici sono divisi per giornata, come nei fogli Excel.</span>
-      </div>
-      <div id="predictionsOverview" class="predictions-overview">Caricamento riepilogo...</div>
+      <p class="hint">Il conteggio usa solo partite concluse e riconosciute tra risultati e file pronostici.</p>
     </section>
 
     <footer>
-      <p>Pagina statica gratuita. I risultati vengono letti automaticamente da API pubblica e confrontati con i pronostici locali.</p>
+      <p>Pagina statica gratuita. I pronostici sono in <code>data/pronostici.json</code>.</p>
     </footer>
   </main>
 
