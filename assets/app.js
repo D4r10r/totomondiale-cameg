@@ -10,7 +10,8 @@ const els = {
   matchesList: document.getElementById('matchesList'),
   summary: document.getElementById('summary'),
   reloadBtn: document.getElementById('reloadBtn'),
-  dataStatus: document.getElementById('dataStatus')
+  dataStatus: document.getElementById('dataStatus'),
+  predictionsOverview: document.getElementById('predictionsOverview')
 };
 
 const TEAM_ALIASES = {
@@ -246,6 +247,101 @@ function renderRanking(ranking) {
   `).join('');
 }
 
+
+function groupPredictionsByParticipantAndDay(predictions) {
+  const grouped = new Map();
+  for (const item of predictions) {
+    const name = String(item.partecipante || '').trim();
+    if (!name) continue;
+    const day = String(item.giornata || 'Giornata non indicata').trim();
+    if (!grouped.has(name)) grouped.set(name, new Map());
+    if (!grouped.get(name).has(day)) grouped.get(name).set(day, []);
+    grouped.get(name).get(day).push(item);
+  }
+  return [...grouped.entries()].sort((a, b) => a[0].localeCompare(b[0], 'it'));
+}
+
+function giornataOrder(day) {
+  const d = normalizeText(day);
+  if (d.includes('PRIMA')) return 1;
+  if (d.includes('SECONDA')) return 2;
+  if (d.includes('TERZA')) return 3;
+  return 99;
+}
+
+function renderPredictionsOverview(predictions, matches) {
+  if (!els.predictionsOverview) return;
+
+  const finishedByKey = buildFinishedIndex(matches);
+  const grouped = groupPredictionsByParticipantAndDay(predictions);
+
+  if (!grouped.length) {
+    els.predictionsOverview.innerHTML = '<p>Nessun pronostico disponibile.</p>';
+    return;
+  }
+
+  els.predictionsOverview.innerHTML = grouped.map(([participant, days]) => {
+    const orderedDays = [...days.entries()].sort((a, b) => giornataOrder(a[0]) - giornataOrder(b[0]));
+    const dayBlocks = orderedDays.map(([day, items]) => {
+      const rows = items.map(item => {
+        const matchId = String(item.match_id || '').trim().toUpperCase();
+        const forecast = normalizeSign(item.pronostico) || String(item.pronostico || '').trim();
+        const match = finishedByKey.get(matchId);
+        let statusClass = 'pending';
+        let statusLabel = 'Da giocare';
+        let resultLabel = '—';
+
+        if (match) {
+          const score = match.home_score !== null && match.away_score !== null ? `${match.home_score}-${match.away_score}` : '—';
+          resultLabel = `${score} · Esito ${match.outcome}`;
+          if (forecast === match.outcome) {
+            statusClass = 'correct';
+            statusLabel = 'Corretto';
+          } else {
+            statusClass = 'wrong';
+            statusLabel = 'Errato';
+          }
+        }
+
+        return `
+          <tr>
+            <td>${matchId}</td>
+            <td><strong>${forecast}</strong></td>
+            <td>${resultLabel}</td>
+            <td><span class="badge ${statusClass}">${statusLabel}</span></td>
+          </tr>
+        `;
+      }).join('');
+
+      return `
+        <section class="day-block">
+          <h4>${day}</h4>
+          <div class="table-wrap compact">
+            <table>
+              <thead>
+                <tr>
+                  <th>Partita</th>
+                  <th>Pronostico</th>
+                  <th>Risultato</th>
+                  <th>Stato</th>
+                </tr>
+              </thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        </section>
+      `;
+    }).join('');
+
+    return `
+      <article class="participant-card">
+        <h3>${participant}</h3>
+        ${dayBlocks}
+      </article>
+    `;
+  }).join('');
+}
+
 function renderMatches(matches, predictions) {
   const forecastIds = new Set(predictions.map(p => String(p.match_id || '').toUpperCase()));
   const relevant = matches.filter(m => m.local_keys.some(k => forecastIds.has(k)) && (m.finished || m.live)).slice(0, 20);
@@ -286,6 +382,7 @@ async function loadApp() {
     renderSummary(predictions, matches, ranking);
     renderRanking(ranking);
     renderMatches(matches, predictions);
+    renderPredictionsOverview(predictions, matches);
   } catch (error) {
     console.error(error);
     els.updatedAt.textContent = 'Errore';
@@ -293,6 +390,7 @@ async function loadApp() {
     els.summary.innerHTML = '<div class="error">Impossibile aggiornare i dati. La pagina è pronta, ma l’API risultati non ha risposto o ha cambiato formato.</div>';
     els.rankingBody.innerHTML = '<tr><td colspan="3">Errore nel caricamento della classifica.</td></tr>';
     els.matchesList.innerHTML = '<p>Risultati live non disponibili in questo momento.</p>';
+    if (els.predictionsOverview) els.predictionsOverview.innerHTML = '<p>Riepilogo pronostici non disponibile in questo momento.</p>';
   }
 }
 

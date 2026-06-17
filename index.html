@@ -9,10 +9,13 @@
 <body>
   <main class="page">
     <header class="hero">
-      <div>
+      <div class="brand-row">
+        <img class="logo" src="assets/logo.png" alt="Logo Totomondiale Cameg" />
+        <div>
         <p class="eyebrow">Mondiale 2026</p>
         <h1>Totomondiale Cameg</h1>
         <p class="subtitle">Classifica automatica: 1 punto per ogni pronostico 1X2 indovinato nella fase a gironi.</p>
+        </div>
       </div>
       <div class="refresh-card">
         <span>Ultimo aggiornamento</span>
@@ -47,6 +50,14 @@
     <section class="panel secondary">
       <h2>Risultati live / partite conteggiate</h2>
       <div id="matchesList" class="matches"></div>
+    </section>
+
+    <section class="panel secondary">
+      <div class="panel-header">
+        <h2>Riepilogo pronostici per partecipante</h2>
+        <span class="hint">Tutti i pronostici sono divisi per giornata, come nei fogli Excel.</span>
+      </div>
+      <div id="predictionsOverview" class="predictions-overview">Caricamento riepilogo...</div>
     </section>
 
     <footer>
