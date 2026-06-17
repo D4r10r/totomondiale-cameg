@@ -9,7 +9,7 @@
 <body>
   <main class="page">
     <header class="hero">
-      <img src="assets/logo.png" alt="Totomondiale Cameg" class="logo" />
+      <img class="logo" src="assets/logo.png" alt="Totomondiale Cameg" />
       <div class="hero-text">
         <p class="eyebrow">Mondiale 2026</p>
         <h1>Totomondiale Cameg</h1>
@@ -18,16 +18,20 @@
       <div class="refresh-card">
         <span>Ultimo aggiornamento risultati</span>
         <strong id="updatedAt">—</strong>
-        <small id="resultStatus">Caricamento...</small>
+        <small id="statusText">Caricamento...</small>
       </div>
     </header>
 
-    <nav class="tabs" aria-label="Navigazione">
+    <nav class="tabs" aria-label="Navigazione sito">
       <a class="tab active" href="index.html">Classifica</a>
       <a class="tab" href="pronostici.html">Riepilogo pronostici</a>
     </nav>
 
-    <section class="summary" id="summary"></section>
+    <section class="summary" id="summary">
+      <article class="stat"><span>Partecipanti</span><strong>—</strong></article>
+      <article class="stat"><span>Partite conteggiate</span><strong>—</strong></article>
+      <article class="stat"><span>Leader</span><strong>—</strong></article>
+    </section>
 
     <section class="panel">
       <div class="panel-header">
@@ -51,7 +55,7 @@
     </section>
 
     <footer>
-      <p>Pagina statica gratuita. I risultati vengono aggiornati da GitHub Actions e letti dal file locale <code>data/risultati-auto.json</code>.</p>
+      <p>Pagina statica gratuita. I risultati vengono aggiornati da GitHub Actions e salvati in <code>data/risultati-auto.json</code>.</p>
     </footer>
   </main>
 

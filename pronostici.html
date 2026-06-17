@@ -8,16 +8,16 @@
 </head>
 <body>
   <main class="page">
-    <header class="hero compact-hero">
-      <img src="assets/logo.png" alt="Totomondiale Cameg" class="logo" />
+    <header class="hero compact">
+      <img class="logo" src="assets/logo.png" alt="Totomondiale Cameg" />
       <div class="hero-text">
         <p class="eyebrow">Mondiale 2026</p>
         <h1>Riepilogo pronostici</h1>
-        <p class="subtitle">Vista compatta come nel file Excel: partecipanti in colonna, partite in testata.</p>
+        <p class="subtitle">Tutti i pronostici divisi per giornata, in formato compatto come il file Excel.</p>
       </div>
     </header>
 
-    <nav class="tabs" aria-label="Navigazione">
+    <nav class="tabs" aria-label="Navigazione sito">
       <a class="tab" href="index.html">Classifica</a>
       <a class="tab active" href="pronostici.html">Riepilogo pronostici</a>
     </nav>
@@ -25,9 +25,8 @@
     <section class="panel">
       <div class="panel-header">
         <h2>Pronostici per giornata</h2>
-        <button id="reloadBtn" type="button">Aggiorna ora</button>
+        <button id="reloadBtn" type="button">Ricarica</button>
       </div>
-      <p class="hint">Scorri la tabella verso destra. La colonna dei partecipanti resta sempre visibile.</p>
       <div id="predictionSheets"></div>
     </section>
   </main>

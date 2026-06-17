@@ -1,7 +1,5 @@
 {
   "updated_at": null,
-  "ok": false,
-  "source": "Non ancora aggiornato da GitHub Actions",
-  "games": [],
-  "teams": []
+  "source_status": "not_run_yet",
+  "results": []
 }

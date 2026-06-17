@@ -4,22 +4,18 @@ Sito statico gratuito per GitHub Pages.
 
 ## Pagine
 
-- `index.html`: classifica Posizione / Nome / Punti
-- `pronostici.html`: riepilogo compatto stile Excel, diviso per giornata
+- `index.html`: classifica con colonne Posizione, Nome, Punti.
+- `pronostici.html`: riepilogo compatto dei pronostici, diviso per giornata come il file Excel.
 
 ## Dati
 
-- `data/pronostici.json`: pronostici esportati dal file Excel
-- `data/risultati-auto.json`: risultati scaricati automaticamente da GitHub Actions
+- `data/pronostici.json`: pronostici estratti dal file Excel.
+- `data/risultati-auto.json`: risultati aggiornati automaticamente da GitHub Actions.
 
 ## Aggiornamento risultati
 
-Il sito non chiama più direttamente l'API dal browser. La chiamata viene fatta da GitHub Actions ogni 10 minuti e salvata in `data/risultati-auto.json`, così si evitano blocchi CORS e caricamenti infiniti.
+Il workflow `.github/workflows/update-results.yml` gira ogni 10 minuti e può essere avviato manualmente da:
 
-Per avviare subito l'aggiornamento:
+`Actions → Aggiorna risultati Mondiale 2026 → Run workflow`
 
-1. Repository GitHub → Actions
-2. Seleziona `Aggiorna risultati Mondiale 2026`
-3. Clicca `Run workflow`
-
-La classifica assegna 1 punto per ogni pronostico 1X2 corretto.
+La fonte usata è `https://worldcup26.ir/get/games`.
