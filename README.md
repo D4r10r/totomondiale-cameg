@@ -2,18 +2,19 @@
 
 Pagina statica gratuita per GitHub Pages.
 
-## Pagine
-
-- `index.html`: classifica Posizione / Nome / Punti.
-- `pronostici.html`: riepilogo compatto dei pronostici in stile Excel, diviso per giornata.
-
 ## Regole
 
 - 1 punto per ogni pronostico 1X2 indovinato.
-- Classifica ordinata per punti decrescenti.
+- Classifica: Posizione, Nome, Punti.
 - Pronostici in `data/pronostici.json`.
-- Logo in `assets/logo.png`.
 
-## Note risultati
+## Pagine
 
-La sezione live è stata rimossa. La classifica prova a leggere una fonte risultati online solo per le partite concluse; se la fonte non risponde o cambia formato, il sito resta online e mostra la classifica provvisoria.
+- `index.html`: classifica automatica.
+- `pronostici.html`: riepilogo compatto stile Excel, diviso per giornata.
+
+## Aggiornamento risultati
+
+La classifica legge automaticamente i risultati da `https://worldcup26.ir/get/games` e conteggia solo le partite concluse della fase a gironi presenti nel file pronostici.
+
+Se l'API esterna non è disponibile, la pagina resta visibile ma i punteggi non vengono aggiornati fino al successivo caricamento valido.
