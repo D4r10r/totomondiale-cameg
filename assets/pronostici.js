@@ -102,7 +102,7 @@ function renderSheets(predictions, resultsMap) {
     const header = sheet.matches.map(match => `<th class="match-head">${formatMatchHeader(match)}</th>`).join('');
     const resultRow = sheet.matches.map(match => {
       const value = resultsMap.get(match) || '';
-      return `<td class="result-sign">${escapeHtml(value)}</td>`;
+      return `<td class="result-sign">${value ? escapeHtml(value) : '&nbsp;'}</td>`;
     }).join('');
 
     const rows = participants.map(name => {
@@ -111,7 +111,7 @@ function renderSheets(predictions, resultsMap) {
         const result = resultsMap.get(match) || '';
         return `<td class="${cellClass(value, result)}">${escapeHtml(value)}</td>`;
       }).join('');
-      return `<tr><th class="participant-col">${escapeHtml(name)}</th>${forecasts}</tr>`;
+      return `<tr><th class="participant-col" title="${escapeHtml(name)}">${escapeHtml(name)}</th>${forecasts}</tr>`;
     }).join('');
 
     return `
@@ -137,7 +137,7 @@ async function loadPredictions() {
   els.container.innerHTML = '<p>Caricamento riepilogo...</p>';
   try {
     const [predictions, rawResults] = await Promise.all([
-      fetchJson(CONFIG.predictionsUrl),
+      fetchJson(CONFIG.predictionsUrl, []),
       fetchJson(CONFIG.resultsUrl, { results: [] })
     ]);
     const resultsMap = buildResultsMap(rawResults);
@@ -148,5 +148,5 @@ async function loadPredictions() {
   }
 }
 
-els.reloadBtn.addEventListener('click', loadPredictions);
+els.reloadBtn?.addEventListener('click', loadPredictions);
 loadPredictions();

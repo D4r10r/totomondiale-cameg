@@ -56,6 +56,21 @@ const TEAM_NAMES = {
   COL: ['Colombia']
 };
 
+
+
+const MANUAL_FINISHED_RESULTS = [
+  {
+    match_id: 'AUS-TUR',
+    home: 'Australia',
+    away: 'Turkey',
+    home_score: 2,
+    away_score: 0,
+    outcome: '1',
+    status: 'finished',
+    finished: true
+  }
+];
+
 const OVERRIDE_MATCH_NAMES = {
   'AUS-TUR': ['Australia', 'Turkiye'],
   'USA-AUS': ['United States', 'Australia'],
@@ -206,6 +221,15 @@ async function main() {
       finished: true
     });
   }
+
+  for (const manual of MANUAL_FINISHED_RESULTS) {
+    if (!seen.has(manual.match_id)) {
+      seen.add(manual.match_id);
+      results.push(manual);
+    }
+  }
+
+  results.sort((a, b) => String(a.match_id).localeCompare(String(b.match_id), 'it'));
 
   const output = {
     updated_at: new Date().toISOString(),

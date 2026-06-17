@@ -116,13 +116,8 @@ async function loadApp() {
   els.statusText.textContent = 'Caricamento dati...';
 
   try {
-    const predictions = await fetchJson(CONFIG.predictionsUrl);
-    const rawResults = await fetchJson(CONFIG.resultsUrl, {
-      updated_at: null,
-      source_status: 'missing',
-      results: []
-    });
-
+    const predictions = await fetchJson(CONFIG.predictionsUrl, []);
+    const rawResults = await fetchJson(CONFIG.resultsUrl, { updated_at: null, source_status: 'missing', results: [] });
     const normalized = normalizeResults(rawResults);
     const ranking = calculateRanking(predictions, normalized.results);
 
@@ -142,5 +137,5 @@ async function loadApp() {
   }
 }
 
-els.reloadBtn.addEventListener('click', loadApp);
+els.reloadBtn?.addEventListener('click', loadApp);
 loadApp();
