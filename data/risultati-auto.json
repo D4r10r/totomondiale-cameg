@@ -1,5 +1,197 @@
 {
-  "updated_at": null,
-  "source_status": "not_run_yet",
-  "results": []
+  "updated_at": "2026-06-17T11:20:32.627Z",
+  "source": "https://worldcup26.ir/get/games",
+  "source_status": "ok",
+  "results": [
+    {
+      "match_id": "QAT-SVIZ",
+      "home": "Qatar",
+      "away": "Switzerland",
+      "home_score": 1,
+      "away_score": 1,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "HAI-SCO",
+      "home": "Haiti",
+      "away": "Scotland",
+      "home_score": 0,
+      "away_score": 1,
+      "outcome": "2",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "COR-CEC",
+      "home": "South Korea",
+      "away": "Czech Republic",
+      "home_score": 2,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "USA-PAR",
+      "home": "United States",
+      "away": "Paraguay",
+      "home_score": 4,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "FRA-SEN",
+      "home": "France",
+      "away": "Senegal",
+      "home_score": 3,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "IRAQ-NOR",
+      "home": "Iraq",
+      "away": "Norway",
+      "home_score": 1,
+      "away_score": 4,
+      "outcome": "2",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "CAV-ECU",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "home_score": 1,
+      "away_score": 0,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "GER-CURA",
+      "home": "Germany",
+      "away": "Curaçao",
+      "home_score": 7,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "SVE-TUN",
+      "home": "Sweden",
+      "away": "Tunisia",
+      "home_score": 5,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "MEX-SUD",
+      "home": "Mexico",
+      "away": "South Africa",
+      "home_score": 2,
+      "away_score": 0,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "BRA-MAR",
+      "home": "Brazil",
+      "away": "Morocco",
+      "home_score": 1,
+      "away_score": 1,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "NED-JAP",
+      "home": "Netherlands",
+      "away": "Japan",
+      "home_score": 2,
+      "away_score": 2,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "SPA-CAVE",
+      "home": "Spain",
+      "away": "Cape Verde",
+      "home_score": 0,
+      "away_score": 0,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "SAUDI-URU",
+      "home": "Saudi Arabia",
+      "away": "Uruguay",
+      "home_score": 1,
+      "away_score": 1,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "AUS-GIOR",
+      "home": "Austria",
+      "away": "Jordan",
+      "home_score": 3,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "CAN-BOS",
+      "home": "Canada",
+      "away": "Bosnia and Herzegovina",
+      "home_score": 1,
+      "away_score": 1,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "IRAN-NZEL",
+      "home": "Iran",
+      "away": "New Zealand",
+      "home_score": 2,
+      "away_score": 2,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "ARG-ALG",
+      "home": "Argentina",
+      "away": "Algeria",
+      "home_score": 3,
+      "away_score": 0,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "BEL-EGI",
+      "home": "Belgium",
+      "away": "Egypt",
+      "home_score": 1,
+      "away_score": 1,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true
+    }
+  ]
 }
