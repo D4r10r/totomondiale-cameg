@@ -13,6 +13,9 @@ const els = {
   dataStatus: document.getElementById('dataStatus')
 };
 
+function setText(el, value) { if (el) el.textContent = value; }
+function setHtml(el, value) { if (el) el.innerHTML = value; }
+
 const TEAM_ALIASES = {
   'MEXICO': ['MEX'], 'MEX': ['MEX'],
   'SOUTH AFRICA': ['SUD'], 'SUD': ['SUD'], 'RSA': ['SUD'],
@@ -207,11 +210,11 @@ function renderSummary(predictions, matches, ranking) {
   const participants = new Set(predictions.map(p => p.partecipante).filter(Boolean)).size;
   const counted = getCountedMatches(predictions, matches);
   const leader = ranking[0]?.partecipante || '—';
-  els.summary.innerHTML = `
+  setHtml(els.summary, `
     <article class="stat"><span>Partecipanti</span><strong>${participants}</strong></article>
     <article class="stat"><span>Partite conteggiate</span><strong>${counted.size}</strong></article>
     <article class="stat"><span>Leader</span><strong>${escapeHtml(leader)}</strong></article>
-  `;
+  `);
   return counted.size;
 }
 
@@ -264,8 +267,8 @@ async function loadRemoteResults() {
 }
 
 async function loadApp() {
-  els.rankingBody.innerHTML = '<tr><td colspan="3">Aggiornamento in corso...</td></tr>';
-  els.dataStatus.textContent = 'Caricamento pronostici...';
+  setHtml(els.rankingBody, '<tr><td colspan="5">Aggiornamento in corso...</td></tr>');
+  setText(els.dataStatus, 'Caricamento pronostici...');
   let predictions = [];
   let matches = [];
   let resultsOk = false;
@@ -273,10 +276,10 @@ async function loadApp() {
     predictions = await fetchJson(CONFIG.predictionsUrl);
   } catch (error) {
     console.error(error);
-    els.updatedAt.textContent = 'Errore';
-    els.dataStatus.textContent = 'Pronostici non disponibili';
-    els.summary.innerHTML = '<div class="error">Impossibile leggere data/pronostici.json.</div>';
-    els.rankingBody.innerHTML = '<tr><td colspan="3">Errore nel caricamento dei pronostici.</td></tr>';
+    setText(els.updatedAt, 'Errore');
+    setText(els.dataStatus, 'Pronostici non disponibili');
+    setHtml(els.summary, '<div class="error">Impossibile leggere data/pronostici.json.</div>');
+    setHtml(els.rankingBody, '<tr><td colspan="5">Errore nel caricamento dei pronostici.</td></tr>');
     return;
   }
   try {
@@ -289,11 +292,11 @@ async function loadApp() {
   const counted = renderSummary(predictions, matches, ranking);
   renderRanking(ranking);
   renderCountedMatches(matches, predictions);
-  els.updatedAt.textContent = new Date().toLocaleString('it-IT');
+  setText(els.updatedAt, new Date().toLocaleString('it-IT'));
   const finished = matches.filter(m => m.finished).length;
-  els.dataStatus.textContent = resultsOk
+  setText(els.dataStatus, resultsOk
     ? `Risultati automatici · ${matches.length} partite lette · ${finished} concluse · ${counted} conteggiate`
-    : 'Risultati automatici non disponibili';
+    : 'Risultati automatici non disponibili');
 }
 
 els.reloadBtn.addEventListener('click', loadApp);
