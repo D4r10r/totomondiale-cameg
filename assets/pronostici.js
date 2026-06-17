@@ -1,4 +1,7 @@
-const CONFIG = { predictionsUrl: 'data/pronostici.json' };
+const CONFIG = {
+  predictionsUrl: 'data/pronostici.json',
+  resultsUrl: 'data/risultati-auto.json'
+};
 
 const els = {
   container: document.getElementById('predictionSheets'),
@@ -14,16 +17,19 @@ function escapeHtml(value) {
     .replaceAll("'", '&#039;');
 }
 
+function normalizeSign(value) {
+  const v = String(value || '').trim().toUpperCase();
+  return ['1', 'X', '2'].includes(v) ? v : '';
+}
 
 function formatMatchHeader(match) {
-  const safe = escapeHtml(match);
   const parts = String(match || '').split('-').map(x => x.trim()).filter(Boolean);
   if (parts.length >= 2) {
     const home = escapeHtml(parts[0]);
     const away = escapeHtml(parts.slice(1).join('-'));
     return `<span class="team-code">${home}</span><span class="vs-sep">-</span><span class="team-code">${away}</span>`;
   }
-  return safe;
+  return escapeHtml(match);
 }
 
 function dayOrder(day) {
@@ -34,10 +40,29 @@ function dayOrder(day) {
   return 99;
 }
 
-async function fetchJson(url) {
-  const response = await fetch(url, { cache: 'no-store' });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  return response.json();
+async function fetchJson(url, fallback = null) {
+  try {
+    const response = await fetch(`${url}?v=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return await response.json();
+  } catch (error) {
+    if (fallback !== null) return fallback;
+    throw error;
+  }
+}
+
+function buildResultsMap(payload) {
+  const list = Array.isArray(payload) ? payload : (payload?.results || []);
+  const map = new Map();
+
+  for (const row of list) {
+    const matchId = String(row.match_id || '').trim().toUpperCase();
+    const outcome = normalizeSign(row.outcome || row.risultato);
+    const finished = row.finished === true || String(row.status || '').toLowerCase() === 'finished';
+    if (matchId && outcome && finished) map.set(matchId, outcome);
+  }
+
+  return map;
 }
 
 function buildSheets(predictions) {
@@ -47,7 +72,7 @@ function buildSheets(predictions) {
     const day = String(row.giornata || 'Giornata non indicata').trim();
     const participant = String(row.partecipante || '').trim();
     const match = String(row.match_id || '').trim().toUpperCase();
-    const forecast = String(row.pronostico || '').trim().toUpperCase();
+    const forecast = normalizeSign(row.pronostico);
     if (!participant || !match) continue;
 
     if (!days.has(day)) days.set(day, { matches: [], participants: new Map() });
@@ -60,7 +85,12 @@ function buildSheets(predictions) {
   return [...days.entries()].sort((a, b) => dayOrder(a[0]) - dayOrder(b[0]));
 }
 
-function renderSheets(predictions) {
+function cellClass(forecast, result) {
+  if (!forecast || !result) return 'forecast';
+  return forecast === result ? 'forecast is-correct' : 'forecast is-wrong';
+}
+
+function renderSheets(predictions, resultsMap) {
   const sheets = buildSheets(predictions);
   if (!sheets.length) {
     els.container.innerHTML = '<p>Nessun pronostico trovato.</p>';
@@ -70,10 +100,16 @@ function renderSheets(predictions) {
   els.container.innerHTML = sheets.map(([day, sheet]) => {
     const participants = [...sheet.participants.keys()].sort((a, b) => a.localeCompare(b, 'it'));
     const header = sheet.matches.map(match => `<th class="match-head">${formatMatchHeader(match)}</th>`).join('');
+    const resultRow = sheet.matches.map(match => {
+      const value = resultsMap.get(match) || '';
+      return `<td class="result-sign">${escapeHtml(value)}</td>`;
+    }).join('');
+
     const rows = participants.map(name => {
       const forecasts = sheet.matches.map(match => {
         const value = sheet.participants.get(name).get(match) || '';
-        return `<td class="forecast forecast-${escapeHtml(value)}">${escapeHtml(value)}</td>`;
+        const result = resultsMap.get(match) || '';
+        return `<td class="${cellClass(value, result)}">${escapeHtml(value)}</td>`;
       }).join('');
       return `<tr><th class="participant-col">${escapeHtml(name)}</th>${forecasts}</tr>`;
     }).join('');
@@ -86,7 +122,10 @@ function renderSheets(predictions) {
             <thead>
               <tr><th class="participant-col">Partecipanti</th>${header}</tr>
             </thead>
-            <tbody>${rows}</tbody>
+            <tbody>
+              <tr class="result-row"><th class="participant-col">Risultato</th>${resultRow}</tr>
+              ${rows}
+            </tbody>
           </table>
         </div>
       </section>
@@ -97,11 +136,15 @@ function renderSheets(predictions) {
 async function loadPredictions() {
   els.container.innerHTML = '<p>Caricamento riepilogo...</p>';
   try {
-    const predictions = await fetchJson(CONFIG.predictionsUrl);
-    renderSheets(predictions);
+    const [predictions, rawResults] = await Promise.all([
+      fetchJson(CONFIG.predictionsUrl),
+      fetchJson(CONFIG.resultsUrl, { results: [] })
+    ]);
+    const resultsMap = buildResultsMap(rawResults);
+    renderSheets(predictions, resultsMap);
   } catch (error) {
     console.error(error);
-    els.container.innerHTML = '<div class="error">Impossibile leggere data/pronostici.json.</div>';
+    els.container.innerHTML = '<div class="error">Impossibile leggere i dati del riepilogo pronostici.</div>';
   }
 }
 

@@ -1,21 +1,38 @@
 # Totomondiale Cameg
 
-Sito statico gratuito per GitHub Pages.
+Pagina statica gratuita per classifica pronostici 1X2 del Mondiale 2026.
 
-## Pagine
+## Pubblicazione gratis
 
-- `index.html`: classifica con colonne Posizione, Nome, Punti.
-- `pronostici.html`: riepilogo compatto dei pronostici, diviso per giornata come il file Excel.
+1. Crea un repository GitHub.
+2. Carica tutti i file di questa cartella.
+3. Vai in Settings > Pages.
+4. Source: Deploy from branch.
+5. Branch: main, folder: /root.
+6. Apri l'URL GitHub Pages generato.
 
-## Dati
+## Dati pronostici
 
-- `data/pronostici.json`: pronostici estratti dal file Excel.
-- `data/risultati-auto.json`: risultati aggiornati automaticamente da GitHub Actions.
+Il file da aggiornare è:
 
-## Aggiornamento risultati
+`data/pronostici.json`
 
-Il workflow `.github/workflows/update-results.yml` gira ogni 10 minuti e può essere avviato manualmente da:
+Formato:
 
-`Actions → Aggiorna risultati Mondiale 2026 → Run workflow`
+```json
+[
+  { "partecipante": "Mario", "match_id": "1", "partita": "Mexico - South Africa", "pronostico": "1" }
+]
+```
 
-La fonte usata è `https://worldcup26.ir/get/games`.
+## Note importanti
+
+- `match_id` deve corrispondere all'ID partita dell'API `https://worldcup26.ir/get/games`.
+- I pronostici accettati sono solo `1`, `X`, `2`.
+- La pagina si aggiorna automaticamente ogni 5 minuti.
+
+
+## v7
+
+- Riepilogo pronostici più compatto.
+- Intestazioni partite su due righe, squadra sopra/sotto, per smartphone.
