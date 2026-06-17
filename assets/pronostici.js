@@ -6,24 +6,17 @@ const els = {
 };
 
 function escapeHtml(value) {
-  return String(value ?? '')
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
+  return String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 }
 
-
 function formatMatchHeader(match) {
-  const safe = escapeHtml(match);
   const parts = String(match || '').split('-').map(x => x.trim()).filter(Boolean);
   if (parts.length >= 2) {
     const home = escapeHtml(parts[0]);
     const away = escapeHtml(parts.slice(1).join('-'));
     return `<span class="team-code">${home}</span><span class="vs-sep">-</span><span class="team-code">${away}</span>`;
   }
-  return safe;
+  return escapeHtml(match);
 }
 
 function dayOrder(day) {
@@ -35,7 +28,7 @@ function dayOrder(day) {
 }
 
 async function fetchJson(url) {
-  const response = await fetch(url, { cache: 'no-store' });
+  const response = await fetch(`${url}?t=${Date.now()}`, { cache: 'no-store' });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return response.json();
 }
@@ -105,5 +98,5 @@ async function loadPredictions() {
   }
 }
 
-els.reloadBtn.addEventListener('click', loadPredictions);
+els.reloadBtn?.addEventListener('click', loadPredictions);
 loadPredictions();

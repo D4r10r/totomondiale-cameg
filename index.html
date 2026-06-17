@@ -9,20 +9,23 @@
 <body>
   <main class="page">
     <header class="hero">
-      <div class="hero-brand">
-        <img src="assets/logo.png" alt="Totomondiale Cameg" class="hero-logo" />
-        <div>
+      <img src="assets/logo.png" alt="Totomondiale Cameg" class="logo" />
+      <div class="hero-text">
         <p class="eyebrow">Mondiale 2026</p>
         <h1>Totomondiale Cameg</h1>
-        <p class="subtitle">Classifica automatica dei pronostici 1X2 della fase a gironi.</p>
-        </div>
+        <p class="subtitle">Classifica automatica: 1 punto per ogni pronostico 1X2 indovinato nella fase a gironi.</p>
       </div>
       <div class="refresh-card">
-        <span>Ultimo aggiornamento</span>
+        <span>Ultimo aggiornamento risultati</span>
         <strong id="updatedAt">—</strong>
-        <small id="dataStatus">In attesa...</small>
+        <small id="resultStatus">Caricamento...</small>
       </div>
     </header>
+
+    <nav class="tabs" aria-label="Navigazione">
+      <a class="tab active" href="index.html">Classifica</a>
+      <a class="tab" href="pronostici.html">Riepilogo pronostici</a>
+    </nav>
 
     <section class="summary" id="summary"></section>
 
@@ -32,30 +35,23 @@
         <button id="reloadBtn" type="button">Aggiorna ora</button>
       </div>
       <div class="table-wrap">
-        <table>
+        <table class="ranking-table">
           <thead>
             <tr>
-              <th>Pos.</th>
-              <th>Partecipante</th>
-              <th>Indovinati</th>
-              <th>Conteggiati</th>
-              <th>Percentuale</th>
+              <th>Posizione</th>
+              <th>Nome</th>
+              <th>Punti</th>
             </tr>
           </thead>
           <tbody id="rankingBody">
-            <tr><td colspan="5">Caricamento...</td></tr>
+            <tr><td colspan="3">Caricamento...</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <section class="panel secondary">
-      <h2>Partite conteggiate</h2>
-      <div id="matchesList" class="matches"></div>
-    </section>
-
     <footer>
-      <p>Pagina statica gratuita. I risultati vengono letti automaticamente da API pubblica e confrontati con i pronostici locali.</p>
+      <p>Pagina statica gratuita. I risultati vengono aggiornati da GitHub Actions e letti dal file locale <code>data/risultati-auto.json</code>.</p>
     </footer>
   </main>
 
