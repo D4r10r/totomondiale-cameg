@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18T17:50:52.729Z",
+  "updated_at": "2026-06-18T18:01:31.876Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -70,6 +70,16 @@
       "home_score": 1,
       "away_score": 0,
       "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "CEC-SUD",
+      "home": "Czech Republic",
+      "away": "South Africa",
+      "home_score": 1,
+      "away_score": 1,
+      "outcome": "X",
       "status": "finished",
       "finished": true
     },
