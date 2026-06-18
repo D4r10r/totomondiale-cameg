@@ -69,35 +69,77 @@ table { width: 100%; border-collapse: separate; border-spacing: 0; }
   .excel-table .participant-col { width: 82px; min-width: 82px; max-width: 82px; font-size: 8px; padding-left: 4px; }
   .match-head { width: 31px; max-width: 31px; min-width: 31px; }
 }
-.mobile-scroll-controls {
-  display: none;
+
+/* Migliorie responsive riepilogo pronostici */
+.sheet-block {
+  position: relative;
+}
+
+.excel-wrap {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
 }
 
 @media (max-width: 760px) {
-  .mobile-scroll-controls {
-    display: flex;
-    gap: 8px;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: var(--panel);
-    padding: 8px 0;
-    margin-bottom: 8px;
+  .sheet-block {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 10px 6px 8px;
+    box-shadow: 0 6px 18px rgba(15,23,42,.05);
   }
 
-  .mobile-scroll-controls .scroll-btn {
-    flex: 1;
-    padding: 9px 10px;
-    font-size: 13px;
-    border-radius: 999px;
+  .sheet-block h2 {
+    font-size: 17px;
+    margin: 0 0 6px;
+    padding: 0 4px;
+  }
+
+  .sheet-block::after {
+    content: "← scorri la tabella →";
+    display: block;
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    padding-top: 6px;
   }
 
   .excel-wrap {
-    scroll-behavior: smooth;
+    border-radius: 10px;
+    overflow-x: auto;
+    overflow-y: visible;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .sheet-block {
-    scroll-margin-top: 10px;
+  .excel-table {
+    font-size: 9px;
+  }
+
+  .excel-table th,
+  .excel-table td {
+    min-width: 34px;
+    height: 25px;
+    padding: 2px;
+  }
+
+  .excel-table .participant-col {
+    width: 96px;
+    min-width: 96px;
+    max-width: 96px;
+    font-size: 8px;
+    padding-left: 5px;
+    z-index: 5;
+  }
+
+  .excel-table thead .participant-col {
+    z-index: 8;
+  }
+
+  .match-head {
+    width: 34px;
+    max-width: 34px;
+    min-width: 34px;
   }
 }
+

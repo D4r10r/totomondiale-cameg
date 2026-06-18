@@ -118,11 +118,7 @@ function renderSheets(predictions, resultsMap) {
       <section class="sheet-block">
         <h2>${escapeHtml(day)}</h2>
         <div class="excel-wrap">
-          <div class="mobile-scroll-controls">
-  <button type="button" class="scroll-btn" data-dir="-1">← Sinistra</button>
-  <button type="button" class="scroll-btn" data-dir="1">Destra →</button>
-</div>
-<div class="excel-wrap">
+          <table class="excel-table">
             <thead>
               <tr><th class="participant-col">Partecipanti</th>${header}</tr>
             </thead>
@@ -151,21 +147,6 @@ async function loadPredictions() {
     els.container.innerHTML = '<div class="error">Impossibile leggere i dati del riepilogo pronostici.</div>';
   }
 }
-document.addEventListener('click', event => {
-  const button = event.target.closest('.scroll-btn');
-  if (!button) return;
 
-  const block = button.closest('.sheet-block');
-  const wrap = block?.querySelector('.excel-wrap');
-  if (!wrap) return;
-
-  const direction = Number(button.dataset.dir || 1);
-  const amount = Math.max(220, Math.floor(wrap.clientWidth * 0.75));
-
-  wrap.scrollBy({
-    left: direction * amount,
-    behavior: 'smooth'
-  });
-});
 els.reloadBtn?.addEventListener('click', loadPredictions);
 loadPredictions();
