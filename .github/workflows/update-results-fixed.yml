@@ -1,0 +1,41 @@
+name: Aggiorna risultati Mondiale 2026
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Ogni 2 ore, al minuto 26. Gli orari cron di GitHub sono in UTC.
+    # In Italia con ora legale: 02:26, 04:26, 06:26, ecc.
+    - cron: "26 */2 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-results:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Aggiorna risultati
+        run: node scripts/update-results.mjs
+
+      - name: Commit risultati aggiornati
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/risultati-auto.json
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica da pubblicare"
+          else
+            git commit -m "Aggiorna risultati automatici"
+            git push
+          fi
