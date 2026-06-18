@@ -69,3 +69,35 @@ table { width: 100%; border-collapse: separate; border-spacing: 0; }
   .excel-table .participant-col { width: 82px; min-width: 82px; max-width: 82px; font-size: 8px; padding-left: 4px; }
   .match-head { width: 31px; max-width: 31px; min-width: 31px; }
 }
+.mobile-scroll-controls {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .mobile-scroll-controls {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--panel);
+    padding: 8px 0;
+    margin-bottom: 8px;
+  }
+
+  .mobile-scroll-controls .scroll-btn {
+    flex: 1;
+    padding: 9px 10px;
+    font-size: 13px;
+    border-radius: 999px;
+  }
+
+  .excel-wrap {
+    scroll-behavior: smooth;
+  }
+
+  .sheet-block {
+    scroll-margin-top: 10px;
+  }
+}
