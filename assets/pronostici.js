@@ -97,7 +97,7 @@ function renderSheets(predictions, resultsMap) {
     return;
   }
 
-  els.container.innerHTML = sheets.map(([day, sheet]) => {
+  els.container.innerHTML = sheets.map(([day, sheet], index) => {
     const participants = [...sheet.participants.keys()].sort((a, b) => a.localeCompare(b, 'it'));
     const header = sheet.matches.map(match => `<th class="match-head">${formatMatchHeader(match)}</th>`).join('');
     const resultRow = sheet.matches.map(match => {
@@ -115,16 +115,18 @@ function renderSheets(predictions, resultsMap) {
     }).join('');
 
     return `
-      <section class="sheet-block">
+      <section class="sheet-block" data-sheet-index="${index}">
         <div class="sheet-title-row">
           <h2>${escapeHtml(day)}</h2>
-          <div class="scroll-controls" aria-label="Comandi scorrimento tabella">
-            <button type="button" class="scroll-table-btn" data-dir="-1" aria-label="Scorri a sinistra">←</button>
-            <button type="button" class="scroll-table-btn" data-dir="1" aria-label="Scorri a destra">→</button>
-          </div>
+          <span class="mobile-scroll-hint">Usa le frecce per scorrere le partite</span>
         </div>
-        <div class="mobile-scroll-hint">Usa le frecce o scorri con il dito</div>
-        <div class="excel-wrap">
+
+        <div class="mobile-scroll-controls" aria-label="Controlli scorrimento ${escapeHtml(day)}">
+          <button type="button" class="scroll-btn" data-dir="-1" aria-label="Scorri a sinistra">◀ Sinistra</button>
+          <button type="button" class="scroll-btn" data-dir="1" aria-label="Scorri a destra">Destra ▶</button>
+        </div>
+
+        <div class="excel-wrap" tabindex="0">
           <table class="excel-table">
             <thead>
               <tr><th class="participant-col">Partecipanti</th>${header}</tr>
@@ -138,6 +140,22 @@ function renderSheets(predictions, resultsMap) {
       </section>
     `;
   }).join('');
+}
+
+function scrollSheet(button) {
+  const block = button.closest('.sheet-block');
+  const wrap = block?.querySelector('.excel-wrap');
+  if (!wrap) return;
+
+  const direction = Number(button.dataset.dir || 1);
+  const participantCol = wrap.querySelector('.participant-col');
+  const fixedWidth = participantCol ? participantCol.getBoundingClientRect().width : 90;
+  const amount = Math.max(160, wrap.clientWidth - fixedWidth - 20);
+
+  wrap.scrollBy({
+    left: direction * amount,
+    behavior: 'smooth'
+  });
 }
 
 async function loadPredictions() {
@@ -155,22 +173,10 @@ async function loadPredictions() {
   }
 }
 
-
 document.addEventListener('click', event => {
-  const button = event.target.closest('.scroll-table-btn');
+  const button = event.target.closest('.scroll-btn');
   if (!button) return;
-
-  const block = button.closest('.sheet-block');
-  const wrap = block?.querySelector('.excel-wrap');
-  if (!wrap) return;
-
-  const direction = Number(button.dataset.dir || 1);
-  const amount = Math.max(260, Math.floor(wrap.clientWidth * 0.85));
-
-  wrap.scrollBy({
-    left: direction * amount,
-    behavior: 'smooth'
-  });
+  scrollSheet(button);
 });
 
 els.reloadBtn?.addEventListener('click', loadPredictions);
