@@ -5,7 +5,7 @@ on:
   schedule:
     # Ogni 2 ore, al minuto 26. Gli orari cron di GitHub sono in UTC.
     # In Italia con ora legale: 02:26, 04:26, 06:26, ecc.
-    - cron: "26 */2 * * *"
+    - cron: "*/10 * * * *"
 
 permissions:
   contents: write
