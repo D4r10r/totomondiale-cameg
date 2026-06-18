@@ -194,7 +194,33 @@ async function main() {
   const predictions = JSON.parse(await fs.readFile(PREDICTIONS_FILE, 'utf8'));
   const matchMap = buildMatchMap(predictions);
 
-  const response = await fetch(API_URL, { headers: { accept: 'application/json' } });
+  let response;
+let lastError;
+
+for (let attempt = 1; attempt <= 5; attempt++) {
+  try {
+    response = await fetch(API_URL, {
+      headers: { accept: 'application/json' },
+      signal: AbortSignal.timeout(30000)
+    });
+
+    if (response.ok) break;
+
+    lastError = new Error(`API HTTP ${response.status}`);
+  } catch (error) {
+    lastError = error;
+  }
+
+  console.log(`Tentativo API ${attempt}/5 fallito: ${lastError?.message || lastError}`);
+
+  if (attempt < 5) {
+    await new Promise(resolve => setTimeout(resolve, attempt * 5000));
+  }
+}
+
+if (!response || !response.ok) {
+  throw lastError || new Error('API non raggiungibile');
+}
   if (!response.ok) throw new Error(`API HTTP ${response.status}`);
 
   const payload = await response.json();
