@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18T20:50:57.181Z",
+  "updated_at": "2026-06-18T21:01:13.435Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -228,6 +228,16 @@
       "home": "Sweden",
       "away": "Tunisia",
       "home_score": 5,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "SVI-BOS",
+      "home": "Switzerland",
+      "away": "Bosnia and Herzegovina",
+      "home_score": 4,
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
