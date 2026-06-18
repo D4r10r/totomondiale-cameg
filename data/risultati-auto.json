@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-17T22:26:24.568Z",
+  "updated_at": "2026-06-18T08:01:01.153Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -99,6 +99,16 @@
       "away": "Curaçao",
       "home_score": 7,
       "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "GHA-PAN",
+      "home": "Ghana",
+      "away": "Panama",
+      "home_score": 1,
+      "away_score": 0,
       "outcome": "1",
       "status": "finished",
       "finished": true
@@ -220,6 +230,16 @@
       "home_score": 4,
       "away_score": 1,
       "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "UZB-COL",
+      "home": "Uzbekistan",
+      "away": "Colombia",
+      "home_score": 1,
+      "away_score": 3,
+      "outcome": "2",
       "status": "finished",
       "finished": true
     }
