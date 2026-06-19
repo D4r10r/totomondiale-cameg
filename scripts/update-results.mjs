@@ -81,62 +81,62 @@ const OVERRIDE_MATCH_NAMES = {
 };
 
 const TEAM_FLAGS = {
-  ALGERIA: '🇩🇿',
-  ARGENTINA: '🇦🇷',
-  AUSTRALIA: '🇦🇺',
-  AUSTRIA: '🇦🇹',
-  BELGIUM: '🇧🇪',
-  'BOSNIA AND HERZEGOVINA': '🇧🇦',
-  BOSNIA: '🇧🇦',
-  BRAZIL: '🇧🇷',
-  CANADA: '🇨🇦',
-  'CAPE VERDE': '🇨🇻',
-  'CABO VERDE': '🇨🇻',
-  COLOMBIA: '🇨🇴',
-  CROATIA: '🇭🇷',
-  CURACAO: '🇨🇼',
-  CZECHIA: '🇨🇿',
-  'CZECH REPUBLIC': '🇨🇿',
-  'DR CONGO': '🇨🇩',
-  'CONGO DR': '🇨🇩',
-  ECUADOR: '🇪🇨',
-  EGYPT: '🇪🇬',
-  ENGLAND: '🏴',
-  FRANCE: '🇫🇷',
-  GERMANY: '🇩🇪',
-  GHANA: '🇬🇭',
-  HAITI: '🇭🇹',
-  IRAN: '🇮🇷',
-  IRAQ: '🇮🇶',
-  'IVORY COAST': '🇨🇮',
-  JAPAN: '🇯🇵',
-  JORDAN: '🇯🇴',
-  'KOREA REPUBLIC': '🇰🇷',
-  'SOUTH KOREA': '🇰🇷',
-  MEXICO: '🇲🇽',
-  MOROCCO: '🇲🇦',
-  NETHERLANDS: '🇳🇱',
-  'NEW ZEALAND': '🇳🇿',
-  NORWAY: '🇳🇴',
-  PANAMA: '🇵🇦',
-  PARAGUAY: '🇵🇾',
-  PORTUGAL: '🇵🇹',
-  QATAR: '🇶🇦',
-  SAUDI: '🇸🇦',
-  'SAUDI ARABIA': '🇸🇦',
-  SCOTLAND: '🏴',
-  SENEGAL: '🇸🇳',
-  'SOUTH AFRICA': '🇿🇦',
-  SPAIN: '🇪🇸',
-  SWEDEN: '🇸🇪',
-  SWITZERLAND: '🇨🇭',
-  TUNISIA: '🇹🇳',
-  TURKEY: '🇹🇷',
-  TURKIYE: '🇹🇷',
-  URUGUAY: '🇺🇾',
-  'UNITED STATES': '🇺🇸',
-  USA: '🇺🇸',
-  UZBEKISTAN: '🇺🇿'
+  ALGERIA: 'dz',
+  ARGENTINA: 'ar',
+  AUSTRALIA: 'au',
+  AUSTRIA: 'at',
+  BELGIUM: 'be',
+  'BOSNIA AND HERZEGOVINA': 'ba',
+  BOSNIA: 'ba',
+  BRAZIL: 'br',
+  CANADA: 'ca',
+  'CAPE VERDE': 'cv',
+  'CABO VERDE': 'cv',
+  COLOMBIA: 'co',
+  CROATIA: 'hr',
+  CURACAO: 'cw',
+  CZECHIA: 'cz',
+  'CZECH REPUBLIC': 'cz',
+  'DR CONGO': 'cd',
+  'CONGO DR': 'cd',
+  ECUADOR: 'ec',
+  EGYPT: 'eg',
+  ENGLAND: 'gb-eng',
+  FRANCE: 'fr',
+  GERMANY: 'de',
+  GHANA: 'gh',
+  HAITI: 'ht',
+  IRAN: 'ir',
+  IRAQ: 'iq',
+  'IVORY COAST': 'ci',
+  JAPAN: 'jp',
+  JORDAN: 'jo',
+  'KOREA REPUBLIC': 'kr',
+  'SOUTH KOREA': 'kr',
+  MEXICO: 'mx',
+  MOROCCO: 'ma',
+  NETHERLANDS: 'nl',
+  'NEW ZEALAND': 'nz',
+  NORWAY: 'no',
+  PANAMA: 'pa',
+  PARAGUAY: 'py',
+  PORTUGAL: 'pt',
+  QATAR: 'qa',
+  SAUDI: 'sa',
+  'SAUDI ARABIA': 'sa',
+  SCOTLAND: 'gb-sct',
+  SENEGAL: 'sn',
+  'SOUTH AFRICA': 'za',
+  SPAIN: 'es',
+  SWEDEN: 'se',
+  SWITZERLAND: 'ch',
+  TUNISIA: 'tn',
+  TURKEY: 'tr',
+  TURKIYE: 'tr',
+  URUGUAY: 'uy',
+  'UNITED STATES': 'us',
+  USA: 'us',
+  UZBEKISTAN: 'uz'
 };
 
 function stripAccents(value) {
@@ -183,8 +183,8 @@ function buildMatchMap(predictions) {
 
     for (const home of homeNames) {
       for (const away of awayNames) {
-        map.set(makeTeamKey(home, away), { match_id: matchId, reverse: false });
-        map.set(makeTeamKey(away, home), { match_id: matchId, reverse: true });
+        map.set(makeTeamKey(home, away), { match_id: matchId, reverse: false, order: uniqueIds.indexOf(matchId) });
+        map.set(makeTeamKey(away, home), { match_id: matchId, reverse: true, order: uniqueIds.indexOf(matchId) });
       }
     }
   }
@@ -206,6 +206,53 @@ function scoreValue(value) {
   if (raw === undefined || raw === null || raw === '') return null;
   const n = Number(raw);
   return Number.isFinite(n) ? n : null;
+}
+
+function parseDateValue(value) {
+  if (value === undefined || value === null || value === '') return null;
+
+  if (typeof value === 'number') {
+    const millis = value > 1000000000000 ? value : value * 1000;
+    return Number.isFinite(millis) ? millis : null;
+  }
+
+  const raw = String(value).trim();
+  if (!raw) return null;
+
+  const numeric = Number(raw);
+  if (Number.isFinite(numeric) && raw.length >= 10) {
+    return numeric > 1000000000000 ? numeric : numeric * 1000;
+  }
+
+  const parsed = Date.parse(raw);
+  if (!Number.isNaN(parsed)) return parsed;
+
+  const italian = raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})(?:\s+(\d{1,2}):(\d{2}))?$/);
+  if (italian) {
+    const [, day, month, year, hour = '0', minute = '0'] = italian;
+    const date = new Date(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute));
+    return Number.isNaN(date.getTime()) ? null : date.getTime();
+  }
+
+  return null;
+}
+
+function kickoffTime(raw) {
+  const direct = firstDefined(
+    raw.kickoff, raw.kickoff_time, raw.kickoffTime, raw.start_time, raw.startTime,
+    raw.match_date, raw.matchDate, raw.datetime, raw.date_time, raw.utcDate,
+    raw.date, raw.fixture?.date, raw.fixture?.timestamp, raw.timestamp
+  );
+  const directTime = parseDateValue(direct);
+  if (directTime !== null) return directTime;
+
+  const datePart = firstDefined(raw.date, raw.match_date, raw.matchDate, raw.day);
+  const timePart = firstDefined(raw.start_hour, raw.startHour, raw.hour, raw.kickoff_hour, raw.kickoffHour);
+  if (datePart && timePart) {
+    return parseDateValue(`${datePart} ${timePart}`);
+  }
+
+  return null;
 }
 
 function isFinished(raw) {
@@ -277,7 +324,8 @@ function normalizeGame(raw) {
   const live = !finished && isLive(raw);
   const outcome = finished ? outcomeFromScore(homeScore, awayScore) : null;
   const minute = matchMinute(raw, { finished, live });
-  return { home, away, homeScore, awayScore, finished, live, minute, outcome };
+  const kickoff_ts = kickoffTime(raw);
+  return { home, away, homeScore, awayScore, finished, live, minute, outcome, kickoff_ts };
 }
 
 async function main() {
@@ -339,7 +387,9 @@ if (!response || !response.ok) {
         away_score: game.awayScore,
         minute: game.minute || (game.finished ? 'FT' : 'Live'),
         live: game.live,
-        finished: game.finished
+        finished: game.finished,
+        kickoff_ts: game.kickoff_ts,
+        order: match.order
       });
     }
 
@@ -366,9 +416,28 @@ if (!response || !response.ok) {
   }
 
   results.sort((a, b) => String(a.match_id).localeCompare(String(b.match_id), 'it'));
-  const liveMatches = liveCandidates
+
+  const liveOnly = liveCandidates.filter(match => match.live);
+  const finishedOnly = liveCandidates.filter(match => match.finished);
+  const sourceForWidget = liveOnly.length ? liveOnly : finishedOnly;
+  const liveMatches = sourceForWidget
     .slice()
-    .sort((a, b) => Number(b.live) - Number(a.live) || Number(b.finished) - Number(a.finished))
+    .sort((a, b) => {
+      const timeA = a.kickoff_ts ?? null;
+      const timeB = b.kickoff_ts ?? null;
+
+      if (liveOnly.length) {
+        if (timeA !== null && timeB !== null && timeA !== timeB) return timeA - timeB;
+        if (timeA !== null && timeB === null) return -1;
+        if (timeA === null && timeB !== null) return 1;
+        return (a.order ?? 9999) - (b.order ?? 9999);
+      }
+
+      if (timeA !== null && timeB !== null && timeA !== timeB) return timeB - timeA;
+      if (timeA !== null && timeB === null) return -1;
+      if (timeA === null && timeB !== null) return 1;
+      return (b.order ?? -1) - (a.order ?? -1);
+    })
     .slice(0, 2)
     .map(({ home, away, home_flag, away_flag, home_score, away_score, minute }) => ({ home, away, home_flag, away_flag, home_score, away_score, minute }));
 
