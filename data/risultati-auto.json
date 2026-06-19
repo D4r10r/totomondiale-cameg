@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-19T22:20:52.383Z",
+  "updated_at": "2026-06-19T22:31:33.292Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -305,10 +305,10 @@
       "minute": "Live"
     },
     {
-      "home": "Turkey",
-      "away": "Paraguay",
-      "home_flag": "tr",
-      "away_flag": "py",
+      "home": "Brazil",
+      "away": "Haiti",
+      "home_flag": "br",
+      "away_flag": "ht",
       "home_score": 0,
       "away_score": 0,
       "minute": "Live"
