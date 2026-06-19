@@ -80,12 +80,75 @@ const OVERRIDE_MATCH_NAMES = {
   'ALG-AUS': ['Algeria', 'Austria']
 };
 
+const TEAM_FLAGS = {
+  ALGERIA: '🇩🇿',
+  ARGENTINA: '🇦🇷',
+  AUSTRALIA: '🇦🇺',
+  AUSTRIA: '🇦🇹',
+  BELGIUM: '🇧🇪',
+  'BOSNIA AND HERZEGOVINA': '🇧🇦',
+  BOSNIA: '🇧🇦',
+  BRAZIL: '🇧🇷',
+  CANADA: '🇨🇦',
+  'CAPE VERDE': '🇨🇻',
+  'CABO VERDE': '🇨🇻',
+  COLOMBIA: '🇨🇴',
+  CROATIA: '🇭🇷',
+  CURACAO: '🇨🇼',
+  CZECHIA: '🇨🇿',
+  'CZECH REPUBLIC': '🇨🇿',
+  'DR CONGO': '🇨🇩',
+  'CONGO DR': '🇨🇩',
+  ECUADOR: '🇪🇨',
+  EGYPT: '🇪🇬',
+  ENGLAND: '🏴',
+  FRANCE: '🇫🇷',
+  GERMANY: '🇩🇪',
+  GHANA: '🇬🇭',
+  HAITI: '🇭🇹',
+  IRAN: '🇮🇷',
+  IRAQ: '🇮🇶',
+  'IVORY COAST': '🇨🇮',
+  JAPAN: '🇯🇵',
+  JORDAN: '🇯🇴',
+  'KOREA REPUBLIC': '🇰🇷',
+  'SOUTH KOREA': '🇰🇷',
+  MEXICO: '🇲🇽',
+  MOROCCO: '🇲🇦',
+  NETHERLANDS: '🇳🇱',
+  'NEW ZEALAND': '🇳🇿',
+  NORWAY: '🇳🇴',
+  PANAMA: '🇵🇦',
+  PARAGUAY: '🇵🇾',
+  PORTUGAL: '🇵🇹',
+  QATAR: '🇶🇦',
+  SAUDI: '🇸🇦',
+  'SAUDI ARABIA': '🇸🇦',
+  SCOTLAND: '🏴',
+  SENEGAL: '🇸🇳',
+  'SOUTH AFRICA': '🇿🇦',
+  SPAIN: '🇪🇸',
+  SWEDEN: '🇸🇪',
+  SWITZERLAND: '🇨🇭',
+  TUNISIA: '🇹🇳',
+  TURKEY: '🇹🇷',
+  TURKIYE: '🇹🇷',
+  URUGUAY: '🇺🇾',
+  'UNITED STATES': '🇺🇸',
+  USA: '🇺🇸',
+  UZBEKISTAN: '🇺🇿'
+};
+
 function stripAccents(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
 function normalizeText(value) {
   return stripAccents(value).toUpperCase().replace(/[^A-Z0-9]+/g, ' ').trim();
+}
+
+function flagForTeam(teamName) {
+  return TEAM_FLAGS[normalizeText(teamName)] || '';
 }
 
 function makeTeamKey(home, away) {
@@ -157,6 +220,31 @@ function isFinished(raw) {
   });
 }
 
+function isLive(raw) {
+  const values = [
+    raw.live, raw.is_live, raw.in_play, raw.isInPlay,
+    raw.status, raw.match_status, raw.state, raw.status_en, raw.fixture?.status?.short, raw.fixture?.status?.long
+  ];
+
+  return values.some(value => {
+    const s = String(value ?? '').trim().toLowerCase();
+    return ['live', 'in_play', 'in play', 'playing', '1h', '2h', 'ht', 'halftime'].includes(s)
+      || s.includes('live') || s.includes('play') || s.includes('half');
+  });
+}
+
+function matchMinute(raw, game) {
+  if (game.finished) return 'FT';
+
+  const value = firstDefined(
+    raw.minute, raw.elapsed, raw.match_minute, raw.time, raw.fixture?.status?.elapsed
+  );
+  const n = Number(value);
+
+  if (Number.isFinite(n) && n > 0) return `${n}'`;
+  return game.live ? 'Live' : '';
+}
+
 function outcomeFromScore(homeScore, awayScore) {
   if (homeScore === null || awayScore === null) return null;
   if (homeScore > awayScore) return '1';
@@ -186,8 +274,10 @@ function normalizeGame(raw) {
   const homeScore = scoreValue(firstDefined(raw.home_score, raw.homeScore, raw.home_goals, raw.homeGoals, raw.score_home, raw.home_team_score, raw.homeTeamScore, raw.home?.score, raw.home?.goals, raw.goals?.home, raw.score?.home, raw.result?.home, raw.result?.home_score));
   const awayScore = scoreValue(firstDefined(raw.away_score, raw.awayScore, raw.away_goals, raw.awayGoals, raw.score_away, raw.away_team_score, raw.awayTeamScore, raw.away?.score, raw.away?.goals, raw.goals?.away, raw.score?.away, raw.result?.away, raw.result?.away_score));
   const finished = isFinished(raw);
+  const live = !finished && isLive(raw);
   const outcome = finished ? outcomeFromScore(homeScore, awayScore) : null;
-  return { home, away, homeScore, awayScore, finished, outcome };
+  const minute = matchMinute(raw, { finished, live });
+  return { home, away, homeScore, awayScore, finished, live, minute, outcome };
 }
 
 async function main() {
@@ -226,14 +316,34 @@ if (!response || !response.ok) {
   const payload = await response.json();
   const games = extractArray(payload);
   const results = [];
+  const liveCandidates = [];
   const seen = new Set();
+  const seenLive = new Set();
 
   for (const raw of games) {
     const game = normalizeGame(raw);
-    if (!game.home || !game.away || !game.finished || !game.outcome) continue;
+    if (!game.home || !game.away) continue;
 
     const match = matchMap.get(makeTeamKey(game.home, game.away));
-    if (!match || seen.has(match.match_id)) continue;
+    if (!match) continue;
+
+    if (!seenLive.has(match.match_id) && (game.live || game.finished)) {
+      seenLive.add(match.match_id);
+      liveCandidates.push({
+        match_id: match.match_id,
+        home: game.home,
+        away: game.away,
+        home_flag: flagForTeam(game.home),
+        away_flag: flagForTeam(game.away),
+        home_score: game.homeScore,
+        away_score: game.awayScore,
+        minute: game.minute || (game.finished ? 'FT' : 'Live'),
+        live: game.live,
+        finished: game.finished
+      });
+    }
+
+    if (!game.finished || !game.outcome || seen.has(match.match_id)) continue;
 
     seen.add(match.match_id);
     results.push({
@@ -256,12 +366,18 @@ if (!response || !response.ok) {
   }
 
   results.sort((a, b) => String(a.match_id).localeCompare(String(b.match_id), 'it'));
+  const liveMatches = liveCandidates
+    .slice()
+    .sort((a, b) => Number(b.live) - Number(a.live) || Number(b.finished) - Number(a.finished))
+    .slice(0, 2)
+    .map(({ home, away, home_flag, away_flag, home_score, away_score, minute }) => ({ home, away, home_flag, away_flag, home_score, away_score, minute }));
 
   const output = {
     updated_at: new Date().toISOString(),
     source: API_URL,
     source_status: 'ok',
-    results
+    results,
+    live_matches: liveMatches
   };
 
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(output, null, 2) + '\n', 'utf8');
@@ -275,7 +391,8 @@ main().catch(async error => {
     source: API_URL,
     source_status: 'error',
     error: String(error.message || error),
-    results: []
+    results: [],
+    live_matches: []
   };
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(fallback, null, 2) + '\n', 'utf8');
   process.exitCode = 1;
