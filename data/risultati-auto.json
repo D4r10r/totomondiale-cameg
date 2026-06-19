@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-19T23:20:59.987Z",
+  "updated_at": "2026-06-19T23:31:06.401Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -302,15 +302,6 @@
       "away_flag": "ma",
       "home_score": 0,
       "away_score": 1,
-      "minute": "Live"
-    },
-    {
-      "home": "Brazil",
-      "away": "Haiti",
-      "home_flag": "br",
-      "away_flag": "ht",
-      "home_score": 0,
-      "away_score": 0,
       "minute": "Live"
     }
   ]
