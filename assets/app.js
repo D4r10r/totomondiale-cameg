@@ -14,62 +14,62 @@ const els = {
 };
 
 const TEAM_FLAGS = {
-  ALGERIA: '🇩🇿',
-  ARGENTINA: '🇦🇷',
-  AUSTRALIA: '🇦🇺',
-  AUSTRIA: '🇦🇹',
-  BELGIUM: '🇧🇪',
-  'BOSNIA AND HERZEGOVINA': '🇧🇦',
-  BOSNIA: '🇧🇦',
-  BRAZIL: '🇧🇷',
-  CANADA: '🇨🇦',
-  'CAPE VERDE': '🇨🇻',
-  'CABO VERDE': '🇨🇻',
-  COLOMBIA: '🇨🇴',
-  CROATIA: '🇭🇷',
-  CURACAO: '🇨🇼',
-  CZECHIA: '🇨🇿',
-  'CZECH REPUBLIC': '🇨🇿',
-  'DR CONGO': '🇨🇩',
-  'CONGO DR': '🇨🇩',
-  ECUADOR: '🇪🇨',
-  EGYPT: '🇪🇬',
-  ENGLAND: '🏴',
-  FRANCE: '🇫🇷',
-  GERMANY: '🇩🇪',
-  GHANA: '🇬🇭',
-  HAITI: '🇭🇹',
-  IRAN: '🇮🇷',
-  IRAQ: '🇮🇶',
-  'IVORY COAST': '🇨🇮',
-  JAPAN: '🇯🇵',
-  JORDAN: '🇯🇴',
-  'KOREA REPUBLIC': '🇰🇷',
-  'SOUTH KOREA': '🇰🇷',
-  MEXICO: '🇲🇽',
-  MOROCCO: '🇲🇦',
-  NETHERLANDS: '🇳🇱',
-  'NEW ZEALAND': '🇳🇿',
-  NORWAY: '🇳🇴',
-  PANAMA: '🇵🇦',
-  PARAGUAY: '🇵🇾',
-  PORTUGAL: '🇵🇹',
-  QATAR: '🇶🇦',
-  SAUDI: '🇸🇦',
-  'SAUDI ARABIA': '🇸🇦',
-  SCOTLAND: '🏴',
-  SENEGAL: '🇸🇳',
-  'SOUTH AFRICA': '🇿🇦',
-  SPAIN: '🇪🇸',
-  SWEDEN: '🇸🇪',
-  SWITZERLAND: '🇨🇭',
-  TUNISIA: '🇹🇳',
-  TURKEY: '🇹🇷',
-  TURKIYE: '🇹🇷',
-  URUGUAY: '🇺🇾',
-  'UNITED STATES': '🇺🇸',
-  USA: '🇺🇸',
-  UZBEKISTAN: '🇺🇿'
+  ALGERIA: 'dz',
+  ARGENTINA: 'ar',
+  AUSTRALIA: 'au',
+  AUSTRIA: 'at',
+  BELGIUM: 'be',
+  'BOSNIA AND HERZEGOVINA': 'ba',
+  BOSNIA: 'ba',
+  BRAZIL: 'br',
+  CANADA: 'ca',
+  'CAPE VERDE': 'cv',
+  'CABO VERDE': 'cv',
+  COLOMBIA: 'co',
+  CROATIA: 'hr',
+  CURACAO: 'cw',
+  CZECHIA: 'cz',
+  'CZECH REPUBLIC': 'cz',
+  'DR CONGO': 'cd',
+  'CONGO DR': 'cd',
+  ECUADOR: 'ec',
+  EGYPT: 'eg',
+  ENGLAND: 'gb-eng',
+  FRANCE: 'fr',
+  GERMANY: 'de',
+  GHANA: 'gh',
+  HAITI: 'ht',
+  IRAN: 'ir',
+  IRAQ: 'iq',
+  'IVORY COAST': 'ci',
+  JAPAN: 'jp',
+  JORDAN: 'jo',
+  'KOREA REPUBLIC': 'kr',
+  'SOUTH KOREA': 'kr',
+  MEXICO: 'mx',
+  MOROCCO: 'ma',
+  NETHERLANDS: 'nl',
+  'NEW ZEALAND': 'nz',
+  NORWAY: 'no',
+  PANAMA: 'pa',
+  PARAGUAY: 'py',
+  PORTUGAL: 'pt',
+  QATAR: 'qa',
+  SAUDI: 'sa',
+  'SAUDI ARABIA': 'sa',
+  SCOTLAND: 'gb-sct',
+  SENEGAL: 'sn',
+  'SOUTH AFRICA': 'za',
+  SPAIN: 'es',
+  SWEDEN: 'se',
+  SWITZERLAND: 'ch',
+  TUNISIA: 'tn',
+  TURKEY: 'tr',
+  TURKIYE: 'tr',
+  URUGUAY: 'uy',
+  'UNITED STATES': 'us',
+  USA: 'us',
+  UZBEKISTAN: 'uz'
 };
 
 function escapeHtml(value) {
@@ -92,6 +92,14 @@ function normalizeTeamName(value) {
 
 function flagForTeam(teamName) {
   return TEAM_FLAGS[normalizeTeamName(teamName)] || '';
+}
+
+function renderFlag(teamName, flagCode) {
+  const rawCode = String(flagCode || '').trim().toLowerCase();
+  const code = /^[a-z]{2}$/.test(rawCode) ? rawCode : flagForTeam(teamName);
+  if (!code) return '<span class="live-flag live-flag-fallback"></span>';
+
+  return `<img class="live-flag" src="assets/flags/${escapeHtml(code)}.svg" alt="" loading="lazy" onerror="this.outerHTML='<span class=&quot;live-flag live-flag-fallback&quot;></span>'">`;
 }
 
 async function fetchJson(url, fallback = null) {
@@ -210,7 +218,7 @@ function renderLiveMatches(rawResults, resultsByMatch) {
     <article class="live-match">
       <div class="live-board">
         <div class="live-team live-team-home">
-          <span class="live-flag" aria-hidden="true">${escapeHtml(match.home_flag || flagForTeam(match.home))}</span>
+          ${renderFlag(match.home, match.home_flag)}
           <span class="live-name">${escapeHtml(match.home || '')}</span>
         </div>
         <div class="live-score">
@@ -220,7 +228,7 @@ function renderLiveMatches(rawResults, resultsByMatch) {
         </div>
         <div class="live-team live-team-away">
           <span class="live-name">${escapeHtml(match.away || '')}</span>
-          <span class="live-flag" aria-hidden="true">${escapeHtml(match.away_flag || flagForTeam(match.away))}</span>
+          ${renderFlag(match.away, match.away_flag)}
         </div>
       </div>
       <div class="live-minute">${escapeHtml(match.minute || 'Live')}</div>
