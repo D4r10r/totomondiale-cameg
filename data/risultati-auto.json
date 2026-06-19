@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-19T10:21:03.965Z",
+  "updated_at": "2026-06-19T10:31:21.012Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -287,20 +287,20 @@
   "live_matches": [
     {
       "home": "Mexico",
-      "away": "South Africa",
-      "home_flag": "🇲🇽",
-      "away_flag": "🇿🇦",
-      "home_score": 2,
+      "away": "South Korea",
+      "home_flag": "mx",
+      "away_flag": "kr",
+      "home_score": 1,
       "away_score": 0,
       "minute": "FT"
     },
     {
-      "home": "South Korea",
-      "away": "Czech Republic",
-      "home_flag": "🇰🇷",
-      "away_flag": "🇨🇿",
-      "home_score": 2,
-      "away_score": 1,
+      "home": "Canada",
+      "away": "Qatar",
+      "home_flag": "ca",
+      "away_flag": "qa",
+      "home_score": 6,
+      "away_score": 0,
       "minute": "FT"
     }
   ]
