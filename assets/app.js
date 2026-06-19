@@ -8,7 +8,68 @@ const els = {
   statusText: document.getElementById('statusText'),
   rankingBody: document.getElementById('rankingBody'),
   summary: document.getElementById('summary'),
+  liveMatches: document.getElementById('liveMatches'),
+  liveStatus: document.getElementById('liveStatus'),
   reloadBtn: document.getElementById('reloadBtn')
+};
+
+const TEAM_FLAGS = {
+  ALGERIA: '🇩🇿',
+  ARGENTINA: '🇦🇷',
+  AUSTRALIA: '🇦🇺',
+  AUSTRIA: '🇦🇹',
+  BELGIUM: '🇧🇪',
+  'BOSNIA AND HERZEGOVINA': '🇧🇦',
+  BOSNIA: '🇧🇦',
+  BRAZIL: '🇧🇷',
+  CANADA: '🇨🇦',
+  'CAPE VERDE': '🇨🇻',
+  'CABO VERDE': '🇨🇻',
+  COLOMBIA: '🇨🇴',
+  CROATIA: '🇭🇷',
+  CURACAO: '🇨🇼',
+  CZECHIA: '🇨🇿',
+  'CZECH REPUBLIC': '🇨🇿',
+  'DR CONGO': '🇨🇩',
+  'CONGO DR': '🇨🇩',
+  ECUADOR: '🇪🇨',
+  EGYPT: '🇪🇬',
+  ENGLAND: '🏴',
+  FRANCE: '🇫🇷',
+  GERMANY: '🇩🇪',
+  GHANA: '🇬🇭',
+  HAITI: '🇭🇹',
+  IRAN: '🇮🇷',
+  IRAQ: '🇮🇶',
+  'IVORY COAST': '🇨🇮',
+  JAPAN: '🇯🇵',
+  JORDAN: '🇯🇴',
+  'KOREA REPUBLIC': '🇰🇷',
+  'SOUTH KOREA': '🇰🇷',
+  MEXICO: '🇲🇽',
+  MOROCCO: '🇲🇦',
+  NETHERLANDS: '🇳🇱',
+  'NEW ZEALAND': '🇳🇿',
+  NORWAY: '🇳🇴',
+  PANAMA: '🇵🇦',
+  PARAGUAY: '🇵🇾',
+  PORTUGAL: '🇵🇹',
+  QATAR: '🇶🇦',
+  SAUDI: '🇸🇦',
+  'SAUDI ARABIA': '🇸🇦',
+  SCOTLAND: '🏴',
+  SENEGAL: '🇸🇳',
+  'SOUTH AFRICA': '🇿🇦',
+  SPAIN: '🇪🇸',
+  SWEDEN: '🇸🇪',
+  SWITZERLAND: '🇨🇭',
+  TUNISIA: '🇹🇳',
+  TURKEY: '🇹🇷',
+  TURKIYE: '🇹🇷',
+  URUGUAY: '🇺🇾',
+  'UNITED STATES': '🇺🇸',
+  USA: '🇺🇸',
+  UZBEKISTAN: '🇺🇿'
 };
 
 function escapeHtml(value) {
@@ -23,6 +84,14 @@ function escapeHtml(value) {
 function normalizeSign(value) {
   const v = String(value || '').trim().toUpperCase();
   return ['1', 'X', '2'].includes(v) ? v : '';
+}
+
+function normalizeTeamName(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/[^A-Z0-9]+/g, ' ').trim();
+}
+
+function flagForTeam(teamName) {
+  return TEAM_FLAGS[normalizeTeamName(teamName)] || '';
 }
 
 async function fetchJson(url, fallback = null) {
@@ -104,6 +173,61 @@ function renderSummary(predictions, resultsByMatch, ranking) {
   `;
 }
 
+function fallbackLiveMatches(resultsByMatch) {
+  return [...resultsByMatch.values()]
+    .slice()
+    .reverse()
+    .slice(0, 2)
+    .map(match => ({
+      home: match.home || String(match.match_id || '').split('-')[0],
+      away: match.away || String(match.match_id || '').split('-')[1],
+      home_flag: flagForTeam(match.home),
+      away_flag: flagForTeam(match.away),
+      home_score: match.home_score ?? '',
+      away_score: match.away_score ?? '',
+      minute: 'FT'
+    }));
+}
+
+function renderLiveMatches(rawResults, resultsByMatch) {
+  if (!els.liveMatches || !els.liveStatus) return;
+
+  const matches = (Array.isArray(rawResults?.live_matches) && rawResults.live_matches.length)
+    ? rawResults.live_matches.slice(0, 2)
+    : fallbackLiveMatches(resultsByMatch);
+
+  if (!matches.length) {
+    els.liveStatus.textContent = 'Nessun risultato disponibile';
+    els.liveMatches.innerHTML = '<p class="hint">I risultati appariranno qui appena disponibili.</p>';
+    return;
+  }
+
+  els.liveStatus.textContent = matches.some(match => String(match.minute || '').toUpperCase() !== 'FT')
+    ? 'Partite in corso'
+    : 'Ultimi risultati';
+
+  els.liveMatches.innerHTML = matches.map(match => `
+    <article class="live-match">
+      <div class="live-board">
+        <div class="live-team live-team-home">
+          <span class="live-flag" aria-hidden="true">${escapeHtml(match.home_flag || flagForTeam(match.home))}</span>
+          <span class="live-name">${escapeHtml(match.home || '')}</span>
+        </div>
+        <div class="live-score">
+          <strong>${escapeHtml(match.home_score ?? '')}</strong>
+          <span>-</span>
+          <strong>${escapeHtml(match.away_score ?? '')}</strong>
+        </div>
+        <div class="live-team live-team-away">
+          <span class="live-name">${escapeHtml(match.away || '')}</span>
+          <span class="live-flag" aria-hidden="true">${escapeHtml(match.away_flag || flagForTeam(match.away))}</span>
+        </div>
+      </div>
+      <div class="live-minute">${escapeHtml(match.minute || 'Live')}</div>
+    </article>
+  `).join('');
+}
+
 function formatUpdatedAt(value) {
   if (!value) return '—';
   const date = new Date(value);
@@ -123,6 +247,7 @@ async function loadApp() {
 
     renderRanking(ranking);
     renderSummary(predictions, normalized.results, ranking);
+    renderLiveMatches(rawResults, normalized.results);
 
     els.updatedAt.textContent = formatUpdatedAt(normalized.updated_at);
     els.statusText.textContent = normalized.results.size
