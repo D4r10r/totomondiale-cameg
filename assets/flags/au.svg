@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <clipPath id="c"><circle cx="16" cy="16" r="16"/></clipPath>
+  <g clip-path="url(#c)">
+    <rect x="0" y="0" width="32" height="32" fill="#012169"/>
+    <rect x="0" y="0" width="14" height="9" fill="#012169"/>
+    <line x1="0" y1="0" x2="14" y2="9" stroke="#fff" stroke-width="2"/>
+    <line x1="14" y1="0" x2="0" y2="9" stroke="#fff" stroke-width="2"/>
+    <line x1="7" y1="0" x2="7" y2="9" stroke="#fff" stroke-width="2.2"/>
+    <line x1="0" y1="4.5" x2="14" y2="4.5" stroke="#fff" stroke-width="2.2"/>
+    <line x1="7" y1="0" x2="7" y2="9" stroke="#c8102e" stroke-width="1.1"/>
+    <line x1="0" y1="4.5" x2="14" y2="4.5" stroke="#c8102e" stroke-width="1.1"/>
+    <polygon points="22.00,17.00 22.74,18.98 24.85,19.07 23.20,20.39 23.76,22.43 22.00,21.26 20.24,22.43 20.80,20.39 19.15,19.07 21.26,18.98" fill="#fff"/>
+    <polygon points="26.00,6.30 26.42,7.42 27.62,7.47 26.68,8.22 27.00,9.38 26.00,8.71 25.00,9.38 25.32,8.22 24.38,7.47 25.58,7.42" fill="#fff"/>
+    <polygon points="18.00,9.60 18.35,10.52 19.33,10.57 18.56,11.18 18.82,12.13 18.00,11.59 17.18,12.13 17.44,11.18 16.67,10.57 17.65,10.52" fill="#fff"/>
+  </g>
+  <circle cx="16" cy="16" r="15.5" fill="none" stroke="rgba(15,23,42,.18)"/>
+</svg>
