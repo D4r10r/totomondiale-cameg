@@ -237,22 +237,86 @@ function parseDateValue(value) {
   return null;
 }
 
-function kickoffTime(raw) {
-  const direct = firstDefined(
-    raw.kickoff, raw.kickoff_time, raw.kickoffTime, raw.start_time, raw.startTime,
-    raw.match_date, raw.matchDate, raw.datetime, raw.date_time, raw.utcDate,
-    raw.date, raw.fixture?.date, raw.fixture?.timestamp, raw.timestamp
-  );
-  const directTime = parseDateValue(direct);
-  if (directTime !== null) return directTime;
+function localDateParts(value) {
+  const raw = String(value || '').trim();
+  const match = raw.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})(?:[T\s]+(\d{1,2}):(\d{2})(?::(\d{2}))?)?/);
+  if (!match) return null;
 
-  const datePart = firstDefined(raw.date, raw.match_date, raw.matchDate, raw.day);
-  const timePart = firstDefined(raw.start_hour, raw.startHour, raw.hour, raw.kickoff_hour, raw.kickoffHour);
-  if (datePart && timePart) {
-    return parseDateValue(`${datePart} ${timePart}`);
+  return {
+    year: Number(match[1]),
+    month: Number(match[2]),
+    day: Number(match[3]),
+    hour: Number(match[4] || 0),
+    minute: Number(match[5] || 0),
+    second: Number(match[6] || 0)
+  };
+}
+
+function uniqueFiniteTimes(values) {
+  return [...new Set(values.filter(value => Number.isFinite(value)))];
+}
+
+function parseDateCandidates(value) {
+  if (value === undefined || value === null || value === '') return [];
+
+  const candidates = [];
+  const parsed = parseDateValue(value);
+  if (parsed !== null) candidates.push(parsed);
+
+  const parts = localDateParts(value);
+  if (parts) {
+    const { year, month, day, hour, minute, second } = parts;
+    const utcBase = Date.UTC(year, month - 1, day, hour, minute, second);
+
+    // L'API non dichiara sempre il fuso orario dei campi local_date/date.
+    // Per evitare che una partita in corso resti nascosta, proviamo alcune
+    // interpretazioni comuni: UTC, Italia, costa Est USA e Iran.
+    candidates.push(utcBase);
+    candidates.push(utcBase - 2 * 60 * 60 * 1000);       // Europe/Rome ora legale
+    candidates.push(utcBase + 4 * 60 * 60 * 1000);       // America/New_York EDT
+    candidates.push(utcBase - 3.5 * 60 * 60 * 1000);     // Iran Standard Time
   }
 
-  return null;
+  return uniqueFiniteTimes(candidates);
+}
+
+function kickoffTimeCandidates(raw) {
+  const values = [
+    raw.kickoff, raw.kickoff_time, raw.kickoffTime, raw.start_time, raw.startTime,
+    raw.match_date, raw.matchDate, raw.datetime, raw.date_time, raw.utcDate,
+    raw.local_date, raw.localDate, raw.local_datetime, raw.localDatetime,
+    raw.date, raw.fixture?.date, raw.fixture?.timestamp, raw.timestamp
+  ];
+
+  const datePart = firstDefined(raw.local_date, raw.localDate, raw.date, raw.match_date, raw.matchDate, raw.day);
+  const timePart = firstDefined(raw.local_time, raw.localTime, raw.start_hour, raw.startHour, raw.hour, raw.kickoff_hour, raw.kickoffHour, raw.time);
+  if (datePart && timePart && !String(datePart).includes(':')) {
+    values.push(`${datePart} ${timePart}`);
+  }
+
+  return uniqueFiniteTimes(values.flatMap(parseDateCandidates));
+}
+
+function kickoffTime(raw) {
+  return kickoffTimeCandidates(raw)[0] ?? null;
+}
+
+function isProbablyLiveByScore(raw, homeScore, awayScore) {
+  const hasScore = homeScore !== null || awayScore !== null;
+  if (!hasScore) return false;
+
+  const elapsed = String(firstDefined(raw.time_elapsed, raw.elapsed, raw.minute, raw.match_minute, '')).trim().toLowerCase();
+  return !['notstarted', 'not started', 'scheduled', ''].includes(elapsed);
+}
+
+function isProbablyLiveByKickoff(raw) {
+  const now = Date.now();
+  const startWindowMs = 30 * 60 * 1000;
+  const endWindowMs = 150 * 60 * 1000;
+
+  return kickoffTimeCandidates(raw).some(time => {
+    return now >= time - startWindowMs && now <= time + endWindowMs;
+  });
 }
 
 function isFinished(raw) {
@@ -321,9 +385,11 @@ function normalizeGame(raw) {
   const homeScore = scoreValue(firstDefined(raw.home_score, raw.homeScore, raw.home_goals, raw.homeGoals, raw.score_home, raw.home_team_score, raw.homeTeamScore, raw.home?.score, raw.home?.goals, raw.goals?.home, raw.score?.home, raw.result?.home, raw.result?.home_score));
   const awayScore = scoreValue(firstDefined(raw.away_score, raw.awayScore, raw.away_goals, raw.awayGoals, raw.score_away, raw.away_team_score, raw.awayTeamScore, raw.away?.score, raw.away?.goals, raw.goals?.away, raw.score?.away, raw.result?.away, raw.result?.away_score));
   const finished = isFinished(raw);
-  const live = !finished && isLive(raw);
+  const apiLive = isLive(raw);
+  const fallbackLive = isProbablyLiveByScore(raw, homeScore, awayScore) || isProbablyLiveByKickoff(raw);
+  const live = !finished && (apiLive || fallbackLive);
   const outcome = finished ? outcomeFromScore(homeScore, awayScore) : null;
-  const minute = matchMinute(raw, { finished, live });
+  const minute = matchMinute(raw, { finished, live }) || (live ? 'In corso' : '');
   const kickoff_ts = kickoffTime(raw);
   return { home, away, homeScore, awayScore, finished, live, minute, outcome, kickoff_ts };
 }
@@ -383,8 +449,8 @@ if (!response || !response.ok) {
         away: game.away,
         home_flag: flagForTeam(game.home),
         away_flag: flagForTeam(game.away),
-        home_score: game.homeScore,
-        away_score: game.awayScore,
+        home_score: game.live ? (game.homeScore ?? 0) : game.homeScore,
+        away_score: game.live ? (game.awayScore ?? 0) : game.awayScore,
         minute: game.minute || (game.finished ? 'FT' : 'Live'),
         live: game.live,
         finished: game.finished,
@@ -450,7 +516,7 @@ if (!response || !response.ok) {
   };
 
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(output, null, 2) + '\n', 'utf8');
-  console.log(`Aggiornati ${results.length} risultati conclusi.`);
+  console.log(`Aggiornati ${results.length} risultati conclusi. Widget live: ${liveMatches.length} partite.`);
 }
 
 main().catch(async error => {
