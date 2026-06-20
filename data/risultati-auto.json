@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T19:02:06.590Z",
+  "updated_at": "2026-06-20T19:11:06.447Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -214,6 +214,16 @@
       "finished": true
     },
     {
+      "match_id": "NED-SVE",
+      "home": "Netherlands",
+      "away": "Sweden",
+      "home_score": 5,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
       "match_id": "POR-CONGO",
       "home": "Portugal",
       "away": "Democratic Republic of the Congo",
@@ -325,15 +335,6 @@
     }
   ],
   "live_matches": [
-    {
-      "home": "Netherlands",
-      "away": "Sweden",
-      "home_flag": "nl",
-      "away_flag": "se",
-      "home_score": 5,
-      "away_score": 1,
-      "minute": "Live"
-    },
     {
       "home": "Ecuador",
       "away": "Curaçao",
