@@ -38,6 +38,94 @@ const LIVE_BEFORE_KICKOFF_MS = 10 * 60 * 1000;
 const LIVE_AFTER_KICKOFF_MS = 150 * 60 * 1000;
 const RECENT_FINISHED_WINDOW_MS = 8 * 60 * 60 * 1000;
 
+
+const MATCH_KICKOFF_UTC = {
+  'MEX-SUD': '2026-06-11T19:00:00Z',
+  'COR-CEC': '2026-06-12T02:00:00Z',
+  'CAN-BOS': '2026-06-12T19:00:00Z',
+  'USA-PAR': '2026-06-13T01:00:00Z',
+  'QAT-SVI': '2026-06-13T19:00:00Z',
+  'BRA-MAR': '2026-06-13T22:00:00Z',
+  'HAI-SCO': '2026-06-14T01:00:00Z',
+  'AUS-TUR': '2026-06-14T04:00:00Z',
+  'GER-CURA': '2026-06-14T17:00:00Z',
+  'NED-JAP': '2026-06-14T20:00:00Z',
+  'CAV-ECU': '2026-06-14T23:00:00Z',
+  'SVE-TUN': '2026-06-15T02:00:00Z',
+  'SPA-CAVE': '2026-06-15T16:00:00Z',
+  'BEL-EGI': '2026-06-15T19:00:00Z',
+  'SAUDI-URU': '2026-06-15T22:00:00Z',
+  'IRAN-NZEL': '2026-06-16T01:00:00Z',
+  'FRA-SEN': '2026-06-16T19:00:00Z',
+  'IRAQ-NOR': '2026-06-16T22:00:00Z',
+  'ARG-ALG': '2026-06-17T01:00:00Z',
+  'AUS-GIOR': '2026-06-17T04:00:00Z',
+  'POR-CONGO': '2026-06-17T17:00:00Z',
+  'ING-CROA': '2026-06-17T20:00:00Z',
+  'GHA-PAN': '2026-06-17T23:00:00Z',
+  'UZB-COL': '2026-06-18T02:00:00Z',
+  'CEC-SUD': '2026-06-18T16:00:00Z',
+  'SVI-BOS': '2026-06-18T19:00:00Z',
+  'CAN-QAT': '2026-06-18T22:00:00Z',
+  'MEX-COR': '2026-06-19T01:00:00Z',
+  'USA-AUS': '2026-06-19T19:00:00Z',
+  'SCO-MAR': '2026-06-19T22:00:00Z',
+  'BRA-HAI': '2026-06-20T00:30:00Z',
+  'TUR-PAR': '2026-06-20T03:00:00Z',
+  'NED-SVE': '2026-06-20T17:00:00Z',
+  'GER-CAV': '2026-06-20T20:00:00Z',
+  'ECU-CURA': '2026-06-21T00:00:00Z',
+  'TUN-JAP': '2026-06-21T04:00:00Z',
+  'SPA-SAUDI': '2026-06-21T16:00:00Z',
+  'BEL-IRAN': '2026-06-21T19:00:00Z',
+  'URU-CAVE': '2026-06-21T22:00:00Z',
+  'NZEL-EGI': '2026-06-22T01:00:00Z',
+  'ARG-AUS': '2026-06-22T17:00:00Z',
+  'FRA-IRAQ': '2026-06-22T21:00:00Z',
+  'NOR-SEN': '2026-06-23T00:00:00Z',
+  'GIOR-ALG': '2026-06-23T03:00:00Z',
+  'POR-UZB': '2026-06-23T17:00:00Z',
+  'ING-GHA': '2026-06-23T20:00:00Z',
+  'PAN-CROA': '2026-06-23T23:00:00Z',
+  'COL-CONGO': '2026-06-24T02:00:00Z',
+  'SVI-CAN': '2026-06-24T19:00:00Z',
+  'BOS-QAT': '2026-06-24T19:00:00Z',
+  'SCO-BRA': '2026-06-24T22:00:00Z',
+  'MAR-HAI': '2026-06-24T22:00:00Z',
+  'CEC-MEX': '2026-06-25T01:00:00Z',
+  'SUD-COR': '2026-06-25T01:00:00Z',
+  'ECU-GER': '2026-06-25T20:00:00Z',
+  'CURA-CAV': '2026-06-25T20:00:00Z',
+  'TUN-NED': '2026-06-25T23:00:00Z',
+  'JAP-SVE': '2026-06-25T23:00:00Z',
+  'TUR-USA': '2026-06-26T02:00:00Z',
+  'PAR-AUS': '2026-06-26T02:00:00Z',
+  'NOR-FRA': '2026-06-26T19:00:00Z',
+  'SEN-IRAQ': '2026-06-26T19:00:00Z',
+  'URU-SPA': '2026-06-27T00:00:00Z',
+  'CAVE-SAUDI': '2026-06-27T00:00:00Z',
+  'NZEL-BEL': '2026-06-27T03:00:00Z',
+  'EGI-IRAN': '2026-06-27T03:00:00Z',
+  'PAN-ING': '2026-06-27T21:00:00Z',
+  'CROA-GHA': '2026-06-27T21:00:00Z',
+  'COL-POR': '2026-06-27T23:30:00Z',
+  'CONGO-UZB': '2026-06-27T23:30:00Z',
+  'GIOR-ARG': '2026-06-28T02:00:00Z',
+  'ALG-AUS': '2026-06-28T02:00:00Z'
+};
+
+function scheduledKickoff(matchId) {
+  const value = MATCH_KICKOFF_UTC[String(matchId || '').trim().toUpperCase()];
+  if (!value) return null;
+  const ts = Date.parse(value);
+  return Number.isFinite(ts) ? ts : null;
+}
+
+function isLiveByScheduledKickoff(matchId, now = Date.now()) {
+  const ts = scheduledKickoff(matchId);
+  return ts !== null && now >= ts - LIVE_BEFORE_KICKOFF_MS && now <= ts + LIVE_AFTER_KICKOFF_MS;
+}
+
 const TEAM_NAMES = {
   MEX: ['Mexico'],
   SUD: ['South Africa', 'RSA'],
@@ -518,8 +606,8 @@ function makeLiveWidgetMatches(allMatches, resultsByMatch) {
     away: match.away,
     home_flag: match.home_flag || flagForTeam(match.home),
     away_flag: match.away_flag || flagForTeam(match.away),
-    home_score: match.homeScore ?? match.home_score ?? '',
-    away_score: match.awayScore ?? match.away_score ?? '',
+    home_score: (!match.finished && !match.live) ? '' : (match.homeScore ?? match.home_score ?? ''),
+    away_score: (!match.finished && !match.live) ? '' : (match.awayScore ?? match.away_score ?? ''),
     minute: match.finished ? 'FT' : (match.live ? (match.minute || 'Live') : 'Prossima')
   }));
 }
@@ -560,18 +648,24 @@ async function main() {
     const match = matchMap.get(makeTeamKey(game.home, game.away));
     if (!match) continue;
 
+    const scheduled_ts = scheduledKickoff(match.match_id);
+    const kickoff_ts = scheduled_ts ?? game.kickoff_ts ?? null;
+    const scheduledLive = !game.finished && isLiveByScheduledKickoff(match.match_id);
+    const live = scheduled_ts !== null ? scheduledLive : game.live;
+    const isUpcoming = !game.finished && !live;
+
     const common = {
       match_id: match.match_id,
       home: game.home,
       away: game.away,
       home_flag: flagForTeam(game.home),
       away_flag: flagForTeam(game.away),
-      homeScore: game.homeScore,
-      awayScore: game.awayScore,
-      minute: game.minute || (game.finished ? 'FT' : (game.live ? 'Live' : '')),
-      live: game.live,
+      homeScore: isUpcoming ? null : game.homeScore,
+      awayScore: isUpcoming ? null : game.awayScore,
+      minute: game.finished ? 'FT' : (live ? (game.minute || 'Live') : 'Prossima'),
+      live,
       finished: game.finished,
-      kickoff_ts: game.kickoff_ts,
+      kickoff_ts,
       order: match.order
     };
 
@@ -589,7 +683,7 @@ async function main() {
       outcome: match.reverse ? invertOutcome(game.outcome) : game.outcome,
       status: 'finished',
       finished: true,
-      kickoff_ts: game.kickoff_ts,
+      kickoff_ts,
       order: match.order
     });
   }
