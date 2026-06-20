@@ -169,13 +169,11 @@ function renderRanking(ranking) {
 }
 
 function renderSummary(predictions, resultsByMatch, ranking) {
-  const participants = new Set(predictions.map(p => p.partecipante).filter(Boolean)).size;
   const predictedMatchIds = new Set(predictions.map(p => String(p.match_id || '').trim().toUpperCase()).filter(Boolean));
   const countedMatches = [...resultsByMatch.keys()].filter(matchId => predictedMatchIds.has(matchId)).length;
   const leader = ranking[0]?.name || '—';
 
   els.summary.innerHTML = `
-    <article class="stat"><span>Partecipanti</span><strong>${participants}</strong></article>
     <article class="stat"><span>Partite conteggiate</span><strong>${countedMatches}</strong></article>
     <article class="stat"><span>Leader</span><strong>${escapeHtml(leader)}</strong></article>
   `;

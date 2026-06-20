@@ -5,6 +5,7 @@ const CONFIG = {
 
 const els = {
   container: document.getElementById('predictionSheets'),
+  updatedAt: document.getElementById('updatedAt'),
   reloadBtn: document.getElementById('reloadBtn')
 };
 
@@ -20,6 +21,13 @@ function escapeHtml(value) {
 function normalizeSign(value) {
   const v = String(value || '').trim().toUpperCase();
   return ['1', 'X', '2'].includes(v) ? v : '';
+}
+
+function formatUpdatedAt(value) {
+  if (!value) return '—';
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleString('it-IT');
 }
 
 function formatMatchHeader(match) {
@@ -167,8 +175,10 @@ async function loadPredictions() {
     ]);
     const resultsMap = buildResultsMap(rawResults);
     renderSheets(predictions, resultsMap);
+    if (els.updatedAt) els.updatedAt.textContent = formatUpdatedAt(rawResults?.updated_at);
   } catch (error) {
     console.error(error);
+    if (els.updatedAt) els.updatedAt.textContent = 'Errore';
     els.container.innerHTML = '<div class="error">Impossibile leggere i dati del riepilogo pronostici.</div>';
   }
 }
