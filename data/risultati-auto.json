@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T05:01:16.968Z",
+  "updated_at": "2026-06-20T05:10:46.744Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -284,6 +284,16 @@
       "finished": true
     },
     {
+      "match_id": "TUR-PAR",
+      "home": "Turkey",
+      "away": "Paraguay",
+      "home_score": 0,
+      "away_score": 1,
+      "outcome": "2",
+      "status": "finished",
+      "finished": true
+    },
+    {
       "match_id": "USA-AUS",
       "home": "United States",
       "away": "Australia",
@@ -316,13 +326,22 @@
   ],
   "live_matches": [
     {
+      "home": "Brazil",
+      "away": "Haiti",
+      "home_flag": "br",
+      "away_flag": "ht",
+      "home_score": 3,
+      "away_score": 0,
+      "minute": "FT"
+    },
+    {
       "home": "Turkey",
       "away": "Paraguay",
       "home_flag": "tr",
       "away_flag": "py",
       "home_score": 0,
       "away_score": 1,
-      "minute": "Live"
+      "minute": "FT"
     }
   ]
 }
