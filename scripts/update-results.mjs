@@ -1,62 +1,94 @@
 import fs from 'node:fs/promises';
 
-const API_URL = 'https://worldcup26.ir/get/games';
+const DATA_SOURCES = [
+  {
+    name: 'worldcup26.ir',
+    url: 'https://worldcup26.ir/get/games',
+    type: 'worldcup26'
+  },
+  {
+    name: 'TheSportsDB',
+    url: 'https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026',
+    type: 'thesportsdb'
+  },
+  {
+    name: 'GitHub raw worldcup2026 dataset',
+    url: 'https://raw.githubusercontent.com/rezarahiminia/worldcup2026/main/worldcup2026.games.json',
+    type: 'generic'
+  },
+  {
+    name: 'football-data.org',
+    url: 'https://api.football-data.org/v4/competitions/WC/matches?season=2026',
+    type: 'football-data',
+    tokenEnv: 'FOOTBALL_DATA_TOKEN'
+  },
+  {
+    name: 'API-Football',
+    url: 'https://v3.football.api-sports.io/fixtures?league=1&season=2026',
+    type: 'api-football',
+    tokenEnv: 'API_FOOTBALL_KEY'
+  }
+];
+
 const PREDICTIONS_FILE = 'data/pronostici.json';
 const OUTPUT_FILE = 'data/risultati-auto.json';
+const MAX_FETCH_ATTEMPTS = 3;
+const FETCH_TIMEOUT_MS = 25000;
+const LIVE_BEFORE_KICKOFF_MS = 10 * 60 * 1000;
+const LIVE_AFTER_KICKOFF_MS = 150 * 60 * 1000;
+const RECENT_FINISHED_WINDOW_MS = 8 * 60 * 60 * 1000;
 
 const TEAM_NAMES = {
   MEX: ['Mexico'],
-  SUD: ['South Africa'],
-  COR: ['Korea Republic', 'South Korea'],
-  CEC: ['Czech Republic', 'Czechia'],
+  SUD: ['South Africa', 'RSA'],
+  COR: ['Korea Republic', 'South Korea', 'KOR'],
+  CEC: ['Czech Republic', 'Czechia', 'CZE'],
   CAN: ['Canada'],
-  BOS: ['Bosnia and Herzegovina', 'Bosnia'],
+  BOS: ['Bosnia and Herzegovina', 'Bosnia', 'BIH'],
   USA: ['United States', 'USA', 'United States of America'],
   PAR: ['Paraguay'],
   QAT: ['Qatar'],
-  SVI: ['Switzerland'],
-  SVIZ: ['Switzerland'],
+  SVI: ['Switzerland', 'SUI'],
+  SVIZ: ['Switzerland', 'SUI'],
   BRA: ['Brazil'],
   MAR: ['Morocco'],
-  HAI: ['Haiti'],
+  HAI: ['Haiti', 'HTI'],
   SCO: ['Scotland'],
-  AUS: ['Australia', 'Austria'],
+  AUS: ['Australia', 'Austria', 'AUS', 'AUT'],
   TUR: ['Turkiye', 'Turkey'],
   GER: ['Germany'],
-  CURA: ['Curacao', 'Curaçao'],
-  CUR: ['Curacao', 'Curaçao'],
+  CURA: ['Curacao', 'Curaçao', 'CUW'],
+  CUR: ['Curacao', 'Curaçao', 'CUW'],
   NED: ['Netherlands'],
-  JAP: ['Japan'],
-  CAV: ['Ivory Coast', "Cote d'Ivoire", 'Côte d’Ivoire'],
+  JAP: ['Japan', 'JPN'],
+  CAV: ['Ivory Coast', "Cote d'Ivoire", 'Côte d’Ivoire', 'CIV'],
   ECU: ['Ecuador'],
-  SVE: ['Sweden'],
+  SVE: ['Sweden', 'SWE'],
   TUN: ['Tunisia'],
-  SPA: ['Spain'],
-  CAVE: ['Cape Verde', 'Cabo Verde'],
+  SPA: ['Spain', 'ESP'],
+  CAVE: ['Cape Verde', 'Cabo Verde', 'CPV'],
   BEL: ['Belgium'],
-  EGI: ['Egypt'],
-  SAUDI: ['Saudi Arabia'],
+  EGI: ['Egypt', 'EGY'],
+  SAUDI: ['Saudi Arabia', 'KSA'],
   URU: ['Uruguay'],
-  IRAN: ['Iran'],
-  NZEL: ['New Zealand'],
+  IRAN: ['Iran', 'IRI'],
+  NZEL: ['New Zealand', 'NZL'],
   FRA: ['France'],
   SEN: ['Senegal'],
-  IRAQ: ['Iraq'],
+  IRAQ: ['Iraq', 'IRQ'],
   NOR: ['Norway'],
   ARG: ['Argentina'],
-  ALG: ['Algeria'],
-  GIOR: ['Jordan'],
+  ALG: ['Algeria', 'DZA'],
+  GIOR: ['Jordan', 'JOR'],
   POR: ['Portugal'],
-  CONGO: ['DR Congo', 'Congo DR', 'Democratic Republic of the Congo'],
-  ING: ['England'],
-  CROA: ['Croatia'],
+  CONGO: ['DR Congo', 'Congo DR', 'Democratic Republic of the Congo', 'COD'],
+  ING: ['England', 'ENG'],
+  CROA: ['Croatia', 'CRO'],
   GHA: ['Ghana'],
   PAN: ['Panama'],
   UZB: ['Uzbekistan'],
   COL: ['Colombia']
 };
-
-
 
 const MANUAL_FINISHED_RESULTS = [
   {
@@ -81,62 +113,18 @@ const OVERRIDE_MATCH_NAMES = {
 };
 
 const TEAM_FLAGS = {
-  ALGERIA: 'dz',
-  ARGENTINA: 'ar',
-  AUSTRALIA: 'au',
-  AUSTRIA: 'at',
-  BELGIUM: 'be',
-  'BOSNIA AND HERZEGOVINA': 'ba',
-  BOSNIA: 'ba',
-  BRAZIL: 'br',
-  CANADA: 'ca',
-  'CAPE VERDE': 'cv',
-  'CABO VERDE': 'cv',
-  COLOMBIA: 'co',
-  CROATIA: 'hr',
-  CURACAO: 'cw',
-  CZECHIA: 'cz',
-  'CZECH REPUBLIC': 'cz',
-  'DR CONGO': 'cd',
-  'CONGO DR': 'cd',
-  ECUADOR: 'ec',
-  EGYPT: 'eg',
-  ENGLAND: 'gb-eng',
-  FRANCE: 'fr',
-  GERMANY: 'de',
-  GHANA: 'gh',
-  HAITI: 'ht',
-  IRAN: 'ir',
-  IRAQ: 'iq',
-  'IVORY COAST': 'ci',
-  JAPAN: 'jp',
-  JORDAN: 'jo',
-  'KOREA REPUBLIC': 'kr',
-  'SOUTH KOREA': 'kr',
-  MEXICO: 'mx',
-  MOROCCO: 'ma',
-  NETHERLANDS: 'nl',
-  'NEW ZEALAND': 'nz',
-  NORWAY: 'no',
-  PANAMA: 'pa',
-  PARAGUAY: 'py',
-  PORTUGAL: 'pt',
-  QATAR: 'qa',
-  SAUDI: 'sa',
-  'SAUDI ARABIA': 'sa',
-  SCOTLAND: 'gb-sct',
-  SENEGAL: 'sn',
-  'SOUTH AFRICA': 'za',
-  SPAIN: 'es',
-  SWEDEN: 'se',
-  SWITZERLAND: 'ch',
-  TUNISIA: 'tn',
-  TURKEY: 'tr',
-  TURKIYE: 'tr',
-  URUGUAY: 'uy',
-  'UNITED STATES': 'us',
-  USA: 'us',
-  UZBEKISTAN: 'uz'
+  ALGERIA: 'dz', ARGENTINA: 'ar', AUSTRALIA: 'au', AUSTRIA: 'at', BELGIUM: 'be',
+  'BOSNIA AND HERZEGOVINA': 'ba', BOSNIA: 'ba', BRAZIL: 'br', CANADA: 'ca',
+  'CAPE VERDE': 'cv', 'CABO VERDE': 'cv', COLOMBIA: 'co', CROATIA: 'hr', CURACAO: 'cw',
+  CZECHIA: 'cz', 'CZECH REPUBLIC': 'cz', 'DR CONGO': 'cd', 'CONGO DR': 'cd', ECUADOR: 'ec',
+  EGYPT: 'eg', ENGLAND: 'gb-eng', FRANCE: 'fr', GERMANY: 'de', GHANA: 'gh', HAITI: 'ht',
+  IRAN: 'ir', IRAQ: 'iq', 'IVORY COAST': 'ci', JAPAN: 'jp', JORDAN: 'jo',
+  'KOREA REPUBLIC': 'kr', 'SOUTH KOREA': 'kr', MEXICO: 'mx', MOROCCO: 'ma',
+  NETHERLANDS: 'nl', 'NEW ZEALAND': 'nz', NORWAY: 'no', PANAMA: 'pa', PARAGUAY: 'py',
+  PORTUGAL: 'pt', QATAR: 'qa', SAUDI: 'sa', 'SAUDI ARABIA': 'sa', SCOTLAND: 'gb-sct',
+  SENEGAL: 'sn', 'SOUTH AFRICA': 'za', SPAIN: 'es', SWEDEN: 'se', SWITZERLAND: 'ch',
+  TUNISIA: 'tn', TURKEY: 'tr', TURKIYE: 'tr', URUGUAY: 'uy', 'UNITED STATES': 'us',
+  USA: 'us', UZBEKISTAN: 'uz'
 };
 
 function stripAccents(value) {
@@ -196,9 +184,53 @@ function firstDefined(...values) {
   return values.find(v => v !== undefined && v !== null && v !== '');
 }
 
-function extractArray(response) {
-  if (Array.isArray(response)) return response;
-  return firstDefined(response.games, response.data, response.matches, response.results, response.items, []);
+function sourceHeaders(source) {
+  const headers = { accept: 'application/json' };
+  if (source.name === 'football-data.org' && process.env.FOOTBALL_DATA_TOKEN) {
+    headers['X-Auth-Token'] = process.env.FOOTBALL_DATA_TOKEN;
+  }
+  if (source.name === 'API-Football' && process.env.API_FOOTBALL_KEY) {
+    headers['x-apisports-key'] = process.env.API_FOOTBALL_KEY;
+  }
+  return headers;
+}
+
+function sourceIsUsable(source) {
+  return !source.tokenEnv || Boolean(process.env[source.tokenEnv]);
+}
+
+async function fetchJsonFromSource(source) {
+  if (!sourceIsUsable(source)) {
+    throw new Error(`Sorgente saltata: manca secret ${source.tokenEnv}`);
+  }
+
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= MAX_FETCH_ATTEMPTS; attempt++) {
+    try {
+      const response = await fetch(source.url, {
+        headers: sourceHeaders(source),
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
+      });
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.json();
+    } catch (error) {
+      lastError = error;
+      console.log(`${source.name}: tentativo ${attempt}/${MAX_FETCH_ATTEMPTS} fallito: ${error?.message || error}`);
+      if (attempt < MAX_FETCH_ATTEMPTS) await new Promise(resolve => setTimeout(resolve, attempt * 3000));
+    }
+  }
+
+  throw lastError || new Error('Fetch fallito');
+}
+
+function extractArray(payload, sourceType) {
+  if (Array.isArray(payload)) return payload;
+  if (sourceType === 'thesportsdb') return payload?.events || [];
+  if (sourceType === 'football-data') return payload?.matches || [];
+  if (sourceType === 'api-football') return payload?.response || [];
+  return firstDefined(payload.games, payload.data, payload.matches, payload.results, payload.items, payload.events, payload.response, []);
 }
 
 function scoreValue(value) {
@@ -208,152 +240,96 @@ function scoreValue(value) {
   return Number.isFinite(n) ? n : null;
 }
 
-function parseDateValue(value) {
-  if (value === undefined || value === null || value === '') return null;
+function hasExplicitTimezone(raw) {
+  return /(?:Z|[+-]\d{2}:?\d{2})$/i.test(String(raw).trim());
+}
+
+function parseDateValueCandidates(value) {
+  if (value === undefined || value === null || value === '') return [];
 
   if (typeof value === 'number') {
     const millis = value > 1000000000000 ? value : value * 1000;
-    return Number.isFinite(millis) ? millis : null;
+    return Number.isFinite(millis) ? [millis] : [];
   }
 
   const raw = String(value).trim();
-  if (!raw) return null;
+  if (!raw) return [];
 
   const numeric = Number(raw);
   if (Number.isFinite(numeric) && raw.length >= 10) {
-    return numeric > 1000000000000 ? numeric : numeric * 1000;
+    return [numeric > 1000000000000 ? numeric : numeric * 1000];
   }
 
-  const parsed = Date.parse(raw);
-  if (!Number.isNaN(parsed)) return parsed;
+  const normalized = raw.replace(' ', 'T');
+  const direct = Date.parse(raw);
+  if (!Number.isNaN(direct) && hasExplicitTimezone(raw)) return [direct];
+
+  const out = [];
+  const utc = Date.parse(`${normalized.replace(/Z$/i, '')}Z`);
+  if (!Number.isNaN(utc)) {
+    out.push(utc);
+    out.push(utc + 4 * 60 * 60 * 1000); // EDT fallback for USA/Canada/Mexico local times in June.
+    out.push(utc + 5 * 60 * 60 * 1000); // EST fallback.
+  } else if (!Number.isNaN(direct)) {
+    out.push(direct);
+  }
 
   const italian = raw.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})(?:\s+(\d{1,2}):(\d{2}))?$/);
   if (italian) {
     const [, day, month, year, hour = '0', minute = '0'] = italian;
-    const date = new Date(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute));
-    return Number.isNaN(date.getTime()) ? null : date.getTime();
+    const base = Date.UTC(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute));
+    out.push(base, base + 4 * 60 * 60 * 1000, base + 5 * 60 * 60 * 1000);
   }
 
-  return null;
+  return [...new Set(out)].filter(Number.isFinite);
 }
 
-function localDateParts(value) {
-  const raw = String(value || '').trim();
-  const match = raw.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})(?:[T\s]+(\d{1,2}):(\d{2})(?::(\d{2}))?)?/);
-  if (!match) return null;
-
-  return {
-    year: Number(match[1]),
-    month: Number(match[2]),
-    day: Number(match[3]),
-    hour: Number(match[4] || 0),
-    minute: Number(match[5] || 0),
-    second: Number(match[6] || 0)
-  };
-}
-
-function uniqueFiniteTimes(values) {
-  return [...new Set(values.filter(value => Number.isFinite(value)))];
-}
-
-function parseDateCandidates(value) {
-  if (value === undefined || value === null || value === '') return [];
-
-  const candidates = [];
-  const parsed = parseDateValue(value);
-  if (parsed !== null) candidates.push(parsed);
-
-  const parts = localDateParts(value);
-  if (parts) {
-    const { year, month, day, hour, minute, second } = parts;
-    const utcBase = Date.UTC(year, month - 1, day, hour, minute, second);
-
-    // L'API non dichiara sempre il fuso orario dei campi local_date/date.
-    // Per evitare che una partita in corso resti nascosta, proviamo alcune
-    // interpretazioni comuni: UTC, Italia, costa Est USA e Iran.
-    candidates.push(utcBase);
-    candidates.push(utcBase - 2 * 60 * 60 * 1000);       // Europe/Rome ora legale
-    candidates.push(utcBase + 4 * 60 * 60 * 1000);       // America/New_York EDT
-    candidates.push(utcBase - 3.5 * 60 * 60 * 1000);     // Iran Standard Time
-  }
-
-  return uniqueFiniteTimes(candidates);
-}
-
-function kickoffTimeCandidates(raw) {
-  const values = [
+function kickoffCandidates(raw, sourceType) {
+  const direct = firstDefined(
     raw.kickoff, raw.kickoff_time, raw.kickoffTime, raw.start_time, raw.startTime,
     raw.match_date, raw.matchDate, raw.datetime, raw.date_time, raw.utcDate,
-    raw.local_date, raw.localDate, raw.local_datetime, raw.localDatetime,
-    raw.date, raw.fixture?.date, raw.fixture?.timestamp, raw.timestamp
-  ];
+    raw.local_date, raw.localDate, raw.dateEventLocal,
+    raw.date, raw.fixture?.date, raw.fixture?.timestamp, raw.timestamp,
+    raw.strTimestamp
+  );
 
-  const datePart = firstDefined(raw.local_date, raw.localDate, raw.date, raw.match_date, raw.matchDate, raw.day);
-  const timePart = firstDefined(raw.local_time, raw.localTime, raw.start_hour, raw.startHour, raw.hour, raw.kickoff_hour, raw.kickoffHour, raw.time);
-  if (datePart && timePart && !String(datePart).includes(':')) {
-    values.push(`${datePart} ${timePart}`);
+  const directCandidates = parseDateValueCandidates(direct);
+  if (directCandidates.length) return directCandidates;
+
+  if (sourceType === 'thesportsdb') {
+    const date = firstDefined(raw.dateEvent, raw.dateEventLocal);
+    const time = firstDefined(raw.strTime, raw.strTimeLocal);
+    return parseDateValueCandidates(date && time ? `${date} ${time}` : date);
   }
 
-  return uniqueFiniteTimes(values.flatMap(parseDateCandidates));
+  const datePart = firstDefined(raw.date, raw.match_date, raw.matchDate, raw.day, raw.dateEvent);
+  const timePart = firstDefined(raw.start_hour, raw.startHour, raw.hour, raw.kickoff_hour, raw.kickoffHour, raw.strTime);
+  return parseDateValueCandidates(datePart && timePart ? `${datePart} ${timePart}` : datePart);
 }
 
-function kickoffTime(raw) {
-  return kickoffTimeCandidates(raw)[0] ?? null;
+function bestKickoff(candidates, now = Date.now()) {
+  if (!candidates.length) return null;
+  const inWindow = candidates.find(ts => now >= ts - LIVE_BEFORE_KICKOFF_MS && now <= ts + LIVE_AFTER_KICKOFF_MS);
+  if (inWindow) return inWindow;
+  const future = candidates.filter(ts => ts > now).sort((a, b) => a - b)[0];
+  if (future) return future;
+  return candidates.slice().sort((a, b) => b - a)[0];
 }
 
-function isProbablyLiveByScore(raw, homeScore, awayScore) {
-  const hasScore = homeScore !== null || awayScore !== null;
-  if (!hasScore) return false;
-
-  const elapsed = String(firstDefined(raw.time_elapsed, raw.elapsed, raw.minute, raw.match_minute, '')).trim().toLowerCase();
-  return !['notstarted', 'not started', 'scheduled', ''].includes(elapsed);
-}
-
-function isProbablyLiveByKickoff(raw) {
-  const now = Date.now();
-  const startWindowMs = 30 * 60 * 1000;
-  const endWindowMs = 150 * 60 * 1000;
-
-  return kickoffTimeCandidates(raw).some(time => {
-    return now >= time - startWindowMs && now <= time + endWindowMs;
-  });
-}
-
-function isFinished(raw) {
-  const values = [
-    raw.finished, raw.is_finished, raw.completed, raw.isCompleted, raw.played, raw.isPlayed,
-    raw.status, raw.match_status, raw.state, raw.status_en, raw.fixture?.status?.short, raw.fixture?.status?.long
-  ];
+function isFinishedStatus(...values) {
   return values.some(value => {
     const s = String(value ?? '').trim().toLowerCase();
-    return ['true', '1', 'yes', 'finished', 'full_time', 'full time', 'ft', 'ended', 'completed', 'complete', 'final', 'played'].includes(s)
-      || s.includes('finished') || s.includes('ended') || s.includes('full');
+    return ['true', '1', 'yes', 'finished', 'full_time', 'full time', 'ft', 'ended', 'completed', 'complete', 'final', 'played', 'match finished'].includes(s)
+      || s.includes('finished') || s.includes('ended') || s.includes('full time');
   });
 }
 
-function isLive(raw) {
-  const values = [
-    raw.live, raw.is_live, raw.in_play, raw.isInPlay,
-    raw.status, raw.match_status, raw.state, raw.status_en, raw.fixture?.status?.short, raw.fixture?.status?.long
-  ];
-
+function isLiveStatus(...values) {
   return values.some(value => {
     const s = String(value ?? '').trim().toLowerCase();
-    return ['live', 'in_play', 'in play', 'playing', '1h', '2h', 'ht', 'halftime'].includes(s)
-      || s.includes('live') || s.includes('play') || s.includes('half');
+    return ['live', 'in_play', 'in play', 'playing', '1h', '2h', 'ht', 'halftime', 'first half', 'second half'].includes(s)
+      || s.includes('live') || s.includes('in play') || s.includes('first half') || s.includes('second half');
   });
-}
-
-function matchMinute(raw, game) {
-  if (game.finished) return 'FT';
-
-  const value = firstDefined(
-    raw.minute, raw.elapsed, raw.match_minute, raw.time, raw.fixture?.status?.elapsed
-  );
-  const n = Number(value);
-
-  if (Number.isFinite(n) && n > 0) return `${n}'`;
-  return game.live ? 'Live' : '';
 }
 
 function outcomeFromScore(homeScore, awayScore) {
@@ -361,6 +337,75 @@ function outcomeFromScore(homeScore, awayScore) {
   if (homeScore > awayScore) return '1';
   if (homeScore < awayScore) return '2';
   return 'X';
+}
+
+function normalizeWorldcup26Game(raw) {
+  const home = firstDefined(teamName(raw, 'home'), teamCode(raw, 'home'));
+  const away = firstDefined(teamName(raw, 'away'), teamCode(raw, 'away'));
+  const homeScore = scoreValue(firstDefined(raw.home_score, raw.homeScore, raw.home_goals, raw.homeGoals, raw.score_home, raw.home_team_score, raw.homeTeamScore, raw.home?.score, raw.home?.goals, raw.goals?.home, raw.score?.home, raw.result?.home, raw.result?.home_score));
+  const awayScore = scoreValue(firstDefined(raw.away_score, raw.awayScore, raw.away_goals, raw.awayGoals, raw.score_away, raw.away_team_score, raw.awayTeamScore, raw.away?.score, raw.away?.goals, raw.goals?.away, raw.score?.away, raw.result?.away, raw.result?.away_score));
+  const finished = isFinishedStatus(raw.finished, raw.is_finished, raw.completed, raw.isCompleted, raw.played, raw.isPlayed, raw.status, raw.match_status, raw.state, raw.status_en, raw.fixture?.status?.short, raw.fixture?.status?.long);
+  const explicitLive = !finished && isLiveStatus(raw.live, raw.is_live, raw.in_play, raw.isInPlay, raw.status, raw.match_status, raw.state, raw.status_en, raw.fixture?.status?.short, raw.fixture?.status?.long);
+  const kickoff_ts_candidates = kickoffCandidates(raw, 'worldcup26');
+  const kickoff_ts = bestKickoff(kickoff_ts_candidates);
+  const liveByTime = !finished && kickoff_ts_candidates.some(ts => Date.now() >= ts - LIVE_BEFORE_KICKOFF_MS && Date.now() <= ts + LIVE_AFTER_KICKOFF_MS);
+  const live = explicitLive || liveByTime;
+  const minute = matchMinute(raw, { finished, live });
+  const outcome = finished ? outcomeFromScore(homeScore, awayScore) : null;
+  return { home, away, homeScore, awayScore, finished, live, minute, outcome, kickoff_ts };
+}
+
+function normalizeTheSportsDbGame(raw) {
+  const home = firstDefined(raw.strHomeTeam, raw.strHomeTeamShort, raw.homeTeam, raw.home);
+  const away = firstDefined(raw.strAwayTeam, raw.strAwayTeamShort, raw.awayTeam, raw.away);
+  const homeScore = scoreValue(firstDefined(raw.intHomeScore, raw.home_score, raw.homeScore));
+  const awayScore = scoreValue(firstDefined(raw.intAwayScore, raw.away_score, raw.awayScore));
+  const status = firstDefined(raw.strStatus, raw.status, raw.strProgress);
+  const finished = isFinishedStatus(status) || (homeScore !== null && awayScore !== null && String(status || '').toLowerCase().includes('match finished'));
+  const explicitLive = !finished && isLiveStatus(status, raw.strProgress);
+  const kickoff_ts_candidates = kickoffCandidates(raw, 'thesportsdb');
+  const kickoff_ts = bestKickoff(kickoff_ts_candidates);
+  const liveByTime = !finished && kickoff_ts_candidates.some(ts => Date.now() >= ts - LIVE_BEFORE_KICKOFF_MS && Date.now() <= ts + LIVE_AFTER_KICKOFF_MS);
+  const live = explicitLive || liveByTime;
+  const minute = finished ? 'FT' : (explicitLive ? 'Live' : (liveByTime ? 'Live' : ''));
+  const outcome = finished ? outcomeFromScore(homeScore, awayScore) : null;
+  return { home, away, homeScore, awayScore, finished, live, minute, outcome, kickoff_ts };
+}
+
+function normalizeFootballDataGame(raw) {
+  const home = firstDefined(raw.homeTeam?.name, raw.homeTeam?.shortName, raw.homeTeam?.tla);
+  const away = firstDefined(raw.awayTeam?.name, raw.awayTeam?.shortName, raw.awayTeam?.tla);
+  const homeScore = scoreValue(firstDefined(raw.score?.fullTime?.home, raw.score?.regularTime?.home, raw.score?.halfTime?.home));
+  const awayScore = scoreValue(firstDefined(raw.score?.fullTime?.away, raw.score?.regularTime?.away, raw.score?.halfTime?.away));
+  const status = raw.status;
+  const finished = isFinishedStatus(status) || String(status || '').toUpperCase() === 'FINISHED';
+  const explicitLive = !finished && ['IN_PLAY', 'PAUSED'].includes(String(status || '').toUpperCase());
+  const kickoff_ts_candidates = kickoffCandidates(raw, 'football-data');
+  const kickoff_ts = bestKickoff(kickoff_ts_candidates);
+  const liveByTime = !finished && kickoff_ts_candidates.some(ts => Date.now() >= ts - LIVE_BEFORE_KICKOFF_MS && Date.now() <= ts + LIVE_AFTER_KICKOFF_MS);
+  const live = explicitLive || liveByTime;
+  const minute = finished ? 'FT' : (explicitLive ? 'Live' : (liveByTime ? 'Live' : ''));
+  const outcome = finished ? outcomeFromScore(homeScore, awayScore) : null;
+  return { home, away, homeScore, awayScore, finished, live, minute, outcome, kickoff_ts };
+}
+
+function normalizeApiFootballGame(raw) {
+  const home = firstDefined(raw.teams?.home?.name, raw.home?.name);
+  const away = firstDefined(raw.teams?.away?.name, raw.away?.name);
+  const homeScore = scoreValue(firstDefined(raw.goals?.home, raw.score?.fulltime?.home, raw.score?.halftime?.home));
+  const awayScore = scoreValue(firstDefined(raw.goals?.away, raw.score?.fulltime?.away, raw.score?.halftime?.away));
+  const statusShort = raw.fixture?.status?.short;
+  const statusLong = raw.fixture?.status?.long;
+  const finished = ['FT', 'AET', 'PEN'].includes(String(statusShort || '').toUpperCase()) || isFinishedStatus(statusLong);
+  const explicitLive = !finished && ['1H', '2H', 'HT', 'ET', 'BT', 'P'].includes(String(statusShort || '').toUpperCase());
+  const kickoff_ts_candidates = kickoffCandidates(raw, 'api-football');
+  const kickoff_ts = bestKickoff(kickoff_ts_candidates);
+  const liveByTime = !finished && kickoff_ts_candidates.some(ts => Date.now() >= ts - LIVE_BEFORE_KICKOFF_MS && Date.now() <= ts + LIVE_AFTER_KICKOFF_MS);
+  const live = explicitLive || liveByTime;
+  const elapsed = Number(raw.fixture?.status?.elapsed);
+  const minute = finished ? 'FT' : (Number.isFinite(elapsed) && elapsed > 0 ? `${elapsed}'` : (live ? 'Live' : ''));
+  const outcome = finished ? outcomeFromScore(homeScore, awayScore) : null;
+  return { home, away, homeScore, awayScore, finished, live, minute, outcome, kickoff_ts };
 }
 
 function teamName(raw, side) {
@@ -379,85 +424,158 @@ function teamCode(raw, side) {
   );
 }
 
-function normalizeGame(raw) {
-  const home = firstDefined(teamName(raw, 'home'), teamCode(raw, 'home'));
-  const away = firstDefined(teamName(raw, 'away'), teamCode(raw, 'away'));
-  const homeScore = scoreValue(firstDefined(raw.home_score, raw.homeScore, raw.home_goals, raw.homeGoals, raw.score_home, raw.home_team_score, raw.homeTeamScore, raw.home?.score, raw.home?.goals, raw.goals?.home, raw.score?.home, raw.result?.home, raw.result?.home_score));
-  const awayScore = scoreValue(firstDefined(raw.away_score, raw.awayScore, raw.away_goals, raw.awayGoals, raw.score_away, raw.away_team_score, raw.awayTeamScore, raw.away?.score, raw.away?.goals, raw.goals?.away, raw.score?.away, raw.result?.away, raw.result?.away_score));
-  const finished = isFinished(raw);
-  const apiLive = isLive(raw);
-  const fallbackLive = isProbablyLiveByScore(raw, homeScore, awayScore) || isProbablyLiveByKickoff(raw);
-  const live = !finished && (apiLive || fallbackLive);
-  const outcome = finished ? outcomeFromScore(homeScore, awayScore) : null;
-  const minute = matchMinute(raw, { finished, live }) || (live ? 'In corso' : '');
-  const kickoff_ts = kickoffTime(raw);
-  return { home, away, homeScore, awayScore, finished, live, minute, outcome, kickoff_ts };
+function matchMinute(raw, game) {
+  if (game.finished) return 'FT';
+  const value = firstDefined(raw.minute, raw.elapsed, raw.match_minute, raw.time, raw.fixture?.status?.elapsed);
+  const n = Number(value);
+  if (Number.isFinite(n) && n > 0) return `${n}'`;
+  return game.live ? 'Live' : '';
+}
+
+function normalizeGame(raw, sourceType) {
+  if (sourceType === 'thesportsdb') return normalizeTheSportsDbGame(raw);
+  if (sourceType === 'football-data') return normalizeFootballDataGame(raw);
+  if (sourceType === 'api-football') return normalizeApiFootballGame(raw);
+  return normalizeWorldcup26Game(raw);
+}
+
+async function readExistingOutput() {
+  try {
+    return JSON.parse(await fs.readFile(OUTPUT_FILE, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+async function loadGamesFromSources() {
+  const errors = [];
+
+  for (const source of DATA_SOURCES) {
+    try {
+      const payload = await fetchJsonFromSource(source);
+      const games = extractArray(payload, source.type);
+      if (!Array.isArray(games) || !games.length) throw new Error('Payload senza partite utilizzabili');
+      console.log(`Sorgente attiva: ${source.name} (${games.length} partite lette)`);
+      return { source, games };
+    } catch (error) {
+      errors.push(`${source.name}: ${error?.message || error}`);
+      console.log(`Sorgente non disponibile: ${source.name} - ${error?.message || error}`);
+    }
+  }
+
+  throw new Error(`Nessuna sorgente disponibile. ${errors.join(' | ')}`);
+}
+
+function makeLiveWidgetMatches(allMatches, resultsByMatch) {
+  const now = Date.now();
+  const unique = new Map();
+
+  for (const match of allMatches) {
+    if (!unique.has(match.match_id)) unique.set(match.match_id, match);
+  }
+
+  const matches = [...unique.values()];
+  const live = matches
+    .filter(match => match.live && !match.finished)
+    .sort((a, b) => (a.kickoff_ts ?? Number.MAX_SAFE_INTEGER) - (b.kickoff_ts ?? Number.MAX_SAFE_INTEGER));
+
+  const upcoming = matches
+    .filter(match => !match.live && !match.finished && match.kickoff_ts && match.kickoff_ts > now)
+    .sort((a, b) => a.kickoff_ts - b.kickoff_ts);
+
+  const recentFinished = matches
+    .filter(match => match.finished && match.kickoff_ts && now - match.kickoff_ts <= RECENT_FINISHED_WINDOW_MS)
+    .sort((a, b) => (b.kickoff_ts ?? 0) - (a.kickoff_ts ?? 0));
+
+  const olderFinished = [...resultsByMatch.values()]
+    .map(row => ({
+      match_id: row.match_id,
+      home: row.home,
+      away: row.away,
+      homeScore: row.home_score,
+      awayScore: row.away_score,
+      home_flag: flagForTeam(row.home),
+      away_flag: flagForTeam(row.away),
+      minute: 'FT',
+      finished: true,
+      live: false,
+      kickoff_ts: row.kickoff_ts || null,
+      order: row.order ?? -1
+    }))
+    .sort((a, b) => (b.order ?? -1) - (a.order ?? -1));
+
+  const selected = [];
+  for (const group of [live, upcoming, recentFinished, olderFinished]) {
+    for (const item of group) {
+      if (selected.length >= 2) break;
+      if (!selected.some(match => match.match_id === item.match_id)) selected.push(item);
+    }
+    if (selected.length >= 2) break;
+  }
+
+  return selected.slice(0, 2).map(match => ({
+    home: match.home,
+    away: match.away,
+    home_flag: match.home_flag || flagForTeam(match.home),
+    away_flag: match.away_flag || flagForTeam(match.away),
+    home_score: match.homeScore ?? match.home_score ?? '',
+    away_score: match.awayScore ?? match.away_score ?? '',
+    minute: match.finished ? 'FT' : (match.live ? (match.minute || 'Live') : 'Prossima')
+  }));
 }
 
 async function main() {
   const predictions = JSON.parse(await fs.readFile(PREDICTIONS_FILE, 'utf8'));
   const matchMap = buildMatchMap(predictions);
+  const previous = await readExistingOutput();
 
-  let response;
-let lastError;
-
-for (let attempt = 1; attempt <= 5; attempt++) {
+  let loaded;
   try {
-    response = await fetch(API_URL, {
-      headers: { accept: 'application/json' },
-      signal: AbortSignal.timeout(30000)
-    });
-
-    if (response.ok) break;
-
-    lastError = new Error(`API HTTP ${response.status}`);
+    loaded = await loadGamesFromSources();
   } catch (error) {
-    lastError = error;
+    console.error(error);
+    if (previous?.results?.length || previous?.live_matches?.length) {
+      const fallback = {
+        ...previous,
+        updated_at: new Date().toISOString(),
+        source_status: 'fallback_cache',
+        error: String(error.message || error)
+      };
+      await fs.writeFile(OUTPUT_FILE, JSON.stringify(fallback, null, 2) + '\n', 'utf8');
+      console.log('API non disponibili: mantenuti ultimi dati validi in cache.');
+      return;
+    }
+    throw error;
   }
 
-  console.log(`Tentativo API ${attempt}/5 fallito: ${lastError?.message || lastError}`);
-
-  if (attempt < 5) {
-    await new Promise(resolve => setTimeout(resolve, attempt * 5000));
-  }
-}
-
-if (!response || !response.ok) {
-  throw lastError || new Error('API non raggiungibile');
-}
-  if (!response.ok) throw new Error(`API HTTP ${response.status}`);
-
-  const payload = await response.json();
-  const games = extractArray(payload);
+  const { source, games } = loaded;
   const results = [];
-  const liveCandidates = [];
+  const allMatches = [];
   const seen = new Set();
-  const seenLive = new Set();
 
   for (const raw of games) {
-    const game = normalizeGame(raw);
+    const game = normalizeGame(raw, source.type);
     if (!game.home || !game.away) continue;
 
     const match = matchMap.get(makeTeamKey(game.home, game.away));
     if (!match) continue;
 
-    if (!seenLive.has(match.match_id) && (game.live || game.finished)) {
-      seenLive.add(match.match_id);
-      liveCandidates.push({
-        match_id: match.match_id,
-        home: game.home,
-        away: game.away,
-        home_flag: flagForTeam(game.home),
-        away_flag: flagForTeam(game.away),
-        home_score: game.live ? (game.homeScore ?? 0) : game.homeScore,
-        away_score: game.live ? (game.awayScore ?? 0) : game.awayScore,
-        minute: game.minute || (game.finished ? 'FT' : 'Live'),
-        live: game.live,
-        finished: game.finished,
-        kickoff_ts: game.kickoff_ts,
-        order: match.order
-      });
-    }
+    const common = {
+      match_id: match.match_id,
+      home: game.home,
+      away: game.away,
+      home_flag: flagForTeam(game.home),
+      away_flag: flagForTeam(game.away),
+      homeScore: game.homeScore,
+      awayScore: game.awayScore,
+      minute: game.minute || (game.finished ? 'FT' : (game.live ? 'Live' : '')),
+      live: game.live,
+      finished: game.finished,
+      kickoff_ts: game.kickoff_ts,
+      order: match.order
+    };
+
+    allMatches.push(common);
 
     if (!game.finished || !game.outcome || seen.has(match.match_id)) continue;
 
@@ -470,65 +588,52 @@ if (!response || !response.ok) {
       away_score: game.awayScore,
       outcome: match.reverse ? invertOutcome(game.outcome) : game.outcome,
       status: 'finished',
-      finished: true
+      finished: true,
+      kickoff_ts: game.kickoff_ts,
+      order: match.order
     });
   }
 
   for (const manual of MANUAL_FINISHED_RESULTS) {
     if (!seen.has(manual.match_id)) {
       seen.add(manual.match_id);
-      results.push(manual);
+      const order = matchMap.get(makeTeamKey(manual.home, manual.away))?.order ?? 9999;
+      results.push({ ...manual, order });
     }
   }
 
   results.sort((a, b) => String(a.match_id).localeCompare(String(b.match_id), 'it'));
 
-  const liveOnly = liveCandidates.filter(match => match.live);
-  const finishedOnly = liveCandidates.filter(match => match.finished);
-  const sourceForWidget = liveOnly.length ? liveOnly : finishedOnly;
-  const liveMatches = sourceForWidget
-    .slice()
-    .sort((a, b) => {
-      const timeA = a.kickoff_ts ?? null;
-      const timeB = b.kickoff_ts ?? null;
-
-      if (liveOnly.length) {
-        if (timeA !== null && timeB !== null && timeA !== timeB) return timeA - timeB;
-        if (timeA !== null && timeB === null) return -1;
-        if (timeA === null && timeB !== null) return 1;
-        return (a.order ?? 9999) - (b.order ?? 9999);
-      }
-
-      if (timeA !== null && timeB !== null && timeA !== timeB) return timeB - timeA;
-      if (timeA !== null && timeB === null) return -1;
-      if (timeA === null && timeB !== null) return 1;
-      return (b.order ?? -1) - (a.order ?? -1);
-    })
-    .slice(0, 2)
-    .map(({ home, away, home_flag, away_flag, home_score, away_score, minute }) => ({ home, away, home_flag, away_flag, home_score, away_score, minute }));
+  const resultsByMatch = new Map(results.map(row => [row.match_id, row]));
+  const liveMatches = makeLiveWidgetMatches(allMatches, resultsByMatch);
 
   const output = {
     updated_at: new Date().toISOString(),
-    source: API_URL,
+    source: source.url,
+    source_name: source.name,
     source_status: 'ok',
+    available_sources: DATA_SOURCES.map(s => ({ name: s.name, requires_secret: Boolean(s.tokenEnv), enabled: sourceIsUsable(s) })),
     results,
     live_matches: liveMatches
   };
 
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(output, null, 2) + '\n', 'utf8');
-  console.log(`Aggiornati ${results.length} risultati conclusi. Widget live: ${liveMatches.length} partite.`);
+  console.log(`Aggiornati ${results.length} risultati conclusi da ${source.name}.`);
 }
 
 main().catch(async error => {
   console.error(error);
-  const fallback = {
+  const previous = await readExistingOutput();
+  const fallback = previous || {
     updated_at: new Date().toISOString(),
-    source: API_URL,
     source_status: 'error',
-    error: String(error.message || error),
     results: [],
     live_matches: []
   };
+
+  fallback.updated_at = new Date().toISOString();
+  fallback.source_status = previous ? 'fallback_cache' : 'error';
+  fallback.error = String(error.message || error);
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(fallback, null, 2) + '\n', 'utf8');
-  process.exitCode = 1;
+  console.log('Errore gestito senza bloccare il workflow.');
 });
