@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T21:31:20.815Z",
+  "updated_at": "2026-06-20T22:10:57.634Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -118,6 +118,16 @@
       "home": "France",
       "away": "Senegal",
       "home_score": 3,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true
+    },
+    {
+      "match_id": "GER-CAV",
+      "home": "Germany",
+      "away": "Ivory Coast",
+      "home_score": 2,
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
@@ -335,15 +345,6 @@
     }
   ],
   "live_matches": [
-    {
-      "home": "Germany",
-      "away": "Ivory Coast",
-      "home_flag": "de",
-      "away_flag": "ci",
-      "home_score": 0,
-      "away_score": 1,
-      "minute": "Live"
-    },
     {
       "home": "Tunisia",
       "away": "Japan",
