@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-19T23:54:22.174Z",
+  "updated_at": "2026-06-20T00:01:20.300Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -234,6 +234,16 @@
       "finished": true
     },
     {
+      "match_id": "SCO-MAR",
+      "home": "Scotland",
+      "away": "Morocco",
+      "home_score": 0,
+      "away_score": 1,
+      "outcome": "2",
+      "status": "finished",
+      "finished": true
+    },
+    {
       "match_id": "SPA-CAVE",
       "home": "Spain",
       "away": "Cape Verde",
@@ -302,7 +312,16 @@
       "away_flag": "ma",
       "home_score": 0,
       "away_score": 1,
-      "minute": "Live"
+      "minute": "FT"
+    },
+    {
+      "home": "United States",
+      "away": "Australia",
+      "home_flag": "us",
+      "away_flag": "au",
+      "home_score": 2,
+      "away_score": 0,
+      "minute": "FT"
     }
   ]
 }
