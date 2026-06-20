@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T21:20:59.637Z",
+  "updated_at": "2026-06-20T21:31:20.815Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -345,10 +345,10 @@
       "minute": "Live"
     },
     {
-      "home": "Ecuador",
-      "away": "Curaçao",
-      "home_flag": "ec",
-      "away_flag": "cw",
+      "home": "Tunisia",
+      "away": "Japan",
+      "home_flag": "tn",
+      "away_flag": "jp",
       "home_score": 0,
       "away_score": 0,
       "minute": "Live"
