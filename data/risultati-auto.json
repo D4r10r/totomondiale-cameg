@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T17:01:22.483Z",
+  "updated_at": "2026-06-20T17:10:59.958Z",
   "source": "https://worldcup26.ir/get/games",
   "source_status": "ok",
   "results": [
@@ -325,6 +325,15 @@
     }
   ],
   "live_matches": [
+    {
+      "home": "Netherlands",
+      "away": "Sweden",
+      "home_flag": "nl",
+      "away_flag": "se",
+      "home_score": 1,
+      "away_score": 0,
+      "minute": "Live"
+    },
     {
       "home": "Germany",
       "away": "Ivory Coast",
