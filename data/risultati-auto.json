@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-21T01:50:45.477Z",
+  "updated_at": "2026-06-21T02:01:15.643Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -161,6 +161,18 @@
       "finished": true,
       "kickoff_ts": 1781229600000,
       "order": 1
+    },
+    {
+      "match_id": "ECU-CURA",
+      "home": "Ecuador",
+      "away": "Curaçao",
+      "home_score": 0,
+      "away_score": 0,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782000000000,
+      "order": 34
     },
     {
       "match_id": "FRA-SEN",
@@ -441,19 +453,19 @@
   ],
   "live_matches": [
     {
-      "home": "Ecuador",
-      "away": "Curaçao",
-      "home_flag": "ec",
-      "away_flag": "cw",
-      "home_score": 0,
-      "away_score": 0,
-      "minute": "Live"
-    },
-    {
       "home": "Tunisia",
       "away": "Japan",
       "home_flag": "tn",
       "away_flag": "jp",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
+    },
+    {
+      "home": "Spain",
+      "away": "Saudi Arabia",
+      "home_flag": "es",
+      "away_flag": "sa",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
