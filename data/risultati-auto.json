@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-22T01:10:55.219Z",
+  "updated_at": "2026-06-22T01:20:53.140Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -505,7 +505,7 @@
       "away": "Egypt",
       "home_flag": "nz",
       "away_flag": "eg",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "minute": "Live"
     },
