@@ -1,35 +1,7 @@
 {
-  "updated_at": "2026-06-22T14:10:57.291Z",
+  "updated_at": "2026-06-22T14:17:14.076Z",
   "source": "https://worldcup26.ir/get/games",
-  "source_name": "worldcup26.ir",
   "source_status": "ok",
-  "available_sources": [
-    {
-      "name": "worldcup26.ir",
-      "requires_secret": false,
-      "enabled": true
-    },
-    {
-      "name": "TheSportsDB",
-      "requires_secret": false,
-      "enabled": true
-    },
-    {
-      "name": "GitHub raw worldcup2026 dataset",
-      "requires_secret": false,
-      "enabled": true
-    },
-    {
-      "name": "football-data.org",
-      "requires_secret": true,
-      "enabled": false
-    },
-    {
-      "name": "API-Football",
-      "requires_secret": true,
-      "enabled": false
-    }
-  ],
   "results": [
     {
       "match_id": "ARG-ALG",
@@ -39,9 +11,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781658000000,
-      "order": 18
+      "finished": true
     },
     {
       "match_id": "AUS-GIOR",
@@ -51,9 +21,7 @@
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781668800000,
-      "order": 19
+      "finished": true
     },
     {
       "match_id": "AUS-TUR",
@@ -63,8 +31,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "order": 9999
+      "finished": true
     },
     {
       "match_id": "BEL-EGI",
@@ -74,9 +41,7 @@
       "away_score": 1,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781550000000,
-      "order": 13
+      "finished": true
     },
     {
       "match_id": "BEL-IRAN",
@@ -86,9 +51,7 @@
       "away_score": 0,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1782068400000,
-      "order": 37
+      "finished": true
     },
     {
       "match_id": "BRA-HAI",
@@ -98,9 +61,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781915400000,
-      "order": 30
+      "finished": true
     },
     {
       "match_id": "BRA-MAR",
@@ -110,9 +71,7 @@
       "away_score": 1,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781388000000,
-      "order": 5
+      "finished": true
     },
     {
       "match_id": "CAN-BOS",
@@ -122,9 +81,7 @@
       "away_score": 1,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781290800000,
-      "order": 2
+      "finished": true
     },
     {
       "match_id": "CAN-QAT",
@@ -134,9 +91,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781820000000,
-      "order": 26
+      "finished": true
     },
     {
       "match_id": "CAV-ECU",
@@ -146,9 +101,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781478000000,
-      "order": 10
+      "finished": true
     },
     {
       "match_id": "CEC-SUD",
@@ -158,9 +111,7 @@
       "away_score": 1,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781798400000,
-      "order": 24
+      "finished": true
     },
     {
       "match_id": "COR-CEC",
@@ -170,9 +121,7 @@
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781229600000,
-      "order": 1
+      "finished": true
     },
     {
       "match_id": "ECU-CURA",
@@ -182,9 +131,7 @@
       "away_score": 0,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1782000000000,
-      "order": 34
+      "finished": true
     },
     {
       "match_id": "FRA-SEN",
@@ -194,9 +141,7 @@
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781636400000,
-      "order": 16
+      "finished": true
     },
     {
       "match_id": "GER-CAV",
@@ -206,9 +151,7 @@
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781985600000,
-      "order": 33
+      "finished": true
     },
     {
       "match_id": "GER-CURA",
@@ -218,9 +161,7 @@
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781456400000,
-      "order": 8
+      "finished": true
     },
     {
       "match_id": "GHA-PAN",
@@ -230,9 +171,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781737200000,
-      "order": 22
+      "finished": true
     },
     {
       "match_id": "HAI-SCO",
@@ -242,9 +181,7 @@
       "away_score": 1,
       "outcome": "2",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781398800000,
-      "order": 6
+      "finished": true
     },
     {
       "match_id": "ING-CROA",
@@ -254,9 +191,7 @@
       "away_score": 2,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781726400000,
-      "order": 21
+      "finished": true
     },
     {
       "match_id": "IRAN-NZEL",
@@ -266,9 +201,7 @@
       "away_score": 2,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781571600000,
-      "order": 15
+      "finished": true
     },
     {
       "match_id": "IRAQ-NOR",
@@ -278,9 +211,7 @@
       "away_score": 4,
       "outcome": "2",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781647200000,
-      "order": 17
+      "finished": true
     },
     {
       "match_id": "MEX-COR",
@@ -290,9 +221,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781830800000,
-      "order": 27
+      "finished": true
     },
     {
       "match_id": "MEX-SUD",
@@ -302,9 +231,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781204400000,
-      "order": 0
+      "finished": true
     },
     {
       "match_id": "NED-JAP",
@@ -314,9 +241,7 @@
       "away_score": 2,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781467200000,
-      "order": 9
+      "finished": true
     },
     {
       "match_id": "NED-SVE",
@@ -326,9 +251,7 @@
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781974800000,
-      "order": 32
+      "finished": true
     },
     {
       "match_id": "NZEL-EGI",
@@ -338,9 +261,7 @@
       "away_score": 3,
       "outcome": "2",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1782090000000,
-      "order": 39
+      "finished": true
     },
     {
       "match_id": "POR-CONGO",
@@ -350,9 +271,7 @@
       "away_score": 1,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781715600000,
-      "order": 20
+      "finished": true
     },
     {
       "match_id": "QAT-SVIZ",
@@ -362,9 +281,7 @@
       "away_score": 1,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1799236800000,
-      "order": 4
+      "finished": true
     },
     {
       "match_id": "SAUDI-URU",
@@ -374,9 +291,7 @@
       "away_score": 1,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781560800000,
-      "order": 14
+      "finished": true
     },
     {
       "match_id": "SCO-MAR",
@@ -386,9 +301,7 @@
       "away_score": 1,
       "outcome": "2",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781906400000,
-      "order": 29
+      "finished": true
     },
     {
       "match_id": "SPA-CAVE",
@@ -398,9 +311,7 @@
       "away_score": 0,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781539200000,
-      "order": 12
+      "finished": true
     },
     {
       "match_id": "SPA-SAUDI",
@@ -410,9 +321,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1782057600000,
-      "order": 36
+      "finished": true
     },
     {
       "match_id": "SVE-TUN",
@@ -422,9 +331,7 @@
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781488800000,
-      "order": 11
+      "finished": true
     },
     {
       "match_id": "SVI-BOS",
@@ -434,9 +341,7 @@
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781809200000,
-      "order": 25
+      "finished": true
     },
     {
       "match_id": "TUN-JAP",
@@ -446,9 +351,7 @@
       "away_score": 4,
       "outcome": "2",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1782014400000,
-      "order": 35
+      "finished": true
     },
     {
       "match_id": "TUR-PAR",
@@ -458,9 +361,7 @@
       "away_score": 1,
       "outcome": "2",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781924400000,
-      "order": 31
+      "finished": true
     },
     {
       "match_id": "URU-CAVE",
@@ -470,9 +371,7 @@
       "away_score": 2,
       "outcome": "X",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1782079200000,
-      "order": 38
+      "finished": true
     },
     {
       "match_id": "USA-AUS",
@@ -482,9 +381,7 @@
       "away_score": 0,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781895600000,
-      "order": 28
+      "finished": true
     },
     {
       "match_id": "USA-PAR",
@@ -494,9 +391,7 @@
       "away_score": 1,
       "outcome": "1",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781312400000,
-      "order": 3
+      "finished": true
     },
     {
       "match_id": "UZB-COL",
@@ -506,29 +401,7 @@
       "away_score": 3,
       "outcome": "2",
       "status": "finished",
-      "finished": true,
-      "kickoff_ts": 1781748000000,
-      "order": 23
-    }
-  ],
-  "live_matches": [
-    {
-      "home": "Argentina",
-      "away": "Austria",
-      "home_flag": "ar",
-      "away_flag": "at",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
-    },
-    {
-      "home": "France",
-      "away": "Iraq",
-      "home_flag": "fr",
-      "away_flag": "iq",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
+      "finished": true
     }
   ]
 }
