@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-22T16:51:10.492Z",
-  "source": "https://worldcup26.ir/get/games",
-  "source_name": "worldcup26.ir",
+  "updated_at": "2026-06-22T17:01:24.360Z",
+  "source": "https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026",
+  "source_name": "TheSportsDB",
   "source_status": "ok",
   "available_sources": [
     {
@@ -488,7 +488,7 @@
     },
     {
       "match_id": "USA-PAR",
-      "home": "United States",
+      "home": "USA",
       "away": "Paraguay",
       "home_score": 4,
       "away_score": 1,
@@ -519,7 +519,7 @@
       "away_flag": "at",
       "home_score": "",
       "away_score": "",
-      "minute": "Live"
+      "minute": "Prossima"
     },
     {
       "home": "France",
