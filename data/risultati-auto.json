@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T19:40:54.800Z",
+  "updated_at": "2026-06-23T19:50:51.569Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -573,6 +573,15 @@
   ],
   "live_matches": [
     {
+      "home": "England",
+      "away": "Ghana",
+      "home_flag": "gb-eng",
+      "away_flag": "gh",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Live"
+    },
+    {
       "home": "Portugal",
       "away": "Uzbekistan",
       "home_flag": "pt",
@@ -580,15 +589,6 @@
       "home_score": 5,
       "away_score": 0,
       "minute": "FT"
-    },
-    {
-      "home": "England",
-      "away": "Ghana",
-      "home_flag": "gb-eng",
-      "away_flag": "gh",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
     }
   ]
 }
