@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T22:01:09.820Z",
+  "updated_at": "2026-06-23T22:10:45.735Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -295,6 +295,18 @@
       "order": 21
     },
     {
+      "match_id": "ING-GHA",
+      "home": "England",
+      "away": "Ghana",
+      "home_score": 0,
+      "away_score": 0,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782244800000,
+      "order": 45
+    },
+    {
       "match_id": "IRAN-NZEL",
       "home": "Iran",
       "away": "New Zealand",
@@ -573,19 +585,19 @@
   ],
   "live_matches": [
     {
-      "home": "England",
-      "away": "Ghana",
-      "home_flag": "gb-eng",
-      "away_flag": "gh",
-      "home_score": 0,
-      "away_score": 0,
-      "minute": "Live"
-    },
-    {
       "home": "Panama",
       "away": "Croatia",
       "home_flag": "pa",
       "away_flag": "hr",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
+    },
+    {
+      "home": "Colombia",
+      "away": "Democratic Republic of the Congo",
+      "home_flag": "co",
+      "away_flag": "cd",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
