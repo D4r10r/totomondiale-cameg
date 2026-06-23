@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T18:50:52.703Z",
+  "updated_at": "2026-06-23T19:01:14.237Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -403,6 +403,18 @@
       "order": 20
     },
     {
+      "match_id": "POR-UZB",
+      "home": "Portugal",
+      "away": "Uzbekistan",
+      "home_score": 5,
+      "away_score": 0,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782234000000,
+      "order": 44
+    },
+    {
       "match_id": "QAT-SVIZ",
       "home": "Qatar",
       "away": "Switzerland",
@@ -561,19 +573,19 @@
   ],
   "live_matches": [
     {
-      "home": "Portugal",
-      "away": "Uzbekistan",
-      "home_flag": "pt",
-      "away_flag": "uz",
-      "home_score": 4,
-      "away_score": 0,
-      "minute": "Live"
-    },
-    {
       "home": "England",
       "away": "Ghana",
       "home_flag": "gb-eng",
       "away_flag": "gh",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
+    },
+    {
+      "home": "Panama",
+      "away": "Croatia",
+      "home_flag": "pa",
+      "away_flag": "hr",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
