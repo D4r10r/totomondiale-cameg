@@ -87,6 +87,7 @@ const MATCH_KICKOFF_UTC = {
   'POR-UZB': '2026-06-23T17:00:00Z',
   'ING-GHA': '2026-06-23T20:00:00Z',
   'PAN-CROA': '2026-06-23T23:00:00Z',
+  'PAN-CRO': '2026-06-23T23:00:00Z',
   'COL-CONGO': '2026-06-24T02:00:00Z',
   'SVI-CAN': '2026-06-24T19:00:00Z',
   'BOS-QAT': '2026-06-24T19:00:00Z',
@@ -172,6 +173,7 @@ const TEAM_NAMES = {
   CONGO: ['DR Congo', 'Congo DR', 'Democratic Republic of the Congo', 'COD'],
   ING: ['England', 'ENG'],
   CROA: ['Croatia', 'CRO'],
+  CRO: ['Croatia', 'CRO'],
   GHA: ['Ghana'],
   PAN: ['Panama'],
   UZB: ['Uzbekistan'],
@@ -179,6 +181,16 @@ const TEAM_NAMES = {
 };
 
 const MANUAL_FINISHED_RESULTS = [
+  {
+    match_id: 'PAN-CRO',
+    home: 'Panama',
+    away: 'Croatia',
+    home_score: 0,
+    away_score: 1,
+    outcome: '2',
+    status: 'finished',
+    finished: true
+  },
   {
     match_id: 'AUS-TUR',
     home: 'Australia',
