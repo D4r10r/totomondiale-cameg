@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-24T20:40:43.458Z",
+  "updated_at": "2026-06-24T20:50:42.617Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -622,7 +622,7 @@
       "away": "Qatar",
       "home_flag": "ba",
       "away_flag": "qa",
-      "home_score": 2,
+      "home_score": 3,
       "away_score": 1,
       "minute": "Live"
     }
