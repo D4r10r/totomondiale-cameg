@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-24T01:20:38.673Z",
+  "updated_at": "2026-06-24T01:30:52.147Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -585,19 +585,19 @@
   ],
   "live_matches": [
     {
-      "home": "Panama",
-      "away": "Croatia",
-      "home_flag": "pa",
-      "away_flag": "hr",
+      "home": "Colombia",
+      "away": "Democratic Republic of the Congo",
+      "home_flag": "co",
+      "away_flag": "cd",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
     },
     {
-      "home": "Colombia",
-      "away": "Democratic Republic of the Congo",
-      "home_flag": "co",
-      "away_flag": "cd",
+      "home": "Switzerland",
+      "away": "Canada",
+      "home_flag": "ch",
+      "away_flag": "ca",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
