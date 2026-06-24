@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-24T18:40:42.012Z",
+  "updated_at": "2026-06-24T18:50:42.435Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -615,7 +615,7 @@
       "away_flag": "ca",
       "home_score": "",
       "away_score": "",
-      "minute": "Prossima"
+      "minute": "Live"
     },
     {
       "home": "Bosnia and Herzegovina",
@@ -624,7 +624,7 @@
       "away_flag": "qa",
       "home_score": "",
       "away_score": "",
-      "minute": "Prossima"
+      "minute": "Live"
     }
   ]
 }
