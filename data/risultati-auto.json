@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T00:01:07.335Z",
+  "updated_at": "2026-06-25T00:10:40.011Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -355,6 +355,18 @@
       "order": 17
     },
     {
+      "match_id": "MAR-HAI",
+      "home": "Morocco",
+      "away": "Haiti",
+      "home_score": 4,
+      "away_score": 2,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782338400000,
+      "order": 50
+    },
+    {
       "match_id": "MEX-COR",
       "home": "Mexico",
       "away": "South Korea",
@@ -485,6 +497,18 @@
       "finished": true,
       "kickoff_ts": 1781560800000,
       "order": 14
+    },
+    {
+      "match_id": "SCO-BRA",
+      "home": "Scotland",
+      "away": "Brazil",
+      "home_score": 0,
+      "away_score": 3,
+      "outcome": "2",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782338400000,
+      "order": 51
     },
     {
       "match_id": "SCO-MAR",
@@ -633,22 +657,22 @@
   ],
   "live_matches": [
     {
-      "home": "Scotland",
-      "away": "Brazil",
-      "home_flag": "gb-sct",
-      "away_flag": "br",
-      "home_score": 0,
-      "away_score": 3,
-      "minute": "Live"
+      "home": "Czech Republic",
+      "away": "Mexico",
+      "home_flag": "cz",
+      "away_flag": "mx",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
     },
     {
-      "home": "Morocco",
-      "away": "Haiti",
-      "home_flag": "ma",
-      "away_flag": "ht",
-      "home_score": 4,
-      "away_score": 2,
-      "minute": "Live"
+      "home": "South Africa",
+      "away": "South Korea",
+      "home_flag": "za",
+      "away_flag": "kr",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
     }
   ]
 }
