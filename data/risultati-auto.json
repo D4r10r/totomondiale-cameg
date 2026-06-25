@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-24T23:50:42.271Z",
+  "updated_at": "2026-06-25T00:01:07.335Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -646,7 +646,7 @@
       "away": "Haiti",
       "home_flag": "ma",
       "away_flag": "ht",
-      "home_score": 3,
+      "home_score": 4,
       "away_score": 2,
       "minute": "Live"
     }
