@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T00:40:40.738Z",
+  "updated_at": "2026-06-25T00:50:37.425Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -657,22 +657,22 @@
   ],
   "live_matches": [
     {
-      "home": "Scotland",
-      "away": "Brazil",
-      "home_flag": "gb-sct",
-      "away_flag": "br",
-      "home_score": 0,
-      "away_score": 3,
-      "minute": "FT"
+      "home": "Czech Republic",
+      "away": "Mexico",
+      "home_flag": "cz",
+      "away_flag": "mx",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Live"
     },
     {
-      "home": "Morocco",
-      "away": "Haiti",
-      "home_flag": "ma",
-      "away_flag": "ht",
-      "home_score": 4,
-      "away_score": 2,
-      "minute": "FT"
+      "home": "South Africa",
+      "away": "South Korea",
+      "home_flag": "za",
+      "away_flag": "kr",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Live"
     }
   ]
 }
