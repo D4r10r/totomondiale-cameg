@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T18:20:38.994Z",
+  "updated_at": "2026-06-25T18:30:50.412Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -681,19 +681,19 @@
   ],
   "live_matches": [
     {
-      "home": "Curaçao",
-      "away": "Ivory Coast",
-      "home_flag": "cw",
-      "away_flag": "ci",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Live"
-    },
-    {
       "home": "Ecuador",
       "away": "Germany",
       "home_flag": "ec",
       "away_flag": "de",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
+    },
+    {
+      "home": "Curacao",
+      "away": "Ivory Coast",
+      "home_flag": "cw",
+      "away_flag": "ci",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
