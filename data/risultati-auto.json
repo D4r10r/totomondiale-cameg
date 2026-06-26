@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-26T21:21:16.796Z",
+  "updated_at": "2026-06-26T21:31:31.950Z",
   "source": "https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026",
   "source_name": "TheSportsDB",
   "source_status": "ok",
@@ -764,13 +764,13 @@
   ],
   "live_matches": [
     {
-      "home": "Senegal",
-      "away": "Iraq",
-      "home_flag": "sn",
-      "away_flag": "iq",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
+      "home": "Norway",
+      "away": "France",
+      "home_flag": "no",
+      "away_flag": "fr",
+      "home_score": 1,
+      "away_score": 4,
+      "minute": "FT"
     },
     {
       "home": "Uruguay",
