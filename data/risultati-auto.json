@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-26T21:31:31.950Z",
-  "source": "https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026",
-  "source_name": "TheSportsDB",
+  "updated_at": "2026-06-26T21:40:43.044Z",
+  "source": "https://worldcup26.ir/get/games",
+  "source_name": "worldcup26.ir",
   "source_status": "ok",
   "available_sources": [
     {
@@ -507,6 +507,7 @@
       "outcome": "2",
       "status": "finished",
       "finished": true,
+      "kickoff_ts": 1782255600000,
       "order": 46
     },
     {
@@ -592,6 +593,18 @@
       "finished": true,
       "kickoff_ts": 1781906400000,
       "order": 29
+    },
+    {
+      "match_id": "SEN-IRAQ",
+      "home": "Senegal",
+      "away": "Iraq",
+      "home_score": 5,
+      "away_score": 0,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782500400000,
+      "order": 61
     },
     {
       "match_id": "SPA-CAVE",
@@ -739,7 +752,7 @@
     },
     {
       "match_id": "USA-PAR",
-      "home": "USA",
+      "home": "United States",
       "away": "Paraguay",
       "home_score": 4,
       "away_score": 1,
@@ -773,13 +786,13 @@
       "minute": "FT"
     },
     {
-      "home": "Uruguay",
-      "away": "Spain",
-      "home_flag": "uy",
-      "away_flag": "es",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
+      "home": "Senegal",
+      "away": "Iraq",
+      "home_flag": "sn",
+      "away_flag": "iq",
+      "home_score": 5,
+      "away_score": 0,
+      "minute": "FT"
     }
   ]
 }
