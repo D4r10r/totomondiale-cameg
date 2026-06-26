@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-26T04:00:58.505Z",
+  "updated_at": "2026-06-26T04:10:39.210Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -499,6 +499,18 @@
       "order": 46
     },
     {
+      "match_id": "PAR-AUS",
+      "home": "Paraguay",
+      "away": "Australia",
+      "home_score": 0,
+      "away_score": 0,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782439200000,
+      "order": 59
+    },
+    {
       "match_id": "POR-CONGO",
       "home": "Portugal",
       "away": "Democratic Republic of the Congo",
@@ -679,6 +691,18 @@
       "order": 31
     },
     {
+      "match_id": "TUR-USA",
+      "home": "Turkey",
+      "away": "United States",
+      "home_score": 3,
+      "away_score": 2,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782439200000,
+      "order": 58
+    },
+    {
       "match_id": "URU-CAVE",
       "home": "Uruguay",
       "away": "Cape Verde",
@@ -729,22 +753,22 @@
   ],
   "live_matches": [
     {
-      "home": "Turkey",
-      "away": "United States",
-      "home_flag": "tr",
-      "away_flag": "us",
-      "home_score": 2,
-      "away_score": 2,
-      "minute": "Live"
+      "home": "Norway",
+      "away": "France",
+      "home_flag": "no",
+      "away_flag": "fr",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
     },
     {
-      "home": "Paraguay",
-      "away": "Australia",
-      "home_flag": "py",
-      "away_flag": "au",
-      "home_score": 0,
-      "away_score": 0,
-      "minute": "Live"
+      "home": "Senegal",
+      "away": "Iraq",
+      "home_flag": "sn",
+      "away_flag": "iq",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
     }
   ]
 }
