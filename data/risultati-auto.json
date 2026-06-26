@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-26T03:10:38.510Z",
+  "updated_at": "2026-06-26T03:20:40.307Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -734,7 +734,7 @@
       "home_flag": "tr",
       "away_flag": "us",
       "home_score": 2,
-      "away_score": 1,
+      "away_score": 2,
       "minute": "Live"
     },
     {
