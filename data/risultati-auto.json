@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-26T00:50:37.067Z",
+  "updated_at": "2026-06-26T01:00:58.890Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -391,6 +391,18 @@
       "order": 17
     },
     {
+      "match_id": "JAP-SVE",
+      "home": "Japan",
+      "away": "Sweden",
+      "home_score": 1,
+      "away_score": 1,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782428400000,
+      "order": 57
+    },
+    {
       "match_id": "MAR-HAI",
       "home": "Morocco",
       "away": "Haiti",
@@ -643,6 +655,18 @@
       "order": 35
     },
     {
+      "match_id": "TUN-NED",
+      "home": "Tunisia",
+      "away": "Netherlands",
+      "home_score": 1,
+      "away_score": 3,
+      "outcome": "2",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782428400000,
+      "order": 56
+    },
+    {
       "match_id": "TUR-PAR",
       "home": "Turkey",
       "away": "Paraguay",
@@ -705,22 +729,22 @@
   ],
   "live_matches": [
     {
-      "home": "Tunisia",
-      "away": "Netherlands",
-      "home_flag": "tn",
-      "away_flag": "nl",
-      "home_score": 1,
-      "away_score": 3,
-      "minute": "Live"
+      "home": "Turkey",
+      "away": "United States",
+      "home_flag": "tr",
+      "away_flag": "us",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
     },
     {
-      "home": "Japan",
-      "away": "Sweden",
-      "home_flag": "jp",
-      "away_flag": "se",
-      "home_score": 1,
-      "away_score": 1,
-      "minute": "Live"
+      "home": "Paraguay",
+      "away": "Australia",
+      "home_flag": "py",
+      "away_flag": "au",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
     }
   ]
 }
