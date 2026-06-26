@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-26T18:40:40.665Z",
+  "updated_at": "2026-06-26T18:50:43.481Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -759,7 +759,7 @@
       "away_flag": "fr",
       "home_score": "",
       "away_score": "",
-      "minute": "Prossima"
+      "minute": "Live"
     },
     {
       "home": "Senegal",
@@ -768,7 +768,7 @@
       "away_flag": "iq",
       "home_score": "",
       "away_score": "",
-      "minute": "Prossima"
+      "minute": "Live"
     }
   ]
 }
