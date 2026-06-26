@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-26T01:20:43.737Z",
+  "updated_at": "2026-06-26T01:30:50.555Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -729,22 +729,22 @@
   ],
   "live_matches": [
     {
-      "home": "Turkey",
-      "away": "United States",
-      "home_flag": "tr",
-      "away_flag": "us",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
+      "home": "Tunisia",
+      "away": "Netherlands",
+      "home_flag": "tn",
+      "away_flag": "nl",
+      "home_score": 1,
+      "away_score": 3,
+      "minute": "FT"
     },
     {
-      "home": "Paraguay",
-      "away": "Australia",
-      "home_flag": "py",
-      "away_flag": "au",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
+      "home": "Japan",
+      "away": "Sweden",
+      "home_flag": "jp",
+      "away_flag": "se",
+      "home_score": 1,
+      "away_score": 1,
+      "minute": "FT"
     }
   ]
 }
