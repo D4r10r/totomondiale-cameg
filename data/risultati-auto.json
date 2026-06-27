@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T23:20:40.444Z",
+  "updated_at": "2026-06-27T23:30:53.444Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -849,19 +849,19 @@
   ],
   "live_matches": [
     {
-      "home": "Croatia",
-      "away": "Ghana",
-      "home_flag": "hr",
-      "away_flag": "gh",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
-    },
-    {
       "home": "Colombia",
       "away": "Portugal",
       "home_flag": "co",
       "away_flag": "pt",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Live"
+    },
+    {
+      "home": "Democratic Republic of the Congo",
+      "away": "Uzbekistan",
+      "home_flag": "cd",
+      "away_flag": "uz",
       "home_score": "",
       "away_score": "",
       "minute": "Live"
