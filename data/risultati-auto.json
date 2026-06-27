@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T05:00:57.361Z",
+  "updated_at": "2026-06-27T05:11:17.152Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -269,6 +269,18 @@
       "finished": true,
       "kickoff_ts": 1782417600000,
       "order": 55
+    },
+    {
+      "match_id": "EGI-IRAN",
+      "home": "Egypt",
+      "away": "Iran",
+      "home_score": 1,
+      "away_score": 1,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782529200000,
+      "order": 65
     },
     {
       "match_id": "FRA-IRAQ",
@@ -813,19 +825,19 @@
   ],
   "live_matches": [
     {
-      "home": "Egypt",
-      "away": "Iran",
-      "home_flag": "eg",
-      "away_flag": "ir",
-      "home_score": 1,
-      "away_score": 2,
-      "minute": "Live"
-    },
-    {
       "home": "Croatia",
       "away": "Ghana",
       "home_flag": "hr",
       "away_flag": "gh",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
+    },
+    {
+      "home": "Panama",
+      "away": "England",
+      "home_flag": "pa",
+      "away_flag": "gb-eng",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
