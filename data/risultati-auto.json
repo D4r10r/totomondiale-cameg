@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-27T05:11:17.152Z",
-  "source": "https://worldcup26.ir/get/games",
-  "source_name": "worldcup26.ir",
+  "updated_at": "2026-06-27T05:21:17.032Z",
+  "source": "https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026",
+  "source_name": "TheSportsDB",
   "source_status": "ok",
   "available_sources": [
     {
@@ -543,7 +543,6 @@
       "outcome": "2",
       "status": "finished",
       "finished": true,
-      "kickoff_ts": 1782255600000,
       "order": 46
     },
     {
@@ -800,7 +799,7 @@
     },
     {
       "match_id": "USA-PAR",
-      "home": "United States",
+      "home": "USA",
       "away": "Paraguay",
       "home_score": 4,
       "away_score": 1,
@@ -825,19 +824,19 @@
   ],
   "live_matches": [
     {
-      "home": "Croatia",
-      "away": "Ghana",
-      "home_flag": "hr",
-      "away_flag": "gh",
+      "home": "Panama",
+      "away": "England",
+      "home_flag": "pa",
+      "away_flag": "gb-eng",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
     },
     {
-      "home": "Panama",
-      "away": "England",
-      "home_flag": "pa",
-      "away_flag": "gb-eng",
+      "home": "Croatia",
+      "away": "Ghana",
+      "home_flag": "hr",
+      "away_flag": "gh",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
