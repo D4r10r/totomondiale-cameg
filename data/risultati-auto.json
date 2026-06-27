@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T05:21:17.032Z",
+  "updated_at": "2026-06-27T05:31:28.152Z",
   "source": "https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026",
   "source_name": "TheSportsDB",
   "source_status": "ok",
@@ -824,22 +824,22 @@
   ],
   "live_matches": [
     {
-      "home": "Panama",
-      "away": "England",
-      "home_flag": "pa",
-      "away_flag": "gb-eng",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
+      "home": "New Zealand",
+      "away": "Belgium",
+      "home_flag": "nz",
+      "away_flag": "be",
+      "home_score": 1,
+      "away_score": 5,
+      "minute": "FT"
     },
     {
-      "home": "Croatia",
-      "away": "Ghana",
-      "home_flag": "hr",
-      "away_flag": "gh",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
+      "home": "Egypt",
+      "away": "Iran",
+      "home_flag": "eg",
+      "away_flag": "ir",
+      "home_score": 1,
+      "away_score": 1,
+      "minute": "FT"
     }
   ]
 }
