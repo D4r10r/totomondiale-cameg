@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T23:50:43.541Z",
+  "updated_at": "2026-06-28T00:01:02.964Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -862,7 +862,7 @@
       "away": "Uzbekistan",
       "home_flag": "cd",
       "away_flag": "uz",
-      "home_score": 1,
+      "home_score": 0,
       "away_score": 1,
       "minute": "Live"
     }
