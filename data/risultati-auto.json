@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-28T03:10:40.145Z",
+  "updated_at": "2026-06-28T03:20:44.464Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -877,7 +877,7 @@
       "away": "Argentina",
       "home_flag": "jo",
       "away_flag": "ar",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 2,
       "minute": "Live"
     },
@@ -887,7 +887,7 @@
       "home_flag": "dz",
       "away_flag": "at",
       "home_score": 1,
-      "away_score": 1,
+      "away_score": 2,
       "minute": "Live"
     }
   ]
