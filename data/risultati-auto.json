@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-28T03:50:37.851Z",
+  "updated_at": "2026-06-28T04:01:01.988Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -31,6 +31,18 @@
     }
   ],
   "results": [
+    {
+      "match_id": "ALG-AUS",
+      "home": "Algeria",
+      "away": "Austria",
+      "home_score": 3,
+      "away_score": 3,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782612000000,
+      "order": 70
+    },
     {
       "match_id": "ARG-ALG",
       "home": "Argentina",
@@ -389,6 +401,18 @@
       "finished": true,
       "kickoff_ts": 1782183600000,
       "order": 43
+    },
+    {
+      "match_id": "GIOR-ARG",
+      "home": "Jordan",
+      "away": "Argentina",
+      "home_score": 1,
+      "away_score": 3,
+      "outcome": "2",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782612000000,
+      "order": 71
     },
     {
       "match_id": "HAI-SCO",
@@ -873,22 +897,22 @@
   ],
   "live_matches": [
     {
-      "home": "Jordan",
-      "away": "Argentina",
-      "home_flag": "jo",
-      "away_flag": "ar",
-      "home_score": 1,
-      "away_score": 3,
-      "minute": "Live"
+      "home": "Croatia",
+      "away": "Ghana",
+      "home_flag": "hr",
+      "away_flag": "gh",
+      "home_score": 2,
+      "away_score": 1,
+      "minute": "FT"
     },
     {
-      "home": "Algeria",
-      "away": "Austria",
-      "home_flag": "dz",
-      "away_flag": "at",
-      "home_score": 2,
+      "home": "Curaçao",
+      "away": "Ivory Coast",
+      "home_flag": "cw",
+      "away_flag": "ci",
+      "home_score": 0,
       "away_score": 2,
-      "minute": "Live"
+      "minute": "FT"
     }
   ]
 }
