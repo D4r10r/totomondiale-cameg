@@ -247,3 +247,50 @@ table { width: 100%; border-collapse: separate; border-spacing: 0; }
   }
 }
 
+
+
+/* Fix leggibilità mobile riepilogo pronostici */
+.late-cell {
+  background: #ffe8a3 !important;
+  color: #7a4b00 !important;
+  font-weight: 900;
+}
+
+@media (max-width: 720px) {
+  .match-head {
+    min-width: 118px !important;
+  }
+
+  .match-header-full {
+    min-width: 108px !important;
+    gap: 6px !important;
+    padding: 6px 2px !important;
+  }
+
+  .match-team {
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    min-height: 22px !important;
+  }
+
+  .match-team-name {
+    max-width: 88px !important;
+    font-size: .74rem !important;
+    line-height: 1.05 !important;
+    text-align: left !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .pron-flag {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .match-divider {
+    width: 82px !important;
+    margin-left: 22px !important;
+    margin-right: 0 !important;
+  }
+}

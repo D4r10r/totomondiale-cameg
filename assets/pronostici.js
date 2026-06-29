@@ -202,7 +202,8 @@ function renderSheetTable(day, sheet, index) {
     const forecasts = sheet.matches.map(match => {
       const value = sheet.participants.get(name).get(match) || '';
       const result = resultsMapGlobal.get(match) || '';
-      return `<td class="${cellClass(value, result)}">${escapeHtml(value)}</td>`;
+      const late = String(value || '').trim().toUpperCase() === 'RIT.';
+      return `<td class="${late ? 'late-cell' : cellClass(value, result)}" ${late ? 'title="Pronostico comunicato in ritardo: non conteggiato"' : ''}>${escapeHtml(value)}</td>`;
     }).join('');
     return `<tr><th class="participant-col" title="${escapeHtml(name)}">${escapeHtml(name)}</th>${forecasts}</tr>`;
   }).join('');
