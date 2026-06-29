@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-29T19:00:53.816Z",
+  "updated_at": "2026-06-29T19:10:39.174Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -137,6 +137,18 @@
       "finished": true,
       "kickoff_ts": 1781915400000,
       "order": 30
+    },
+    {
+      "match_id": "BRA-JAP",
+      "home": "Brazil",
+      "away": "Japan",
+      "home_score": 2,
+      "away_score": 1,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782752400000,
+      "order": 73
     },
     {
       "match_id": "BRA-MAR",
@@ -909,19 +921,19 @@
   ],
   "live_matches": [
     {
-      "home": "Brazil",
-      "away": "Japan",
-      "home_flag": "br",
-      "away_flag": "jp",
-      "home_score": 2,
-      "away_score": 1,
-      "minute": "Live"
-    },
-    {
       "home": "Germany",
       "away": "Paraguay",
       "home_flag": "de",
       "away_flag": "py",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
+    },
+    {
+      "home": "Netherlands",
+      "away": "Morocco",
+      "home_flag": "nl",
+      "away_flag": "ma",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
