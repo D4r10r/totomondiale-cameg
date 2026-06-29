@@ -87,7 +87,6 @@ const MATCH_KICKOFF_UTC = {
   'POR-UZB': '2026-06-23T17:00:00Z',
   'ING-GHA': '2026-06-23T20:00:00Z',
   'PAN-CROA': '2026-06-23T23:00:00Z',
-  'PAN-CRO': '2026-06-23T23:00:00Z',
   'COL-CONGO': '2026-06-24T02:00:00Z',
   'SVI-CAN': '2026-06-24T19:00:00Z',
   'BOS-QAT': '2026-06-24T19:00:00Z',
@@ -112,7 +111,23 @@ const MATCH_KICKOFF_UTC = {
   'COL-POR': '2026-06-27T23:30:00Z',
   'CONGO-UZB': '2026-06-27T23:30:00Z',
   'GIOR-ARG': '2026-06-28T02:00:00Z',
-  'ALG-AUS': '2026-06-28T02:00:00Z'
+  'ALG-AUS': '2026-06-28T02:00:00Z',
+  'SUD-CAN': '2026-06-28T19:00:00Z',
+  'BRA-JAP': '2026-06-29T17:00:00Z',
+  'GER-PAR': '2026-06-29T20:30:00Z',
+  'NED-MAR': '2026-06-30T01:00:00Z',
+  'CAV-NOR': '2026-06-30T17:00:00Z',
+  'FRA-SVE': '2026-06-30T21:00:00Z',
+  'MEX-ECU': '2026-07-01T01:00:00Z',
+  'ENG-CONGO': '2026-07-01T16:00:00Z',
+  'BEL-SEN': '2026-07-01T20:00:00Z',
+  'USA-BOS': '2026-07-02T00:00:00Z',
+  'SPA-AUS': '2026-07-02T19:00:00Z',
+  'POR-CRO': '2026-07-02T23:00:00Z',
+  'SVI-ALG': '2026-07-03T03:00:00Z',
+  'AUS-EGI': '2026-07-03T18:00:00Z',
+  'ARG-CAVE': '2026-07-03T22:00:00Z',
+  'COL-GHA': '2026-07-04T01:30:00Z'
 };
 
 function scheduledKickoff(matchId) {
@@ -172,6 +187,7 @@ const TEAM_NAMES = {
   POR: ['Portugal'],
   CONGO: ['DR Congo', 'Congo DR', 'Democratic Republic of the Congo', 'COD'],
   ING: ['England', 'ENG'],
+  ENG: ['England', 'ENG'],
   CROA: ['Croatia', 'CRO'],
   CRO: ['Croatia', 'CRO'],
   GHA: ['Ghana'],
@@ -181,16 +197,6 @@ const TEAM_NAMES = {
 };
 
 const MANUAL_FINISHED_RESULTS = [
-  {
-    match_id: 'PAN-CRO',
-    home: 'Panama',
-    away: 'Croatia',
-    home_score: 0,
-    away_score: 1,
-    outcome: '2',
-    status: 'finished',
-    finished: true
-  },
   {
     match_id: 'AUS-TUR',
     home: 'Australia',
@@ -209,7 +215,11 @@ const OVERRIDE_MATCH_NAMES = {
   'PAR-AUS': ['Paraguay', 'Australia'],
   'AUS-GIOR': ['Austria', 'Jordan'],
   'ARG-AUS': ['Argentina', 'Austria'],
-  'ALG-AUS': ['Algeria', 'Austria']
+  'ALG-AUS': ['Algeria', 'Austria'],
+  'SPA-AUS': ['Spain', 'Austria'],
+  'AUS-EGI': ['Australia', 'Egypt'],
+  'ENG-CONGO': ['England', 'DR Congo'],
+  'POR-CRO': ['Portugal', 'Croatia']
 };
 
 const TEAM_FLAGS = {
