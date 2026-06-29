@@ -10366,5 +10366,2309 @@
     "partecipante": "SIMONE",
     "match_id": "GIOR-ARG",
     "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "NED-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "POR-CRO",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "SVI-ALG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "AUS-EGI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "LUIGI",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "SUD-CAN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "BRA-JAP",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "CAV-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "BEL-SEN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "SVI-ALG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "SUD-CAN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "MEX-ECU",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "BEL-SEN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "AUS-EGI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FABIO",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "POR-CRO",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "SUD-CAN",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "BRA-JAP",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "GER-PAR",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "NED-MAR",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "CAV-NOR",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "FRA-SVE",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "MEX-ECU",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "ENG-CONGO",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "BEL-SEN",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "USA-BOS",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "SPA-AUS",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "POR-CRO",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "SVI-ALG",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "AUS-EGI",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "ARG-CAVE",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "FULVIO",
+    "match_id": "COL-GHA",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "BRA-JAP",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "MEX-ECU",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "BEL-SEN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "SPA-AUS",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "POR-CRO",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MICHELE",
+    "match_id": "COL-GHA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "NED-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "BEL-SEN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "POR-CRO",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "SVI-ALG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "AUS-EGI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "GER-PAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "NED-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "SPA-AUS",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "AUS-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "COL-GHA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "NED-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "BEL-SEN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "POR-CRO",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "BRA-JAP",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "CAV-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "MEX-ECU",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "BEL-SEN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "BRA-JAP",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "NED-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "CAV-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "BEL-SEN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "POR-CRO",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "AUS-EGI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "DARIO",
+    "match_id": "COL-GHA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "BRA-JAP",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "NED-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "POR-CRO",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "MARCO",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "SUD-CAN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "BEL-SEN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "USA-BOS",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "COL-GHA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "NED-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "POR-CRO",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "AUS-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "COL-GHA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "SUD-CAN",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "BRA-JAP",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "GER-PAR",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "NED-MAR",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "CAV-NOR",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "FRA-SVE",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "MEX-ECU",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "ENG-CONGO",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "BEL-SEN",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "USA-BOS",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "SPA-AUS",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "POR-CRO",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "SVI-ALG",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "AUS-EGI",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "ARG-CAVE",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "COL-GHA",
+    "pronostico": ""
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "POR-CRO",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "SVI-ALG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "IVAN",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "SUD-CAN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "NED-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "USA-BOS",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "POR-CRO",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "AUS-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "BRA-JAP",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "CAV-NOR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "BEL-SEN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "POR-CRO",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "SUD-CAN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "BEL-SEN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "AUS-EGI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "NED-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "CAV-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "AUS-EGI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "COL-GHA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "SUD-CAN",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "NED-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "MEX-ECU",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "USA-BOS",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "SVI-ALG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "COL-GHA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "NED-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "MEX-ECU",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "NED-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "POR-CRO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "AUS-EGI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "VITTORIO",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "SUD-CAN",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "BRA-JAP",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "GER-PAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "NED-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "CAV-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "FRA-SVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "MEX-ECU",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "ENG-CONGO",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "BEL-SEN",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "USA-BOS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "SPA-AUS",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "POR-CRO",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "SVI-ALG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "AUS-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "ARG-CAVE",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "SEDICESIMI",
+    "partecipante": "SIMONE",
+    "match_id": "COL-GHA",
+    "pronostico": "1"
   }
 ]
