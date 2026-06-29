@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-29T23:30:47.507Z",
+  "updated_at": "2026-06-29T23:39:00.407Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -389,6 +389,18 @@
       "finished": true,
       "kickoff_ts": 1781456400000,
       "order": 8
+    },
+    {
+      "match_id": "GER-PAR",
+      "home": "Germany",
+      "away": "Paraguay",
+      "home_score": 1,
+      "away_score": 1,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782765000000,
+      "order": 74
     },
     {
       "match_id": "GHA-PAN",
@@ -921,19 +933,19 @@
   ],
   "live_matches": [
     {
+      "home": "Germany",
+      "away": "Paraguay",
+      "home_flag": "de",
+      "away_flag": "py",
+      "home_score": 1,
+      "away_score": 1,
+      "minute": "FT"
+    },
+    {
       "home": "Netherlands",
       "away": "Morocco",
       "home_flag": "nl",
       "away_flag": "ma",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
-    },
-    {
-      "home": "Ivory Coast",
-      "away": "Norway",
-      "home_flag": "ci",
-      "away_flag": "no",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
