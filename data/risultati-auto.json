@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-29T22:40:39.189Z",
+  "updated_at": "2026-06-29T22:50:33.560Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -925,7 +925,7 @@
       "away": "Paraguay",
       "home_flag": "de",
       "away_flag": "py",
-      "home_score": 1,
+      "home_score": 2,
       "away_score": 1,
       "minute": "Live"
     },
