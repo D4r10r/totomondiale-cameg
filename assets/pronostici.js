@@ -30,13 +30,95 @@ function formatUpdatedAt(value) {
   return date.toLocaleString('it-IT');
 }
 
+
+const TEAM_DISPLAY = {
+  ALG: { name: 'Algeria', flag: 'dz' },
+  ARG: { name: 'Argentina', flag: 'ar' },
+  AUS: { name: 'Australia', flag: 'au' },
+  AUT: { name: 'Austria', flag: 'at' },
+  BEL: { name: 'Belgio', flag: 'be' },
+  BOS: { name: 'Bosnia', flag: 'ba' },
+  BRA: { name: 'Brasile', flag: 'br' },
+  CAN: { name: 'Canada', flag: 'ca' },
+  CAV: { name: "Costa d'Avorio", flag: 'ci' },
+  CAVE: { name: 'Capo Verde', flag: 'cv' },
+  COL: { name: 'Colombia', flag: 'co' },
+  CONGO: { name: 'RD Congo', flag: 'cd' },
+  COR: { name: 'Corea del Sud', flag: 'kr' },
+  CRO: { name: 'Croazia', flag: 'hr' },
+  CROA: { name: 'Croazia', flag: 'hr' },
+  CURA: { name: 'Curaçao', flag: 'cw' },
+  CEC: { name: 'Cechia', flag: 'cz' },
+  EGI: { name: 'Egitto', flag: 'eg' },
+  ECU: { name: 'Ecuador', flag: 'ec' },
+  ENG: { name: 'Inghilterra', flag: 'gb-eng' },
+  FRA: { name: 'Francia', flag: 'fr' },
+  GER: { name: 'Germania', flag: 'de' },
+  GHA: { name: 'Ghana', flag: 'gh' },
+  GIOR: { name: 'Giordania', flag: 'jo' },
+  HAI: { name: 'Haiti', flag: 'ht' },
+  ING: { name: 'Inghilterra', flag: 'gb-eng' },
+  IRAN: { name: 'Iran', flag: 'ir' },
+  IRAQ: { name: 'Iraq', flag: 'iq' },
+  JAP: { name: 'Giappone', flag: 'jp' },
+  MAR: { name: 'Marocco', flag: 'ma' },
+  MEX: { name: 'Messico', flag: 'mx' },
+  NED: { name: 'Paesi Bassi', flag: 'nl' },
+  NOR: { name: 'Norvegia', flag: 'no' },
+  NZEL: { name: 'Nuova Zelanda', flag: 'nz' },
+  PAN: { name: 'Panama', flag: 'pa' },
+  PAR: { name: 'Paraguay', flag: 'py' },
+  POR: { name: 'Portogallo', flag: 'pt' },
+  QAT: { name: 'Qatar', flag: 'qa' },
+  SAUDI: { name: 'Arabia Saudita', flag: 'sa' },
+  SCO: { name: 'Scozia', flag: 'gb-sct' },
+  SEN: { name: 'Senegal', flag: 'sn' },
+  SPA: { name: 'Spagna', flag: 'es' },
+  SUD: { name: 'Sudafrica', flag: 'za' },
+  SVE: { name: 'Svezia', flag: 'se' },
+  SVI: { name: 'Svizzera', flag: 'ch' },
+  TUN: { name: 'Tunisia', flag: 'tn' },
+  TUR: { name: 'Turchia', flag: 'tr' },
+  URU: { name: 'Uruguay', flag: 'uy' },
+  USA: { name: 'Stati Uniti', flag: 'us' },
+  UZB: { name: 'Uzbekistan', flag: 'uz' }
+};
+
+function teamDisplay(code) {
+  const key = String(code || '').trim().toUpperCase();
+  return TEAM_DISPLAY[key] || { name: key, flag: '' };
+}
+
+function renderHeaderTeam(code) {
+  const team = teamDisplay(code);
+  const flag = team.flag
+    ? `<img class="pron-flag" src="assets/flags/${escapeHtml(team.flag)}.svg" alt="" loading="lazy" onerror="this.style.display='none'">`
+    : '';
+
+  return `
+    <span class="match-team">
+      ${flag}
+      <span class="match-team-name">${escapeHtml(team.name)}</span>
+    </span>
+  `;
+}
+
 function formatMatchHeader(match) {
   const parts = String(match || '').split('-').map(x => x.trim()).filter(Boolean);
+
   if (parts.length >= 2) {
-    const home = escapeHtml(parts[0]);
-    const away = escapeHtml(parts.slice(1).join('-'));
-    return `<span class="team-code">${home}</span><span class="vs-sep">-</span><span class="team-code">${away}</span>`;
+    const home = parts[0];
+    const away = parts.slice(1).join('-');
+
+    return `
+      <div class="match-header-full">
+        ${renderHeaderTeam(home)}
+        <span class="match-divider"></span>
+        ${renderHeaderTeam(away)}
+      </div>
+    `;
   }
+
   return escapeHtml(match);
 }
 
@@ -160,10 +242,12 @@ function renderSheets(predictions, resultsMap) {
     return;
   }
 
-  els.container.innerHTML = sheets.map(([day, sheet], index) => {
-    const content = renderSheetTable(day, sheet, index);
+  const groupSheets = sheets.filter(([day]) => isGroupStageDay(day));
+  const knockoutSheets = sheets.filter(([day]) => !isGroupStageDay(day));
 
-    if (isGroupStageDay(day)) {
+  const groupHtml = groupSheets.length
+    ? `<div class="stage-heading">FASE A GIRONI</div>` + groupSheets.map(([day, sheet], index) => {
+      const content = renderSheetTable(day, sheet, index);
       return `
         <details class="sheet-block sheet-accordion" data-sheet-index="${index}">
           <summary class="sheet-accordion-summary">
@@ -175,14 +259,21 @@ function renderSheets(predictions, resultsMap) {
           </div>
         </details>
       `;
-    }
+    }).join('')
+    : '';
 
+  const knockoutHtml = knockoutSheets.map(([day, sheet], index) => {
+    const sheetIndex = groupSheets.length + index;
+    const content = renderSheetTable(day, sheet, sheetIndex);
     return `
-      <section class="sheet-block sheet-block-open" data-sheet-index="${index}">
+      <section class="sheet-block sheet-block-open" data-sheet-index="${sheetIndex}">
+        <div class="stage-heading stage-heading-open">${escapeHtml(cleanDayTitle(day)) === 'SEDICESIMI' ? 'SEDICESIMI DI FINALE' : escapeHtml(cleanDayTitle(day))}</div>
         ${content}
       </section>
     `;
   }).join('');
+
+  els.container.innerHTML = groupHtml + knockoutHtml;
 }
 
 function scrollSheet(button) {
