@@ -45,7 +45,17 @@ function dayOrder(day) {
   if (d.includes('PRIMA')) return 1;
   if (d.includes('SECONDA')) return 2;
   if (d.includes('TERZA')) return 3;
+  if (d.includes('SEDICESIMI')) return 4;
   return 99;
+}
+
+function isGroupStageDay(day) {
+  const d = String(day || '').toUpperCase();
+  return d.includes('PRIMA') || d.includes('SECONDA') || d.includes('TERZA');
+}
+
+function cleanDayTitle(day) {
+  return String(day || '').trim().toUpperCase();
 }
 
 async function fetchJson(url, fallback = null) {
@@ -98,7 +108,52 @@ function cellClass(forecast, result) {
   return forecast === result ? 'forecast is-correct' : 'forecast is-wrong';
 }
 
+function renderSheetTable(day, sheet, index) {
+  const participants = [...sheet.participants.keys()].sort((a, b) => a.localeCompare(b, 'it'));
+  const header = sheet.matches.map(match => `<th class="match-head">${formatMatchHeader(match)}</th>`).join('');
+  const resultRow = sheet.matches.map(match => {
+    const value = resultsMapGlobal.get(match) || '';
+    return `<td class="result-sign">${value ? escapeHtml(value) : '&nbsp;'}</td>`;
+  }).join('');
+
+  const rows = participants.map(name => {
+    const forecasts = sheet.matches.map(match => {
+      const value = sheet.participants.get(name).get(match) || '';
+      const result = resultsMapGlobal.get(match) || '';
+      return `<td class="${cellClass(value, result)}">${escapeHtml(value)}</td>`;
+    }).join('');
+    return `<tr><th class="participant-col" title="${escapeHtml(name)}">${escapeHtml(name)}</th>${forecasts}</tr>`;
+  }).join('');
+
+  return `
+    <div class="sheet-title-row">
+      <h2>${escapeHtml(cleanDayTitle(day))}</h2>
+      <span class="mobile-scroll-hint">Usa le frecce per scorrere le partite</span>
+    </div>
+
+    <div class="mobile-scroll-controls" aria-label="Controlli scorrimento ${escapeHtml(day)}">
+      <button type="button" class="scroll-btn" data-dir="-1" aria-label="Scorri a sinistra">◀ Sinistra</button>
+      <button type="button" class="scroll-btn" data-dir="1" aria-label="Scorri a destra">Destra ▶</button>
+    </div>
+
+    <div class="excel-wrap" tabindex="0">
+      <table class="excel-table">
+        <thead>
+          <tr><th class="participant-col">Partecipanti</th>${header}</tr>
+        </thead>
+        <tbody>
+          <tr class="result-row"><th class="participant-col">Risultato</th>${resultRow}</tr>
+          ${rows}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+let resultsMapGlobal = new Map();
+
 function renderSheets(predictions, resultsMap) {
+  resultsMapGlobal = resultsMap;
   const sheets = buildSheets(predictions);
   if (!sheets.length) {
     els.container.innerHTML = '<p>Nessun pronostico trovato.</p>';
@@ -106,45 +161,25 @@ function renderSheets(predictions, resultsMap) {
   }
 
   els.container.innerHTML = sheets.map(([day, sheet], index) => {
-    const participants = [...sheet.participants.keys()].sort((a, b) => a.localeCompare(b, 'it'));
-    const header = sheet.matches.map(match => `<th class="match-head">${formatMatchHeader(match)}</th>`).join('');
-    const resultRow = sheet.matches.map(match => {
-      const value = resultsMap.get(match) || '';
-      return `<td class="result-sign">${value ? escapeHtml(value) : '&nbsp;'}</td>`;
-    }).join('');
+    const content = renderSheetTable(day, sheet, index);
 
-    const rows = participants.map(name => {
-      const forecasts = sheet.matches.map(match => {
-        const value = sheet.participants.get(name).get(match) || '';
-        const result = resultsMap.get(match) || '';
-        return `<td class="${cellClass(value, result)}">${escapeHtml(value)}</td>`;
-      }).join('');
-      return `<tr><th class="participant-col" title="${escapeHtml(name)}">${escapeHtml(name)}</th>${forecasts}</tr>`;
-    }).join('');
+    if (isGroupStageDay(day)) {
+      return `
+        <details class="sheet-block sheet-accordion" data-sheet-index="${index}">
+          <summary class="sheet-accordion-summary">
+            <span>${escapeHtml(cleanDayTitle(day))}</span>
+            <span class="accordion-plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="sheet-accordion-content">
+            ${content}
+          </div>
+        </details>
+      `;
+    }
 
     return `
-      <section class="sheet-block" data-sheet-index="${index}">
-        <div class="sheet-title-row">
-          <h2>${escapeHtml(day)}</h2>
-          <span class="mobile-scroll-hint">Usa le frecce per scorrere le partite</span>
-        </div>
-
-        <div class="mobile-scroll-controls" aria-label="Controlli scorrimento ${escapeHtml(day)}">
-          <button type="button" class="scroll-btn" data-dir="-1" aria-label="Scorri a sinistra">◀ Sinistra</button>
-          <button type="button" class="scroll-btn" data-dir="1" aria-label="Scorri a destra">Destra ▶</button>
-        </div>
-
-        <div class="excel-wrap" tabindex="0">
-          <table class="excel-table">
-            <thead>
-              <tr><th class="participant-col">Partecipanti</th>${header}</tr>
-            </thead>
-            <tbody>
-              <tr class="result-row"><th class="participant-col">Risultato</th>${resultRow}</tr>
-              ${rows}
-            </tbody>
-          </table>
-        </div>
+      <section class="sheet-block sheet-block-open" data-sheet-index="${index}">
+        ${content}
       </section>
     `;
   }).join('');
