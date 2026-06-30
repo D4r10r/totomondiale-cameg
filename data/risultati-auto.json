@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-30T18:30:46.161Z",
+  "updated_at": "2026-06-30T18:40:44.542Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -949,7 +949,7 @@
       "away": "Norway",
       "home_flag": "ci",
       "away_flag": "no",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 1,
       "minute": "Live"
     },
