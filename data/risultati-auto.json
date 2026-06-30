@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-30T18:50:37.482Z",
+  "updated_at": "2026-06-30T19:00:57.387Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -197,6 +197,18 @@
       "finished": true,
       "kickoff_ts": 1781478000000,
       "order": 10
+    },
+    {
+      "match_id": "CAV-NOR",
+      "home": "Ivory Coast",
+      "away": "Norway",
+      "home_score": 1,
+      "away_score": 2,
+      "outcome": "2",
+      "status": "finished",
+      "finished": true,
+      "kickoff_ts": 1782838800000,
+      "order": 76
     },
     {
       "match_id": "CAVE-SAUDI",
@@ -945,19 +957,19 @@
   ],
   "live_matches": [
     {
-      "home": "Ivory Coast",
-      "away": "Norway",
-      "home_flag": "ci",
-      "away_flag": "no",
-      "home_score": 1,
-      "away_score": 2,
-      "minute": "Live"
-    },
-    {
       "home": "France",
       "away": "Sweden",
       "home_flag": "fr",
       "away_flag": "se",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
+    },
+    {
+      "home": "Mexico",
+      "away": "Ecuador",
+      "home_flag": "mx",
+      "away_flag": "ec",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
