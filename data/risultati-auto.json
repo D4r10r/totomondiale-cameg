@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-30T19:20:39.698Z",
+  "updated_at": "2026-06-30T19:30:48.542Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -957,19 +957,19 @@
   ],
   "live_matches": [
     {
+      "home": "Ivory Coast",
+      "away": "Norway",
+      "home_flag": "ci",
+      "away_flag": "no",
+      "home_score": 1,
+      "away_score": 2,
+      "minute": "FT"
+    },
+    {
       "home": "France",
       "away": "Sweden",
       "home_flag": "fr",
       "away_flag": "se",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
-    },
-    {
-      "home": "Mexico",
-      "away": "Ecuador",
-      "home_flag": "mx",
-      "away_flag": "ec",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
