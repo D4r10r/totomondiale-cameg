@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-30T00:40:34.780Z",
+  "updated_at": "2026-06-30T00:50:37.323Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -933,6 +933,15 @@
   ],
   "live_matches": [
     {
+      "home": "Netherlands",
+      "away": "Morocco",
+      "home_flag": "nl",
+      "away_flag": "ma",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Live"
+    },
+    {
       "home": "Germany",
       "away": "Paraguay",
       "home_flag": "de",
@@ -940,15 +949,6 @@
       "home_score": 1,
       "away_score": 1,
       "minute": "FT"
-    },
-    {
-      "home": "Netherlands",
-      "away": "Morocco",
-      "home_flag": "nl",
-      "away_flag": "ma",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
     }
   ]
 }
