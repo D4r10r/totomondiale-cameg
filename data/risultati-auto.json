@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-01T18:20:37.519Z",
+  "updated_at": "2026-07-01T18:30:46.566Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -981,19 +981,19 @@
   ],
   "live_matches": [
     {
-      "home": "England",
-      "away": "DR Congo",
-      "home_flag": "gb-eng",
-      "away_flag": "cd",
+      "home": "Belgium",
+      "away": "Senegal",
+      "home_flag": "be",
+      "away_flag": "sn",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
     },
     {
-      "home": "Belgium",
-      "away": "Senegal",
-      "home_flag": "be",
-      "away_flag": "sn",
+      "home": "United States",
+      "away": "Bosnia and Herzegovina",
+      "home_flag": "us",
+      "away_flag": "ba",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
