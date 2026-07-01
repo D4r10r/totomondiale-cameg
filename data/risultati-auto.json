@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-01T00:40:37.850Z",
+  "updated_at": "2026-07-01T00:50:36.326Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -969,6 +969,15 @@
   ],
   "live_matches": [
     {
+      "home": "Mexico",
+      "away": "Ecuador",
+      "home_flag": "mx",
+      "away_flag": "ec",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Live"
+    },
+    {
       "home": "France",
       "away": "Sweden",
       "home_flag": "fr",
@@ -976,15 +985,6 @@
       "home_score": 3,
       "away_score": 0,
       "minute": "FT"
-    },
-    {
-      "home": "Mexico",
-      "away": "Ecuador",
-      "home_flag": "mx",
-      "away_flag": "ec",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
     }
   ]
 }
