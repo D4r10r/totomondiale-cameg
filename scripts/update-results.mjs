@@ -273,6 +273,32 @@ const TEAM_NAMES = {
   COL: ['Colombia']
 };
 
+const MANUAL_RESULT_OVERRIDES = {
+  // Pronostici validi nei 90 minuti: supplementari e rigori esclusi.
+  'ENG-CONGO': {
+    match_id: 'ENG-CONGO',
+    home: 'England',
+    away: 'DR Congo',
+    home_score: 2,
+    away_score: 1,
+    outcome: '1',
+    status: 'finished',
+    finished: true,
+    score_type: 'regular_time_manual'
+  },
+  'BEL-SEN': {
+    match_id: 'BEL-SEN',
+    home: 'Belgium',
+    away: 'Senegal',
+    home_score: 2,
+    away_score: 2,
+    outcome: 'X',
+    status: 'finished',
+    finished: true,
+    score_type: 'regular_time_manual'
+  }
+};
+
 const MANUAL_FINISHED_RESULTS = [
   {
     match_id: 'AUS-TUR',
@@ -984,6 +1010,21 @@ async function main() {
         score_type: row.score_type || (isKnockoutMatchId(matchId) ? 'regular_time' : 'final')
       });
     }
+  }
+
+  // Override manuali: prevalgono sempre sulla sorgente automatica.
+  for (const override of Object.values(MANUAL_RESULT_OVERRIDES)) {
+    const matchId = String(override.match_id || '').trim().toUpperCase();
+    const index = results.findIndex(row => String(row.match_id || '').trim().toUpperCase() === matchId);
+    const order = matchMap.get(makeTeamKey(override.home, override.away))?.order ?? override.order ?? 9999;
+    const fixed = { ...override, match_id: matchId, order };
+
+    if (index >= 0) {
+      results[index] = { ...results[index], ...fixed };
+    } else {
+      results.push(fixed);
+    }
+    seen.add(matchId);
   }
 
   results.sort((a, b) => String(a.match_id).localeCompare(String(b.match_id), 'it'));
