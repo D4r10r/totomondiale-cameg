@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-02T20:50:42.007Z",
+  "updated_at": "2026-07-02T21:01:03.830Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -875,6 +875,19 @@
       "order": 61
     },
     {
+      "match_id": "SPA-AUS",
+      "home": "Spain",
+      "away": "Austria",
+      "home_score": 3,
+      "away_score": 0,
+      "outcome": "1",
+      "status": "finished",
+      "finished": true,
+      "score_type": "regular_time",
+      "kickoff_ts": 1783018800000,
+      "order": 82
+    },
+    {
       "match_id": "SPA-CAVE",
       "home": "Spain",
       "away": "Cape Verde",
@@ -1098,19 +1111,19 @@
   ],
   "live_matches": [
     {
-      "home": "Spain",
-      "away": "Austria",
-      "home_flag": "es",
-      "away_flag": "at",
-      "home_score": 2,
-      "away_score": 0,
-      "minute": "Live"
-    },
-    {
       "home": "Portugal",
       "away": "Croatia",
       "home_flag": "pt",
       "away_flag": "hr",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Prossima"
+    },
+    {
+      "home": "Switzerland",
+      "away": "Algeria",
+      "home_flag": "ch",
+      "away_flag": "dz",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
