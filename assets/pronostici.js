@@ -84,6 +84,24 @@ const TEAM_DISPLAY = {
   UZB: { name: 'Uzbekistan', flag: 'uz' }
 };
 
+const MATCH_DISPLAY_OVERRIDES = {
+  // In questi match il codice usato storicamente nel file è AUS,
+  // ma la nazionale corretta da mostrare è Austria.
+  'AUS-GIOR': ['AUT', 'GIOR'],
+  'ARG-AUS': ['ARG', 'AUT'],
+  'ALG-AUS': ['ALG', 'AUT'],
+  'SPA-AUS': ['SPA', 'AUT']
+};
+
+function displayCodesForMatch(matchId) {
+  const id = String(matchId || '').trim().toUpperCase();
+  if (MATCH_DISPLAY_OVERRIDES[id]) return MATCH_DISPLAY_OVERRIDES[id];
+
+  const parts = id.split('-').map(x => x.trim()).filter(Boolean);
+  if (parts.length >= 2) return [parts[0], parts.slice(1).join('-')];
+  return [id];
+}
+
 function teamDisplay(code) {
   const key = String(code || '').trim().toUpperCase();
   return TEAM_DISPLAY[key] || { name: key, flag: '' };
@@ -104,11 +122,10 @@ function renderHeaderTeam(code) {
 }
 
 function formatMatchHeader(match) {
-  const parts = String(match || '').split('-').map(x => x.trim()).filter(Boolean);
+  const parts = displayCodesForMatch(match);
 
   if (parts.length >= 2) {
-    const home = parts[0];
-    const away = parts.slice(1).join('-');
+    const [home, away] = parts;
 
     return `
       <div class="match-header-full">

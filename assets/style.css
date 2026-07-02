@@ -294,3 +294,44 @@ table { width: 100%; border-collapse: separate; border-spacing: 0; }
     margin-right: 0 !important;
   }
 }
+
+
+/* Override mobile: nomi nazionali leggibili nel riepilogo pronostici */
+@media (max-width: 720px) {
+  .match-head {
+    min-width: 126px !important;
+  }
+
+  .match-header-full {
+    min-width: 116px !important;
+    gap: 7px !important;
+    padding: 7px 3px !important;
+  }
+
+  .match-team {
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    min-height: 23px !important;
+  }
+
+  .match-team-name {
+    max-width: 92px !important;
+    font-size: .74rem !important;
+    line-height: 1.08 !important;
+    text-align: left !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  .pron-flag {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .match-divider {
+    width: 88px !important;
+    margin-left: 22px !important;
+    margin-right: 0 !important;
+  }
+}
