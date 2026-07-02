@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-02T01:40:38.085Z",
+  "updated_at": "2026-07-02T01:50:37.699Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -997,7 +997,7 @@
       "away": "Bosnia and Herzegovina",
       "home_flag": "us",
       "away_flag": "ba",
-      "home_score": 1,
+      "home_score": 2,
       "away_score": 0,
       "minute": "Live"
     },
