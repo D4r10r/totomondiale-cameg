@@ -130,6 +130,83 @@ const MATCH_KICKOFF_UTC = {
   'COL-GHA': '2026-07-04T01:30:00Z'
 };
 
+const GROUP_STAGE_MATCH_IDS = new Set([
+  'MEX-SUD',
+  'COR-CEC',
+  'CAN-BOS',
+  'USA-PAR',
+  'QAT-SVI',
+  'BRA-MAR',
+  'HAI-SCO',
+  'AUS-TUR',
+  'GER-CURA',
+  'NED-JAP',
+  'CAV-ECU',
+  'SVE-TUN',
+  'SPA-CAVE',
+  'BEL-EGI',
+  'SAUDI-URU',
+  'IRAN-NZEL',
+  'FRA-SEN',
+  'IRAQ-NOR',
+  'ARG-ALG',
+  'AUS-GIOR',
+  'POR-CONGO',
+  'ING-CROA',
+  'GHA-PAN',
+  'UZB-COL',
+  'CEC-SUD',
+  'SVI-BOS',
+  'CAN-QAT',
+  'MEX-COR',
+  'USA-AUS',
+  'SCO-MAR',
+  'BRA-HAI',
+  'TUR-PAR',
+  'NED-SVE',
+  'GER-CAV',
+  'ECU-CURA',
+  'TUN-JAP',
+  'SPA-SAUDI',
+  'BEL-IRAN',
+  'URU-CAVE',
+  'NZEL-EGI',
+  'ARG-AUS',
+  'FRA-IRAQ',
+  'NOR-SEN',
+  'GIOR-ALG',
+  'POR-UZB',
+  'ING-GHA',
+  'PAN-CROA',
+  'PAN-CRO',
+  'COL-CONGO',
+  'SVI-CAN',
+  'BOS-QAT',
+  'SCO-BRA',
+  'MAR-HAI',
+  'CEC-MEX',
+  'SUD-COR',
+  'ECU-GER',
+  'CURA-CAV',
+  'TUN-NED',
+  'JAP-SVE',
+  'TUR-USA',
+  'PAR-AUS',
+  'NOR-FRA',
+  'SEN-IRAQ',
+  'URU-SPA',
+  'CAVE-SAUDI',
+  'NZEL-BEL',
+  'EGI-IRAN',
+  'PAN-ING',
+  'CROA-GHA',
+  'CRO-GHA',
+  'COL-POR',
+  'CONGO-UZB',
+  'GIOR-ARG',
+  'ALG-AUS'
+]);
+
 function scheduledKickoff(matchId) {
   const value = MATCH_KICKOFF_UTC[String(matchId || '').trim().toUpperCase()];
   if (!value) return null;
@@ -447,6 +524,79 @@ function outcomeFromScore(homeScore, awayScore) {
   if (homeScore > awayScore) return '1';
   if (homeScore < awayScore) return '2';
   return 'X';
+}
+
+function isKnockoutMatchId(matchId) {
+  const id = String(matchId || '').trim().toUpperCase();
+  return Boolean(id) && !GROUP_STAGE_MATCH_IDS.has(id);
+}
+
+function normalizeScorePair(homeScore, awayScore) {
+  const home = scoreValue(homeScore);
+  const away = scoreValue(awayScore);
+  if (home === null || away === null) return null;
+  return { home, away };
+}
+
+function regularTimeScore(raw, sourceType) {
+  if (!raw || typeof raw !== 'object') return null;
+
+  if (sourceType === 'football-data') {
+    return normalizeScorePair(
+      firstDefined(raw.score?.regularTime?.home, raw.score?.fullTime?.home),
+      firstDefined(raw.score?.regularTime?.away, raw.score?.fullTime?.away)
+    );
+  }
+
+  if (sourceType === 'api-football') {
+    return normalizeScorePair(
+      firstDefined(raw.score?.fulltime?.home, raw.score?.regularTime?.home, raw.score?.regular_time?.home, raw.score?.normalTime?.home, raw.goals?.home),
+      firstDefined(raw.score?.fulltime?.away, raw.score?.regularTime?.away, raw.score?.regular_time?.away, raw.score?.normalTime?.away, raw.goals?.away)
+    );
+  }
+
+  if (sourceType === 'thesportsdb') {
+    return normalizeScorePair(
+      firstDefined(raw.intHomeScore90, raw.intHomeScoreRegular, raw.intHomeScore),
+      firstDefined(raw.intAwayScore90, raw.intAwayScoreRegular, raw.intAwayScore)
+    );
+  }
+
+  return normalizeScorePair(
+    firstDefined(
+      raw.home_regular_score, raw.homeRegularScore, raw.home_score_90, raw.homeScore90,
+      raw.regular_time?.home, raw.regularTime?.home, raw.score?.regularTime?.home,
+      raw.score?.regular_time?.home, raw.result?.regular_time?.home, raw.result?.regularTime?.home,
+      raw.home_score, raw.homeScore, raw.home_goals, raw.homeGoals, raw.score_home,
+      raw.home_team_score, raw.homeTeamScore, raw.home?.score, raw.home?.goals,
+      raw.goals?.home, raw.score?.home, raw.result?.home, raw.result?.home_score
+    ),
+    firstDefined(
+      raw.away_regular_score, raw.awayRegularScore, raw.away_score_90, raw.awayScore90,
+      raw.regular_time?.away, raw.regularTime?.away, raw.score?.regularTime?.away,
+      raw.score?.regular_time?.away, raw.result?.regular_time?.away, raw.result?.regularTime?.away,
+      raw.away_score, raw.awayScore, raw.away_goals, raw.awayGoals, raw.score_away,
+      raw.away_team_score, raw.awayTeamScore, raw.away?.score, raw.away?.goals,
+      raw.goals?.away, raw.score?.away, raw.result?.away, raw.result?.away_score
+    )
+  );
+}
+
+function scoringScoreForMatch(raw, sourceType, matchId, fallbackHomeScore, fallbackAwayScore) {
+  if (!isKnockoutMatchId(matchId)) {
+    return { homeScore: fallbackHomeScore, awayScore: fallbackAwayScore, scoreType: 'final' };
+  }
+
+  const regular = regularTimeScore(raw, sourceType);
+  if (regular) {
+    return { homeScore: regular.home, awayScore: regular.away, scoreType: 'regular_time' };
+  }
+
+  return {
+    homeScore: fallbackHomeScore,
+    awayScore: fallbackAwayScore,
+    scoreType: 'regular_time_unavailable_fallback_final'
+  };
 }
 
 function normalizeWorldcup26Game(raw) {
@@ -768,35 +918,40 @@ async function main() {
     const live = scheduled_ts !== null ? scheduledLive : game.live;
     const isUpcoming = !game.finished && !live;
 
+    const scoringScore = scoringScoreForMatch(raw, source.type, match.match_id, game.homeScore, game.awayScore);
+    const scoringOutcome = game.finished ? outcomeFromScore(scoringScore.homeScore, scoringScore.awayScore) : null;
+
     const common = {
       match_id: match.match_id,
       home: game.home,
       away: game.away,
       home_flag: flagForTeam(game.home),
       away_flag: flagForTeam(game.away),
-      homeScore: isUpcoming ? null : game.homeScore,
-      awayScore: isUpcoming ? null : game.awayScore,
+      homeScore: isUpcoming ? null : scoringScore.homeScore,
+      awayScore: isUpcoming ? null : scoringScore.awayScore,
       minute: game.finished ? 'FT' : (live ? (game.minute || 'Live') : 'Prossima'),
       live,
       finished: game.finished,
       kickoff_ts,
-      order: match.order
+      order: match.order,
+      score_type: scoringScore.scoreType
     };
 
     allMatches.push(common);
 
-    if (!game.finished || !game.outcome || seen.has(match.match_id)) continue;
+    if (!game.finished || !scoringOutcome || seen.has(match.match_id)) continue;
 
     seen.add(match.match_id);
     results.push({
       match_id: match.match_id,
       home: game.home,
       away: game.away,
-      home_score: game.homeScore,
-      away_score: game.awayScore,
-      outcome: match.reverse ? invertOutcome(game.outcome) : game.outcome,
+      home_score: scoringScore.homeScore,
+      away_score: scoringScore.awayScore,
+      outcome: match.reverse ? invertOutcome(scoringOutcome) : scoringOutcome,
       status: 'finished',
       finished: true,
+      score_type: scoringScore.scoreType,
       kickoff_ts,
       order: match.order
     });
@@ -806,7 +961,7 @@ async function main() {
     if (!seen.has(manual.match_id)) {
       seen.add(manual.match_id);
       const order = matchMap.get(makeTeamKey(manual.home, manual.away))?.order ?? 9999;
-      results.push({ ...manual, order });
+      results.push({ ...manual, order, score_type: manual.score_type || 'final' });
     }
   }
 
@@ -825,7 +980,8 @@ async function main() {
         match_id: matchId,
         order,
         status: 'finished',
-        finished: true
+        finished: true,
+        score_type: row.score_type || (isKnockoutMatchId(matchId) ? 'regular_time' : 'final')
       });
     }
   }
