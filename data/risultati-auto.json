@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-03T00:20:38.299Z",
+  "updated_at": "2026-07-03T00:30:50.982Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -1115,7 +1115,7 @@
       "away": "Croatia",
       "home_flag": "pt",
       "away_flag": "hr",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 1,
       "minute": "Live"
     },
