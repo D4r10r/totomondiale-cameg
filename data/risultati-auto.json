@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-03T02:40:39.938Z",
+  "updated_at": "2026-07-03T02:50:38.686Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -1124,6 +1124,15 @@
   ],
   "live_matches": [
     {
+      "home": "Switzerland",
+      "away": "Algeria",
+      "home_flag": "ch",
+      "away_flag": "dz",
+      "home_score": "",
+      "away_score": "",
+      "minute": "Live"
+    },
+    {
       "home": "Portugal",
       "away": "Croatia",
       "home_flag": "pt",
@@ -1131,15 +1140,6 @@
       "home_score": 2,
       "away_score": 1,
       "minute": "FT"
-    },
-    {
-      "home": "Switzerland",
-      "away": "Algeria",
-      "home_flag": "ch",
-      "away_flag": "dz",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
     }
   ]
 }
