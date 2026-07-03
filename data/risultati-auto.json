@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-03T16:31:04.668Z",
-  "source": "https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026",
-  "source_name": "TheSportsDB",
+  "updated_at": "2026-07-03T16:40:49.274Z",
+  "source": "https://worldcup26.ir/get/games",
+  "source_name": "worldcup26.ir",
   "source_status": "ok",
   "available_sources": [
     {
@@ -1110,7 +1110,7 @@
     },
     {
       "match_id": "USA-PAR",
-      "home": "USA",
+      "home": "United States",
       "away": "Paraguay",
       "home_score": 4,
       "away_score": 1,
