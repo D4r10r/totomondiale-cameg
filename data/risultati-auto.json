@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-04T00:20:42.711Z",
+  "updated_at": "2026-07-04T00:30:55.303Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -1150,15 +1150,6 @@
   ],
   "live_matches": [
     {
-      "home": "Argentina",
-      "away": "Cape Verde",
-      "home_flag": "ar",
-      "away_flag": "cv",
-      "home_score": 2,
-      "away_score": 2,
-      "minute": "Live"
-    },
-    {
       "home": "Colombia",
       "away": "Ghana",
       "home_flag": "co",
@@ -1166,6 +1157,15 @@
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
+    },
+    {
+      "home": "Croatia",
+      "away": "Ghana",
+      "home_flag": "hr",
+      "away_flag": "gh",
+      "home_score": 2,
+      "away_score": 1,
+      "minute": "FT"
     }
   ]
 }
