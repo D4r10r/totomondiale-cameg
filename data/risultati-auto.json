@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-04T00:01:05.961Z",
+  "updated_at": "2026-07-04T00:10:45.311Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -1154,7 +1154,7 @@
       "away": "Cape Verde",
       "home_flag": "ar",
       "away_flag": "cv",
-      "home_score": 1,
+      "home_score": 2,
       "away_score": 1,
       "minute": "Live"
     },
