@@ -273,31 +273,53 @@ const TEAM_NAMES = {
   COL: ['Colombia']
 };
 
+const MANUAL_OVERRIDES = {
+  // Modifica solo queste righe se devi forzare il risultato valido nei 90 minuti.
+  // Valori ammessi: '1', 'X', '2'
+  'ENG-CONGO': '1',
+  'BEL-SEN': 'X',
+  'ARG-CAVE': 'X'
+};
+
 const MANUAL_RESULT_OVERRIDES = {
-  // Pronostici validi nei 90 minuti: supplementari e rigori esclusi.
   'ENG-CONGO': {
     match_id: 'ENG-CONGO',
     home: 'England',
     away: 'DR Congo',
     home_score: 2,
-    away_score: 1,
-    outcome: '1',
-    status: 'finished',
-    finished: true,
-    score_type: 'regular_time_manual'
+    away_score: 1
   },
   'BEL-SEN': {
     match_id: 'BEL-SEN',
     home: 'Belgium',
     away: 'Senegal',
     home_score: 2,
-    away_score: 2,
-    outcome: 'X',
-    status: 'finished',
-    finished: true,
-    score_type: 'regular_time_manual'
+    away_score: 2
+  },
+  'ARG-CAVE': {
+    match_id: 'ARG-CAVE',
+    home: 'Argentina',
+    away: 'Cape Verde',
+    home_score: 2,
+    away_score: 2
   }
 };
+
+function manualOverrideRows() {
+  return Object.entries(MANUAL_OVERRIDES)
+    .filter(([, outcome]) => ['1', 'X', '2'].includes(String(outcome || '').trim().toUpperCase()))
+    .map(([matchId, outcome]) => {
+      const base = MANUAL_RESULT_OVERRIDES[matchId] || { match_id: matchId };
+      return {
+        ...base,
+        match_id: matchId,
+        outcome: String(outcome).trim().toUpperCase(),
+        status: 'finished',
+        finished: true,
+        score_type: 'regular_time_manual'
+      };
+    });
+}
 
 const MANUAL_FINISHED_RESULTS = [
   {
@@ -1013,7 +1035,7 @@ async function main() {
   }
 
   // Override manuali: prevalgono sempre sulla sorgente automatica.
-  for (const override of Object.values(MANUAL_RESULT_OVERRIDES)) {
+  for (const override of manualOverrideRows()) {
     const matchId = String(override.match_id || '').trim().toUpperCase();
     const index = results.findIndex(row => String(row.match_id || '').trim().toUpperCase() === matchId);
     const order = matchMap.get(makeTeamKey(override.home, override.away))?.order ?? override.order ?? 9999;
