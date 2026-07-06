@@ -12671,5 +12671,1157 @@
     "partecipante": "SIMONE",
     "match_id": "COL-GHA",
     "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "LUIGI",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "LUIGI",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "LUIGI",
+    "match_id": "BRA-NOR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "LUIGI",
+    "match_id": "MEX-ENG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "LUIGI",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "LUIGI",
+    "match_id": "USA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "LUIGI",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "LUIGI",
+    "match_id": "SVI-COL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "CAN-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "BRA-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "MEX-ENG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "USA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "SVI-COL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FABIO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FABIO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FABIO",
+    "match_id": "BRA-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FABIO",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FABIO",
+    "match_id": "POR-SPA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FABIO",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FABIO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FABIO",
+    "match_id": "SVI-COL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "BRA-NOR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "POR-SPA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "SVI-COL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FULVIO",
+    "match_id": "CAN-MAR",
+    "pronostico": ""
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FULVIO",
+    "match_id": "PAR-FRA",
+    "pronostico": ""
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FULVIO",
+    "match_id": "BRA-NOR",
+    "pronostico": ""
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FULVIO",
+    "match_id": "MEX-ENG",
+    "pronostico": ""
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FULVIO",
+    "match_id": "POR-SPA",
+    "pronostico": ""
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FULVIO",
+    "match_id": "USA-BEL",
+    "pronostico": ""
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FULVIO",
+    "match_id": "ARG-EGI",
+    "pronostico": ""
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "FULVIO",
+    "match_id": "SVI-COL",
+    "pronostico": ""
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MICHELE",
+    "match_id": "CAN-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MICHELE",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MICHELE",
+    "match_id": "BRA-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MICHELE",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MICHELE",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MICHELE",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MICHELE",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MICHELE",
+    "match_id": "SVI-COL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "BRA-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "MEX-ENG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "SVI-COL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "CAN-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "BRA-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "POR-SPA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "SVI-COL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "BRA-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "ARG-EGI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "SVI-COL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "BRA-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "SVI-COL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "DARIO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "DARIO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "DARIO",
+    "match_id": "BRA-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "DARIO",
+    "match_id": "MEX-ENG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "DARIO",
+    "match_id": "POR-SPA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "DARIO",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "DARIO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "DARIO",
+    "match_id": "SVI-COL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MARCO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MARCO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MARCO",
+    "match_id": "BRA-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MARCO",
+    "match_id": "MEX-ENG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MARCO",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MARCO",
+    "match_id": "USA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MARCO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "MARCO",
+    "match_id": "SVI-COL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "BRA-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "MEX-ENG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "POR-SPA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "USA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "SVI-COL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "PAR-FRA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "BRA-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "MEX-ENG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "POR-SPA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "SVI-COL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "BRA-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "SVI-COL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "IVAN",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "IVAN",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "IVAN",
+    "match_id": "BRA-NOR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "IVAN",
+    "match_id": "MEX-ENG",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "IVAN",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "IVAN",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "IVAN",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "IVAN",
+    "match_id": "SVI-COL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "BRA-NOR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "MEX-ENG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "USA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "SVI-COL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "BRA-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "MEX-ENG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "POR-SPA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "USA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "ARG-EGI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "SVI-COL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "BRA-NOR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "MEX-ENG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "SVI-COL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "CAN-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "BRA-NOR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "POR-SPA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "USA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "SVI-COL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "BRA-NOR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "USA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "SVI-COL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "BRA-NOR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "POR-SPA",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "SVI-COL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VITTORIO",
+    "match_id": "CAN-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VITTORIO",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VITTORIO",
+    "match_id": "BRA-NOR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VITTORIO",
+    "match_id": "MEX-ENG",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VITTORIO",
+    "match_id": "POR-SPA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VITTORIO",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VITTORIO",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "VITTORIO",
+    "match_id": "SVI-COL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "SIMONE",
+    "match_id": "CAN-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "SIMONE",
+    "match_id": "PAR-FRA",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "SIMONE",
+    "match_id": "BRA-NOR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "SIMONE",
+    "match_id": "MEX-ENG",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "SIMONE",
+    "match_id": "POR-SPA",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "SIMONE",
+    "match_id": "USA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "SIMONE",
+    "match_id": "ARG-EGI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "OTTAVI",
+    "partecipante": "SIMONE",
+    "match_id": "SVI-COL",
+    "pronostico": "X"
   }
 ]
