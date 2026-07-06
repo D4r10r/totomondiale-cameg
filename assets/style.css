@@ -335,3 +335,24 @@ table { width: 100%; border-collapse: separate; border-spacing: 0; }
     margin-right: 0 !important;
   }
 }
+
+
+/* Rimozione box risultati live dalla homepage */
+.live-card,
+.live-section,
+.live-results,
+#liveMatches,
+#liveStatus {
+  display: none !important;
+}
+
+/* Ottavi visibili, turni precedenti richiudibili */
+.sheet-block-open > .sheet-title-row {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .sheet-accordion-summary {
+    min-height: 48px;
+  }
+}

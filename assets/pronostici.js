@@ -145,12 +145,18 @@ function dayOrder(day) {
   if (d.includes('SECONDA')) return 2;
   if (d.includes('TERZA')) return 3;
   if (d.includes('SEDICESIMI')) return 4;
+  if (d.includes('OTTAVI')) return 5;
   return 99;
 }
 
 function isGroupStageDay(day) {
   const d = String(day || '').toUpperCase();
   return d.includes('PRIMA') || d.includes('SECONDA') || d.includes('TERZA');
+}
+
+function isCollapsedStageDay(day) {
+  const d = String(day || '').toUpperCase();
+  return isGroupStageDay(day) || d.includes('SEDICESIMI');
 }
 
 function cleanDayTitle(day) {
@@ -252,6 +258,13 @@ function renderSheetTable(day, sheet, index) {
 
 let resultsMapGlobal = new Map();
 
+function stageTitle(day) {
+  const d = String(day || '').trim().toUpperCase();
+  if (d === 'SEDICESIMI') return 'SEDICESIMI DI FINALE';
+  if (d === 'OTTAVI') return 'OTTAVI DI FINALE';
+  return d;
+}
+
 function renderSheets(predictions, resultsMap) {
   resultsMapGlobal = resultsMap;
   const sheets = buildSheets(predictions);
@@ -260,16 +273,16 @@ function renderSheets(predictions, resultsMap) {
     return;
   }
 
-  const groupSheets = sheets.filter(([day]) => isGroupStageDay(day));
-  const knockoutSheets = sheets.filter(([day]) => !isGroupStageDay(day));
+  const collapsedSheets = sheets.filter(([day]) => isCollapsedStageDay(day));
+  const openSheets = sheets.filter(([day]) => !isCollapsedStageDay(day));
 
-  const groupHtml = groupSheets.length
-    ? `<div class="stage-heading">FASE A GIRONI</div>` + groupSheets.map(([day, sheet], index) => {
+  const collapsedHtml = collapsedSheets.length
+    ? `<div class="stage-heading">FASE PRECEDENTE</div>` + collapsedSheets.map(([day, sheet], index) => {
       const content = renderSheetTable(day, sheet, index);
       return `
         <details class="sheet-block sheet-accordion" data-sheet-index="${index}">
           <summary class="sheet-accordion-summary">
-            <span>${escapeHtml(cleanDayTitle(day))}</span>
+            <span>${escapeHtml(stageTitle(day))}</span>
             <span class="accordion-plus" aria-hidden="true">+</span>
           </summary>
           <div class="sheet-accordion-content">
@@ -280,18 +293,18 @@ function renderSheets(predictions, resultsMap) {
     }).join('')
     : '';
 
-  const knockoutHtml = knockoutSheets.map(([day, sheet], index) => {
-    const sheetIndex = groupSheets.length + index;
+  const openHtml = openSheets.map(([day, sheet], index) => {
+    const sheetIndex = collapsedSheets.length + index;
     const content = renderSheetTable(day, sheet, sheetIndex);
     return `
       <section class="sheet-block sheet-block-open" data-sheet-index="${sheetIndex}">
-        <div class="stage-heading stage-heading-open">${escapeHtml(cleanDayTitle(day)) === 'SEDICESIMI' ? 'SEDICESIMI DI FINALE' : escapeHtml(cleanDayTitle(day))}</div>
+        <div class="stage-heading stage-heading-open">${escapeHtml(stageTitle(day))}</div>
         ${content}
       </section>
     `;
   }).join('');
 
-  els.container.innerHTML = groupHtml + knockoutHtml;
+  els.container.innerHTML = collapsedHtml + openHtml;
 }
 
 function scrollSheet(button) {
