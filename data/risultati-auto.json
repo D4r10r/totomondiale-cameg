@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T02:20:53.332Z",
+  "updated_at": "2026-07-07T02:31:03.421Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -1254,19 +1254,19 @@
   ],
   "live_matches": [
     {
+      "home": "United States",
+      "away": "Belgium",
+      "home_flag": "us",
+      "away_flag": "be",
+      "home_score": 1,
+      "away_score": 4,
+      "minute": "FT"
+    },
+    {
       "home": "Argentina",
       "away": "Egypt",
       "home_flag": "ar",
       "away_flag": "eg",
-      "home_score": "",
-      "away_score": "",
-      "minute": "Prossima"
-    },
-    {
-      "home": "Switzerland",
-      "away": "Colombia",
-      "home_flag": "ch",
-      "away_flag": "co",
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
