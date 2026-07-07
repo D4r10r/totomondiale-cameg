@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T18:20:53.999Z",
+  "updated_at": "2026-07-07T18:31:10.049Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -1267,6 +1267,15 @@
   ],
   "live_matches": [
     {
+      "home": "Argentina",
+      "away": "Egypt",
+      "home_flag": "ar",
+      "away_flag": "eg",
+      "home_score": 3,
+      "away_score": 2,
+      "minute": "FT"
+    },
+    {
       "home": "Switzerland",
       "away": "Colombia",
       "home_flag": "ch",
@@ -1274,15 +1283,6 @@
       "home_score": "",
       "away_score": "",
       "minute": "Prossima"
-    },
-    {
-      "home": "Croatia",
-      "away": "Ghana",
-      "home_flag": "hr",
-      "away_flag": "gh",
-      "home_score": 2,
-      "away_score": 1,
-      "minute": "FT"
     }
   ]
 }
