@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T22:50:57.749Z",
+  "updated_at": "2026-07-07T23:01:17.752Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -1122,6 +1122,19 @@
       "order": 48
     },
     {
+      "match_id": "SVI-COL",
+      "home": "Switzerland",
+      "away": "Colombia",
+      "home_score": 0,
+      "away_score": 0,
+      "outcome": "X",
+      "status": "finished",
+      "finished": true,
+      "score_type": "regular_time",
+      "kickoff_ts": 1783454400000,
+      "order": 95
+    },
+    {
       "match_id": "TUN-JAP",
       "home": "Tunisia",
       "away": "Japan",
@@ -1267,21 +1280,21 @@
   ],
   "live_matches": [
     {
+      "home": "Switzerland",
+      "away": "Colombia",
+      "home_flag": "ch",
+      "away_flag": "co",
+      "home_score": 0,
+      "away_score": 0,
+      "minute": "FT"
+    },
+    {
       "home": "Croatia",
       "away": "Ghana",
       "home_flag": "hr",
       "away_flag": "gh",
       "home_score": 2,
       "away_score": 1,
-      "minute": "FT"
-    },
-    {
-      "home": "Curaçao",
-      "away": "Ivory Coast",
-      "home_flag": "cw",
-      "away_flag": "ci",
-      "home_score": 0,
-      "away_score": 2,
       "minute": "FT"
     }
   ]
