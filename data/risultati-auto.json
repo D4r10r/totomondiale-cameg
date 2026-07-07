@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T00:31:09.327Z",
+  "updated_at": "2026-07-07T00:40:49.418Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -1245,8 +1245,8 @@
       "away": "Belgium",
       "home_flag": "us",
       "away_flag": "be",
-      "home_score": 0,
-      "away_score": 1,
+      "home_score": 1,
+      "away_score": 2,
       "minute": "Live"
     },
     {
