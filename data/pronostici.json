@@ -13823,5 +13823,581 @@
     "partecipante": "SIMONE",
     "match_id": "SVI-COL",
     "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "LUIGI",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "LUIGI",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "LUIGI",
+    "match_id": "NOR-ING",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "LUIGI",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "FRA-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "SPA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "NOR-ING",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIUSEPPE D'ALTRUI",
+    "match_id": "ARG-SVI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "FABIO",
+    "match_id": "FRA-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "FABIO",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "FABIO",
+    "match_id": "NOR-ING",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "FABIO",
+    "match_id": "ARG-SVI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "NOR-ING",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA CANGIANO",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "FULVIO",
+    "match_id": "FRA-MAR",
+    "pronostico": ""
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "FULVIO",
+    "match_id": "SPA-BEL",
+    "pronostico": ""
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "FULVIO",
+    "match_id": "NOR-ING",
+    "pronostico": ""
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "FULVIO",
+    "match_id": "ARG-SVI",
+    "pronostico": ""
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MICHELE",
+    "match_id": "FRA-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MICHELE",
+    "match_id": "SPA-BEL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MICHELE",
+    "match_id": "NOR-ING",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MICHELE",
+    "match_id": "ARG-SVI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "NOR-ING",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MASSIMO MOIO",
+    "match_id": "ARG-SVI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "FRA-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "SPA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "NOR-ING",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIUSEPPE CANGIANO",
+    "match_id": "ARG-SVI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "SPA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "NOR-ING",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ENRICO POPOLO",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "FRA-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "SPA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "NOR-ING",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA MAGLIANO",
+    "match_id": "ARG-SVI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "DARIO",
+    "match_id": "FRA-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "DARIO",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "DARIO",
+    "match_id": "NOR-ING",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "DARIO",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MARCO",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MARCO",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MARCO",
+    "match_id": "NOR-ING",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "MARCO",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "FRA-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "SPA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "NOR-ING",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANDREA UDITO",
+    "match_id": "ARG-SVI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "SPA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "NOR-ING",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "GIANNI DI SCALA",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "FRA-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "SPA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "NOR-ING",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "VINCENZO AMBRA",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "IVAN",
+    "match_id": "FRA-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "IVAN",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "IVAN",
+    "match_id": "NOR-ING",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "IVAN",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "SPA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "NOR-ING",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ENRICO CARUSO",
+    "match_id": "ARG-SVI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "FRA-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "SPA-BEL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "NOR-ING",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANTONIO OREFICE",
+    "match_id": "ARG-SVI",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "NOR-ING",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ALESSANDRO MOIO",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "NOR-ING",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "RAFFAELE TURCO",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "FRA-MAR",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "NOR-ING",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ANTONIO ESPOSITO",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "FRA-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "SPA-BEL",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "NOR-ING",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "ROBERTO PAPPA",
+    "match_id": "ARG-SVI",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "VITTORIO",
+    "match_id": "FRA-MAR",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "VITTORIO",
+    "match_id": "SPA-BEL",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "VITTORIO",
+    "match_id": "NOR-ING",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "VITTORIO",
+    "match_id": "ARG-SVI",
+    "pronostico": "2"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "SIMONE",
+    "match_id": "FRA-MAR",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "SIMONE",
+    "match_id": "SPA-BEL",
+    "pronostico": "1"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "SIMONE",
+    "match_id": "NOR-ING",
+    "pronostico": "X"
+  },
+  {
+    "giornata": "QUARTI",
+    "partecipante": "SIMONE",
+    "match_id": "ARG-SVI",
+    "pronostico": "X"
   }
 ]
