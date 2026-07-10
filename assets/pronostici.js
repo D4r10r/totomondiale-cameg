@@ -146,6 +146,7 @@ function dayOrder(day) {
   if (d.includes('TERZA')) return 3;
   if (d.includes('SEDICESIMI')) return 4;
   if (d.includes('OTTAVI')) return 5;
+  if (d.includes('QUARTI')) return 6;
   return 99;
 }
 
@@ -156,7 +157,7 @@ function isGroupStageDay(day) {
 
 function isCollapsedStageDay(day) {
   const d = String(day || '').toUpperCase();
-  return isGroupStageDay(day) || d.includes('SEDICESIMI');
+  return isGroupStageDay(day) || d.includes('SEDICESIMI') || d.includes('OTTAVI');
 }
 
 function cleanDayTitle(day) {
@@ -262,6 +263,7 @@ function stageTitle(day) {
   const d = String(day || '').trim().toUpperCase();
   if (d === 'SEDICESIMI') return 'SEDICESIMI DI FINALE';
   if (d === 'OTTAVI') return 'OTTAVI DI FINALE';
+  if (d === 'QUARTI') return 'QUARTI DI FINALE';
   return d;
 }
 
