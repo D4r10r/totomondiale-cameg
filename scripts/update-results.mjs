@@ -290,7 +290,9 @@ const MANUAL_OVERRIDES = {
   // Valori ammessi: '1', 'X', '2'
   'ENG-CONGO': '1',
   'BEL-SEN': 'X',
-  'ARG-CAVE': 'X'
+  'ARG-CAVE': 'X',
+  'NOR-ING': 'X',
+  'ARG-SVI': 'X'
 };
 
 const MANUAL_RESULT_OVERRIDES = {
