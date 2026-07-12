@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-12T09:42:09.665Z",
+  "updated_at": "2026-07-12T09:51:36.023Z",
   "source": "https://worldcup26.ir/get/games",
   "source_name": "worldcup26.ir",
   "source_status": "ok",
@@ -102,12 +102,12 @@
       "away": "Switzerland",
       "home_score": 3,
       "away_score": 1,
-      "outcome": "1",
+      "outcome": "X",
       "status": "finished",
       "finished": true,
-      "score_type": "regular_time",
+      "score_type": "regular_time_manual",
       "kickoff_ts": 1783818000000,
-      "order": 99
+      "order": 9999
     },
     {
       "match_id": "AUS-EGI",
@@ -828,12 +828,12 @@
       "away": "England",
       "home_score": 1,
       "away_score": 2,
-      "outcome": "2",
+      "outcome": "X",
       "status": "finished",
       "finished": true,
-      "score_type": "regular_time",
+      "score_type": "regular_time_manual",
       "kickoff_ts": 1783803600000,
-      "order": 98
+      "order": 9999
     },
     {
       "match_id": "NOR-SEN",
