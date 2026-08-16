@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-16T17:19:52.200Z",
+  "updated_at": "2026-08-16T18:31:08.674Z",
   "source": "https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026",
   "source_name": "TheSportsDB",
-  "source_status": "ok",
+  "source_status": "fallback_cache",
   "available_sources": [
     {
       "name": "worldcup26.ir",
@@ -1349,5 +1349,6 @@
       "away_score": 2,
       "minute": "FT"
     }
-  ]
+  ],
+  "error": "Nessuna sorgente disponibile. worldcup26.ir: HTTP 404 | TheSportsDB: HTTP 503 | GitHub raw worldcup2026 dataset: HTTP 404 | football-data.org: Sorgente saltata: manca secret FOOTBALL_DATA_TOKEN | API-Football: Sorgente saltata: manca secret API_FOOTBALL_KEY"
 }
