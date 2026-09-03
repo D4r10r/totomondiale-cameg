@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-03T10:50:06.004Z",
+  "updated_at": "2026-09-03T14:53:57.537Z",
   "source": "https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026",
   "source_name": "TheSportsDB",
   "source_status": "ok",
@@ -988,7 +988,7 @@
       "status": "finished",
       "finished": true,
       "score_type": "regular_time",
-      "kickoff_ts": 1799236800000,
+      "kickoff_ts": 1781326800000,
       "order": 4
     },
     {
