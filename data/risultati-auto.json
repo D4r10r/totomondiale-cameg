@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T05:34:34.114Z",
+  "updated_at": "2026-10-16T10:56:28.497Z",
   "source": "https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id=4429&s=2026",
   "source_name": "TheSportsDB",
   "source_status": "fallback_cache",
@@ -1350,5 +1350,5 @@
       "minute": "FT"
     }
   ],
-  "error": "Nessuna sorgente disponibile. worldcup26.ir: HTTP 404 | TheSportsDB: HTTP 522 | GitHub raw worldcup2026 dataset: HTTP 404 | football-data.org: Sorgente saltata: manca secret FOOTBALL_DATA_TOKEN | API-Football: Sorgente saltata: manca secret API_FOOTBALL_KEY"
+  "error": "Nessuna sorgente disponibile. worldcup26.ir: HTTP 404 | TheSportsDB: The operation was aborted due to timeout | GitHub raw worldcup2026 dataset: HTTP 404 | football-data.org: Sorgente saltata: manca secret FOOTBALL_DATA_TOKEN | API-Football: Sorgente saltata: manca secret API_FOOTBALL_KEY"
 }
